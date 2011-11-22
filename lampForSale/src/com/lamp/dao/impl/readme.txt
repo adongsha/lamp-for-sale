@@ -1,0 +1,1 @@
+这里存放dao的实现类,这里必须实现dao接口，并继承HibernateDao,命名为:XXXDaoImpl

@@ -1,0 +1,1 @@
+ 这里存放逻辑代码，命名为XXXService 这里调用DaoImpl的代码时要使用面向接口的编程！！！！即用XXXDao声明，用XXXDaoImpl注入
