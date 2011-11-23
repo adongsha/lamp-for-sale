@@ -1,7 +1,6 @@
 /**
  *页数的显示
  *不包括提交
- *创建时间：2011-06-10
  *<script src="<%=request.getContextPath() %>/js/pageInfo.js" type="text/javascript"></script>
  *使用：只需要在页面加载的时候即onload="initPage(${pageInfo.totalPage},${pageInfo.pageIndex},${pageInfo.pageSize},${pageInfo.totalRec})",
  *								传过来四个参数，一个是总页数，一个当前页数,一个是当前每页记录条数，一个是总条数
