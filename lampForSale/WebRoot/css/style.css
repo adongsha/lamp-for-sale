@@ -1,0 +1,270 @@
+/* CSS Document */
+/*------------------------------------------------------main----------------------------------------------------------------*/
+body
+{
+background-color:#c0c0c0;
+font-family:"宋体";
+font-size:12px;
+color:#000;
+padding:0px;
+margin:0px auto auto auto;
+margin:0px;
+}
+a{
+text-decoration:none;
+color:#FFFFFF;
+}
+a:hover{
+color:#00f;
+}
+.clear{
+clear:both;
+}
+
+/* -----------------导航栏----------------------*/
+#wrap{                    /*调导航的居中位置*/
+width:900px;
+height:auto;
+margin:auto;
+background-color:#FFFFFF;
+}
+#bg{
+width:900px;
+height:198px;
+padding:0px 0 0 0;
+background:url(../images/daohang1.jpg) no-repeat center;
+}
+#head{
+width:767px;
+height:41px;
+padding:153px 0 0 80px;	/*导航栏的左右宽度*/
+}
+#head ul{
+display:block;
+list-style:none;
+padding:9px 0 0 15px;
+margin:0px;
+}
+#head ul li{
+display:inline;       /*使li横着排列*/
+padding:0px;
+margin:0px;
+height:27px;
+}
+#head ul li a{
+height:27px;
+padding:0px 10px 0 10px;
+margin:0 20px 0 20px;
+_margin:0 2px 0 2px;
+float:left;			/*左排列*/
+text-decoration:none;
+text-align:center;
+color:#fff;
+font-size:15px;
+line-height:27px;
+}
+#head ul li.selected a{
+height:27px;
+display:block;    /*以块状的形式显示*/
+padding:0px 10px 0 10px;
+margin:0 5px 0 5px;
+float:left;
+text-decoration:none;
+text-align:center;
+color:#fff;
+font-size:15px;
+line-height:27px;
+background:url(../images/button4.jpg) repeat-x center;
+}
+#head a:hover{
+background:url(../images/button4.jpg) repeat-x center;
+}
+
+/* -----------------内容----------------------*/
+#ccenter{                    /*居中位置*/
+width:900px;
+height:auto;
+margin:0px auto auto auto;
+padding:0px;
+background-color:#ffffff;
+}
+/**************************顶层*********************************/
+#top{
+margin:0px;
+padding:0;
+width:900px;
+height:420px;
+clear:both;
+}
+#include{
+width:860px;
+padding:0 0px 0 70px;
+}
+#left{
+width:480px;
+height:420px;
+float:left;
+margin-left:40px;
+}
+#right{
+width:330px;
+height:420px;
+float:left;
+}
+.right_title{
+width:330px;
+height:20px;
+margin-bottom:15px;
+}
+.left_title{
+width:330px;
+height:20px;
+margin:30px 0 10px 0;
+padding-top:15px;
+}
+.title{
+color:#a81f22;
+float:left;
+font-size:19px;
+}
+.cart_title{
+color:#a81f22;
+float:left;
+font-size:19px;
+margin-top:10px;
+}
+span.title_icon{
+float:left;
+padding:0 5px 0 0;
+}
+.right_flash{
+width:330px;
+height:300px;
+}
+.content{
+width:480px;
+height:350px;
+}
+.1{
+width:470px;
+height:150px;
+border-bottom:1px #000;
+clear:both;
+}
+.line{
+padding:5px 0 5px 0;
+margin:15px 0 15px 0;
+width:470px;
+height:3px;
+border-bottom:dashed 1px;
+clear:both;
+}
+.line1{
+padding:5px 0 0px 0;
+margin:15px 0 0px 0;
+width:470px;
+height:3px;
+border-bottom:dashed 1px;
+clear:both;
+}
+.cart{
+width:337px;
+float:left;
+height:40px;
+margin:10px 0 10px 0;
+background:url(../images/border.gif) no-repeat bottom center;
+padding:0 0 20px 0;
+}
+.home_cart_content{
+float:left;
+padding:3px;
+border:1px #eeedee solid;
+margin:10px 0 0 15px;
+}
+a.view_cart{
+display:block;
+float:left;
+margin:12px 0 0 10px;
+color:#990000;
+}
+span.red{
+color:#990000;
+}
+/*^^^^^^^^^^^content^^^^^^^^^^^^^^^^*/
+.prod_img{
+float:left;
+padding:0 5px 0 0;
+text-align:center;
+}
+.prod_det_box{
+width:295px;
+float:left;
+padding:0 0 0 15px;
+}
+.box_top{
+width:295px;
+height:9px;
+background:url(../images/box_top.gif) no-repeat center bottom;
+}
+.box_center{
+width:295px;
+height:auto;
+background:url(../images/box_center.gif) repeat-y center;
+}
+.prod_title{
+color:#a81f22;
+padding:5px 0 0 15px;
+font-size:13px;
+}
+p.details{
+padding:5px 15px 5px 15px;
+font-size:11px;
+line-height:15px;
+}
+.clear{
+clear:both;
+}
+.box_bottom{
+width:295px;
+height:9px;
+background:url(../images/box_bottom.gif) no-repeat center top;
+}
+a.more{
+font-style:italic;
+color:#a81f22;
+float:right;
+text-decoration:none;
+font-size:11px;
+padding:0px 15px 0 0 ;
+}
+a:hover{
+text-decoration:underline;
+color:#0000ff;
+}
+/**************************中间层*****************************************/
+#center{
+margin:30px 0 0 0;
+padding:0;
+width:900px;
+height:160px;
+border-bottom:solid #000 1px;
+}
+#center_c{
+padding-left:6px;
+}
+/***************************版权层*******************************************/
+#bottom{
+width:900px;
+height:45px;
+}
+#bottom span{
+margin-left:30px;
+color:#000;
+}
+.bottom,.copyright{
+margin:0;
+padding:5px 0 5px 0;
+text-align:center;
+}
+
+/*--------------------------------------------------------show-------------------------------------------------------------------------*/
