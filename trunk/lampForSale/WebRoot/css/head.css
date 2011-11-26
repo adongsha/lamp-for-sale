@@ -1,0 +1,81 @@
+/* CSS Document */
+body
+{
+background-color:#c0c0c0;
+font-family:"宋体";
+font-size:12px;
+color:#000;
+padding:0px;
+margin:0px auto auto auto;
+margin:0px;
+}
+a{
+text-decoration:none;
+color:#FFFFFF;
+}
+a:hover{
+color:#00f;
+}
+.clear{
+clear:both;
+}
+
+/* -----------------导航栏----------------------*/
+#wrap{                    /*调导航的居中位置*/
+width:900px;
+height:auto;
+margin:auto;
+background-color:#FFFFFF;
+}
+#bg{
+width:900px;
+height:198px;
+padding:0px 0 0 0;
+background:url(../images/daohang.jpg) no-repeat center;
+}
+#head{
+width:767px;
+height:41px;
+padding:153px 0 0 80px;	/*导航栏的左右宽度*/
+}
+#head ul{
+display:block;
+list-style:none;
+padding:9px 0 0 15px;
+margin:0px;
+}
+#head ul li{
+display:inline;       /*使li横着排列*/
+padding:0px;
+margin:0px;
+height:27px;
+}
+#head ul li a{
+height:27px;
+padding:0px 10px 0 10px;
+margin:0 20px 0 20px;
+_margin:0 2px 0 2px;
+float:left;			/*左排列*/
+text-decoration:none;
+text-align:center;
+color:#fff;
+font-size:15px;
+line-height:27px;
+}
+#head ul li.selected a{
+height:27px;
+display:block;    /*以块状的形式显示*/
+padding:0px 10px 0 10px;
+margin:0 5px 0 5px;
+float:left;
+text-decoration:none;
+text-align:center;
+color:#fff;
+font-size:15px;
+line-height:27px;
+background:url(../images/button4.jpg) repeat-x center;
+}
+#head a:hover{
+background:url(../images/button4.jpg) repeat-x center;
+}
+
