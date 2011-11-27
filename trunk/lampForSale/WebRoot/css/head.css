@@ -79,3 +79,20 @@ background:url(../images/button.jpg) repeat-x center;
 background:url(../images/button.jpg) repeat-x center;
 }
 
+
+/***************************∞Ê»®≤„*******************************************/
+#bottom{
+width:900px;
+height:45px;
+border-top:dashed #000 1px;
+}
+#bottom span{
+margin-left:30px;
+color:#000;
+}
+.bottom,.copyright{
+margin:0;
+padding:5px 0 5px 0;
+text-align:center;
+}
+
