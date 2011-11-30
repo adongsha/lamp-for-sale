@@ -15,7 +15,7 @@ public class LampShop implements java.io.Serializable {
 
 	// Fields
 
-	private Integer lampShopId;
+	private Integer shopId;
 	private String shopAddr;
 	private String shopName;
 	private String shopDescription;
@@ -36,13 +36,13 @@ public class LampShop implements java.io.Serializable {
 	// Property accessors
 	@Id
 	@GeneratedValue
-	@Column(name = "lampShopId", unique = true, nullable = false)
-	public Integer getLampShopId() {
-		return this.lampShopId;
+	@Column(name = "shopId", unique = true, nullable = false)
+	public Integer getShopId() {
+		return this.shopId;
 	}
 
-	public void setLampShopId(Integer lampShopId) {
-		this.lampShopId = lampShopId;
+	public void setShopId(Integer shopId) {
+		this.shopId = shopId;
 	}
 
 	@Column(name = "shopAddr", length = 50)
@@ -63,7 +63,7 @@ public class LampShop implements java.io.Serializable {
 		this.shopName = shopName;
 	}
 
-	@Column(name = "shopDescription", length = 50)
+	@Column(name = "shopDescription", length = 550)
 	public String getShopDescription() {
 		return this.shopDescription;
 	}

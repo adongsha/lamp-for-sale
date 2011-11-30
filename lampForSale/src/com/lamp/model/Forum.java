@@ -21,7 +21,7 @@ public class Forum implements java.io.Serializable {
 
 	private Integer forumId;
 	private Lamp lamp;
-	private Integer userId;
+	private UserInfo userInfo;
 	private Timestamp publishedTime;
 	private String replyContent;
 
@@ -31,16 +31,11 @@ public class Forum implements java.io.Serializable {
 	public Forum() {
 	}
 
-	/** minimal constructor */
-	public Forum(Integer userId) {
-		this.userId = userId;
-	}
-
 	/** full constructor */
-	public Forum(Lamp lamp, Integer userId, Timestamp publishedTime,
+	public Forum(Lamp lamp, UserInfo userInfo, Timestamp publishedTime,
 			String replyContent) {
 		this.lamp = lamp;
-		this.userId = userId;
+		this.userInfo = userInfo;
 		this.publishedTime = publishedTime;
 		this.replyContent = replyContent;
 	}
@@ -67,13 +62,14 @@ public class Forum implements java.io.Serializable {
 		this.lamp = lamp;
 	}
 
-	@Column(name = "userId", nullable = false)
-	public Integer getUserId() {
-		return this.userId;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "userId")
+	public UserInfo getUserInfo() {
+		return this.userInfo;
 	}
 
-	public void setUserId(Integer userId) {
-		this.userId = userId;
+	public void setUserInfo(UserInfo userInfo) {
+		this.userInfo = userInfo;
 	}
 
 	@Column(name = "publishedTime", length = 23)
@@ -85,7 +81,7 @@ public class Forum implements java.io.Serializable {
 		this.publishedTime = publishedTime;
 	}
 
-	@Column(name = "replyContent", length = 560)
+	@Column(name = "replyContent", length = 950)
 	public String getReplyContent() {
 		return this.replyContent;
 	}

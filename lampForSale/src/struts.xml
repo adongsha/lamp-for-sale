@@ -2,8 +2,19 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
 	<constant name="struts.action.excludePattern" value="/dwr/.*,/dwr/test/.*"></constant>
-	<constant name="struts.devMode" value="true" />
-
-
-
+	<constant name="struts.devMode" value="false" />
+	<!-- 设置文件上传的大小...可以大于2M以上 ！ 如果value="2097152为小于2M"-->
+    <constant name="struts.multipart.maxSize" value="20721520"/>
+    <!-- 前台 -->
+    <package name="lampForUser" extends="struts-default" namespace="/">
+      
+    </package>
+    
+    
+    <!-- 后台 -->
+    <package name="lampForAdmin" extends="struts-default" namespace="/">
+      <action name="addLampAction" class="AddLampAction" >
+       <result>/web/ad_addLamp.jsp</result>
+      </action>
+    </package>
 </struts>    

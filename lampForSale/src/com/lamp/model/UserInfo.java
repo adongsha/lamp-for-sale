@@ -24,8 +24,13 @@ public class UserInfo implements java.io.Serializable {
 	private String userName;
 	private String password;
 	private String userPicture;
-	private Integer power;
+	private String email;
+	private String phone;
+	private String company;
+	private String address;
+	private String power;
 	private Set<OrderInfo> orderInfos = new HashSet<OrderInfo>(0);
+	private Set<Forum> forums = new HashSet<Forum>(0);
 
 	// Constructors
 
@@ -34,20 +39,24 @@ public class UserInfo implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public UserInfo(String userName, String password, Integer power) {
+	public UserInfo(String userName) {
 		this.userName = userName;
-		this.password = password;
-		this.power = power;
 	}
 
 	/** full constructor */
 	public UserInfo(String userName, String password, String userPicture,
-			Integer power, Set<OrderInfo> orderInfos) {
+			String email, String phone, String company, String address,
+			String power, Set<OrderInfo> orderInfos, Set<Forum> forums) {
 		this.userName = userName;
 		this.password = password;
 		this.userPicture = userPicture;
+		this.email = email;
+		this.phone = phone;
+		this.company = company;
+		this.address = address;
 		this.power = power;
 		this.orderInfos = orderInfos;
+		this.forums = forums;
 	}
 
 	// Property accessors
@@ -71,7 +80,7 @@ public class UserInfo implements java.io.Serializable {
 		this.userName = userName;
 	}
 
-	@Column(name = "password", nullable = false, length = 50)
+	@Column(name = "password", length = 50)
 	public String getPassword() {
 		return this.password;
 	}
@@ -89,12 +98,48 @@ public class UserInfo implements java.io.Serializable {
 		this.userPicture = userPicture;
 	}
 
-	@Column(name = "power", nullable = false)
-	public Integer getPower() {
+	@Column(name = "email", length = 50)
+	public String getEmail() {
+		return this.email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	@Column(name = "phone", length = 50)
+	public String getPhone() {
+		return this.phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	@Column(name = "company", length = 50)
+	public String getCompany() {
+		return this.company;
+	}
+
+	public void setCompany(String company) {
+		this.company = company;
+	}
+
+	@Column(name = "address", length = 50)
+	public String getAddress() {
+		return this.address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	@Column(name = "power", length = 50)
+	public String getPower() {
 		return this.power;
 	}
 
-	public void setPower(Integer power) {
+	public void setPower(String power) {
 		this.power = power;
 	}
 
@@ -105,6 +150,15 @@ public class UserInfo implements java.io.Serializable {
 
 	public void setOrderInfos(Set<OrderInfo> orderInfos) {
 		this.orderInfos = orderInfos;
+	}
+
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "userInfo")
+	public Set<Forum> getForums() {
+		return this.forums;
+	}
+
+	public void setForums(Set<Forum> forums) {
+		this.forums = forums;
 	}
 
 }
