@@ -21,21 +21,23 @@ public class Lamp implements java.io.Serializable {
 	// Fields
 
 	private Integer lampId;
-	private Integer id;
+	private String isdn;
 	private String lampName;
 	private String type;
 	private String lampDescription;
 	private Double price;
-	private String color;
-	private Double freight;
-	private Integer evaluationCount;
-	private Integer saleNum;
-	private Double discount;
+	private String origin;
+	private String isDiscount;
 	private String size;
 	private String material;
 	private String process;
-	private Double weight;
-	private String picture;
+	private String weight;
+	private String prictureImage1;
+	private String prictureImage2;
+	private String prictureImage3;
+	private String prictureImage4;
+	private String evaluationCount;
+	private Integer saleEvMouth;
 	private Set<Forum> forums = new HashSet<Forum>(0);
 
 	// Constructors
@@ -45,31 +47,35 @@ public class Lamp implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public Lamp(Integer id) {
-		this.id = id;
+	public Lamp(String isdn, String lampName) {
+		this.isdn = isdn;
+		this.lampName = lampName;
 	}
 
 	/** full constructor */
-	public Lamp(Integer id, String lampName, String type,
-			String lampDescription, Double price, String color, Double freight,
-			Integer evaluationCount, Integer saleNum, Double discount,
-			String size, String material, String process, Double weight,
-			String picture, Set<Forum> forums) {
-		this.id = id;
+	public Lamp(String isdn, String lampName, String type,
+			String lampDescription, Double price, String origin,
+			String isDiscount, String size, String material, String process,
+			String weight, String prictureImage1, String prictureImage2,
+			String prictureImage3, String prictureImage4,
+			String evaluationCount, Integer saleEvMouth, Set<Forum> forums) {
+		this.isdn = isdn;
 		this.lampName = lampName;
 		this.type = type;
 		this.lampDescription = lampDescription;
 		this.price = price;
-		this.color = color;
-		this.freight = freight;
-		this.evaluationCount = evaluationCount;
-		this.saleNum = saleNum;
-		this.discount = discount;
+		this.origin = origin;
+		this.isDiscount = isDiscount;
 		this.size = size;
 		this.material = material;
 		this.process = process;
 		this.weight = weight;
-		this.picture = picture;
+		this.prictureImage1 = prictureImage1;
+		this.prictureImage2 = prictureImage2;
+		this.prictureImage3 = prictureImage3;
+		this.prictureImage4 = prictureImage4;
+		this.evaluationCount = evaluationCount;
+		this.saleEvMouth = saleEvMouth;
 		this.forums = forums;
 	}
 
@@ -85,16 +91,16 @@ public class Lamp implements java.io.Serializable {
 		this.lampId = lampId;
 	}
 
-	@Column(name = "id", nullable = false)
-	public Integer getId() {
-		return this.id;
+	@Column(name = "isdn", nullable = false, length = 50)
+	public String getIsdn() {
+		return this.isdn;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setIsdn(String isdn) {
+		this.isdn = isdn;
 	}
 
-	@Column(name = "lampName", length = 50)
+	@Column(name = "lampName", nullable = false, length = 50)
 	public String getLampName() {
 		return this.lampName;
 	}
@@ -130,49 +136,22 @@ public class Lamp implements java.io.Serializable {
 		this.price = price;
 	}
 
-	@Column(name = "color", length = 50)
-	public String getColor() {
-		return this.color;
+	@Column(name = "origin", length = 50)
+	public String getOrigin() {
+		return this.origin;
 	}
 
-	public void setColor(String color) {
-		this.color = color;
+	public void setOrigin(String origin) {
+		this.origin = origin;
 	}
 
-	@Column(name = "freight", precision = 15, scale = 0)
-	public Double getFreight() {
-		return this.freight;
+	@Column(name = "isDiscount", length = 50)
+	public String getIsDiscount() {
+		return this.isDiscount;
 	}
 
-	public void setFreight(Double freight) {
-		this.freight = freight;
-	}
-
-	@Column(name = "evaluationCount")
-	public Integer getEvaluationCount() {
-		return this.evaluationCount;
-	}
-
-	public void setEvaluationCount(Integer evaluationCount) {
-		this.evaluationCount = evaluationCount;
-	}
-
-	@Column(name = "saleNum")
-	public Integer getSaleNum() {
-		return this.saleNum;
-	}
-
-	public void setSaleNum(Integer saleNum) {
-		this.saleNum = saleNum;
-	}
-
-	@Column(name = "discount", precision = 15, scale = 0)
-	public Double getDiscount() {
-		return this.discount;
-	}
-
-	public void setDiscount(Double discount) {
-		this.discount = discount;
+	public void setIsDiscount(String isDiscount) {
+		this.isDiscount = isDiscount;
 	}
 
 	@Column(name = "size", length = 50)
@@ -202,22 +181,67 @@ public class Lamp implements java.io.Serializable {
 		this.process = process;
 	}
 
-	@Column(name = "weight", precision = 15, scale = 0)
-	public Double getWeight() {
+	@Column(name = "weight", length = 50)
+	public String getWeight() {
 		return this.weight;
 	}
 
-	public void setWeight(Double weight) {
+	public void setWeight(String weight) {
 		this.weight = weight;
 	}
 
-	@Column(name = "picture", length = 50)
-	public String getPicture() {
-		return this.picture;
+	@Column(name = "prictureImage1", length = 50)
+	public String getPrictureImage1() {
+		return this.prictureImage1;
 	}
 
-	public void setPicture(String picture) {
-		this.picture = picture;
+	public void setPrictureImage1(String prictureImage1) {
+		this.prictureImage1 = prictureImage1;
+	}
+
+	@Column(name = "prictureImage2", length = 50)
+	public String getPrictureImage2() {
+		return this.prictureImage2;
+	}
+
+	public void setPrictureImage2(String prictureImage2) {
+		this.prictureImage2 = prictureImage2;
+	}
+
+	@Column(name = "prictureImage3", length = 50)
+	public String getPrictureImage3() {
+		return this.prictureImage3;
+	}
+
+	public void setPrictureImage3(String prictureImage3) {
+		this.prictureImage3 = prictureImage3;
+	}
+
+	@Column(name = "prictureImage4", length = 50)
+	public String getPrictureImage4() {
+		return this.prictureImage4;
+	}
+
+	public void setPrictureImage4(String prictureImage4) {
+		this.prictureImage4 = prictureImage4;
+	}
+
+	@Column(name = "evaluationCount", length = 50)
+	public String getEvaluationCount() {
+		return this.evaluationCount;
+	}
+
+	public void setEvaluationCount(String evaluationCount) {
+		this.evaluationCount = evaluationCount;
+	}
+
+	@Column(name = "saleEvMouth")
+	public Integer getSaleEvMouth() {
+		return this.saleEvMouth;
+	}
+
+	public void setSaleEvMouth(Integer saleEvMouth) {
+		this.saleEvMouth = saleEvMouth;
 	}
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "lamp")
