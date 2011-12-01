@@ -2,9 +2,11 @@ package com.lamp.dao.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import com.lamp.dao.LampDao;
 import com.lamp.model.Lamp;
-
+@Component("lampDao")
 public class LampDaoImpl extends HibernateDaoImpl implements LampDao {
 
 	public void addLamp(Lamp lamp) {
