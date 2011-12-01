@@ -1,24 +1,22 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%@ taglib prefix="s" uri="/struts-tags"%>
 <%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://"
-			+ request.getServerName() + ":" + request.getServerPort()
-			+ path + "/";
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>Admin Lamp</title>
-<meta name="description" content="Admin Lamp" />
-<meta name="keywords" content="Lamp" />
+<title>Admin Template by www.865171.cn</title>
+<meta name="description" content="Administry - Admin Template by www.865171.cn" />
+<meta name="keywords" content="Admin,Template" />
 <!-- Favicons --> 
 <link rel="shortcut icon" type="image/png" HREF="images/favicons/favicon.png"/>
 <link rel="icon" type="image/png" HREF="images/favicons/favicon.png"/>
 <link rel="apple-touch-icon" HREF="images/favicons/apple.png" />
 <!-- Main Stylesheet --> 
-<link rel="stylesheet" href="../css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
 <!-- Colour Schemes
 Default colour scheme is blue. Uncomment prefered stylesheet to use it.
 <link rel="stylesheet" href="css/brown.css" type="text/css" media="screen" />  
@@ -46,10 +44,6 @@ Default colour scheme is blue. Uncomment prefered stylesheet to use it.
 <script type="text/javascript" SRC="javascript/jquery.nyroModal.pack.js"></script>
 <!-- jQuery form validation -->
 <script type="text/javascript" SRC="javascript/jquery.validate_pack.js"></script>
-<!-- dwr -->
-<script type='text/javascript' src='dwr/interface/addLampAction.js'></script>
-<script type='text/javascript' src='dwr/engine.js'></script>
-<script type='text/javascript' src='dwr/util.js'>  </script>
 <!-- Internet Explorer Fixes --> 
 <!--[if IE]>
 <link rel="stylesheet" type="text/css" media="all" href="css/ie.css"/>
@@ -60,13 +54,18 @@ Default colour scheme is blue. Uncomment prefered stylesheet to use it.
 <script src="js/IE8.js"></script>
 <![endif]-->
 <script type="text/javascript">
- /* ----------------表单验证----------------------  */
 $(document).ready(function(){
+	
+	/* setup navigation, content boxes, etc... */
 	Administry.setup();
+	
+	/* progress bar animations - setting initial values */
 	Administry.progress("#progress1", 1, 6);
+	
+	// validate form on keyup and submit
 	var validator = $("#addLampForm").validate({
 		rules: {
-			isbn:   "required",
+			lampId:   "required",
 			lampName: "required",
 			price:    "required",
 			origin:   "required",
@@ -74,9 +73,10 @@ $(document).ready(function(){
 			process:  "required",
 			weight:   "required",
 			images: "required",
+			
 		},
 		messages: {
-			isbn: "请输入灯饰型号",
+			lampId: "请输入灯饰型号",
 			lampName: "请输入灯饰名称",
 			price:    "请输入灯饰的价钱",
 			origin:   "请输入产地",
@@ -84,37 +84,24 @@ $(document).ready(function(){
 			process:  "请输入工艺",
 			weight:   "请输入重量",
 			images: "请至少上传一张图片"
+			
 		},
+		// the errorPlacement has to take the layout into account
 		errorPlacement: function(error, element) {
 			error.insertAfter(element.parent().find('label:first'));
 		},
+		// specifying a submitHandler prevents the default submit, good for the demo
 		submitHandler: function() {
 			alert("Data submitted!");
 		},
+		// set new class to error-labels to indicate valid fields
 		success: function(label) {
+			// set &nbsp; as text for IE
 			label.html("&nbsp;").addClass("ok");
 		}
 		})
+
 });
-/*-----------------------表单验证结束 ------------------------------------------*/
-
-
-
-/*-------------------------------DWR--------------------------------------------*/
-function addLampDWR(){
-       var isbn = $("#isbn").val(); //获得lamp的型号 
-       var lampName = $("#lampName").val(); //获得lamp名 
-       var price = $("#price").val();   //获得灯的价钱
-       var origin = $("#origin").val(); //获得产地
-       var weight = $("#weight").val(); //获得lamp的重量
-       var process = $("#process").val(); //获得工艺
-       var material = $("#material").val();//获得材料 
-       var lampDescription = $("#lampDescription").val(); //获得描述 
-       addLampAction.addLamp(isbn, lampName, price,
-			origin, material, process, weight, lampDescription);
-}
-/*-------------------------------DWR结束 --------------------------------------------*/
-
 </script>
 </head>
 <body>
@@ -164,7 +151,7 @@ function addLampDWR(){
 		<div class="wrapper">
 			<h1>LampForSale</h1>
 			<!-- Quick search box -->
-			<form action="addLampAction!addLamp" method="get"><input class="" type="text" id="q" name="q" /></form>
+			<form action="" method="get"><input class="" type="text" id="q" name="q" /></form>
 		</div>
 	</div>
 	<!-- End of Page title -->
@@ -179,7 +166,7 @@ function addLampDWR(){
 					<h3>添加灯饰</h3>
 					<div class="box box-info">按要求录入产品信息</div>
 					
-					<form id="addLampForm" method="post" action="addLampAction" enctype="multipart/form-data">
+					<form id="addLampForm" method="post" action="#" enctype="multipart/form-data">
 
 						<fieldset>
 							<legend>Lamp Form Validation</legend>
@@ -188,8 +175,8 @@ function addLampDWR(){
                             <tr>
                             <td width="50%" height="60">
                             <p>    
-								<label class="required" for="isbn">灯饰型号:</label><br/>
-								<input type="text" id="isbn" class="half" value="" name="isbn"/>
+								<label class="required" for="lampId">灯饰型号:</label><br/>
+								<input type="text" id="lampId" class="half" value="" name="lampId"/>
                                 <small>e.g. xs-0000</small>
 							</p>
                             </td>
@@ -295,7 +282,7 @@ function addLampDWR(){
 								
 							</p>
 							
-							<p class="box"><input type="submit" class="btn btn-green big" value="添加" /> or <input type="reset" class="btn" value="重置"/></p>
+							<p class="box"><input type="submit" class="btn btn-green big" value="Add"/> or <input type="reset" class="btn" value="Reset"/></p>
 
 						</fieldset>
 

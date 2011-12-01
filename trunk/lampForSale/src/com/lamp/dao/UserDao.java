@@ -1,6 +1,7 @@
 package com.lamp.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import com.lamp.model.UserInfo;
 
@@ -35,4 +36,10 @@ public interface UserDao {
      * @return
      */
     public List<UserInfo> getUserList();
+    
+    /**
+     * 统计用户权限人数
+     * @return
+     */
+    public Map<String, Integer> countPower();
 }

@@ -21,7 +21,7 @@ public class Lamp implements java.io.Serializable {
 	// Fields
 
 	private Integer lampId;
-	private String isdn;
+	private String isbn;
 	private String lampName;
 	private String type;
 	private String lampDescription;
@@ -47,19 +47,19 @@ public class Lamp implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public Lamp(String isdn, String lampName) {
-		this.isdn = isdn;
+	public Lamp(String isbn, String lampName) {
+		this.isbn = isbn;
 		this.lampName = lampName;
 	}
 
 	/** full constructor */
-	public Lamp(String isdn, String lampName, String type,
+	public Lamp(String isbn, String lampName, String type,
 			String lampDescription, Double price, String origin,
 			String isDiscount, String size, String material, String process,
 			String weight, String prictureImage1, String prictureImage2,
 			String prictureImage3, String prictureImage4,
 			String evaluationCount, Integer saleEvMouth, Set<Forum> forums) {
-		this.isdn = isdn;
+		this.isbn = isbn;
 		this.lampName = lampName;
 		this.type = type;
 		this.lampDescription = lampDescription;
@@ -91,13 +91,13 @@ public class Lamp implements java.io.Serializable {
 		this.lampId = lampId;
 	}
 
-	@Column(name = "isdn", nullable = false, length = 50)
-	public String getIsdn() {
-		return this.isdn;
+	@Column(name = "isbn", nullable = false, length = 50)
+	public String getIsbn() {
+		return this.isbn;
 	}
 
-	public void setIsdn(String isdn) {
-		this.isdn = isdn;
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
 	}
 
 	@Column(name = "lampName", nullable = false, length = 50)

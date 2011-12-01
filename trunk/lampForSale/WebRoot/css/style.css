@@ -31,7 +31,7 @@ Author: Richard Clark - http://richclarkdesign.com
 html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 abbr, address, cite, code,
-del, dfn, em, img, ins, kbd, q, samp,
+del, dfn, em, images, ins, kbd, q, samp,
 small, strong, sub, sup, var,
 b, i,
 dl, dt, dd, ol, ul, li,
@@ -241,7 +241,7 @@ blockquote,q {
 	display:block;
 	font-style:normal;
 	quotes:"" "";
-	background:url("../img/quote.png") no-repeat scroll 0 8px transparent;
+	background:url("../images/quote.png") no-repeat scroll 0 8px transparent;
 	display:block;
 	font-size:14px;
 	min-height:42px;
@@ -443,7 +443,7 @@ label.required:before {
 	font-family:"Lucida Grande",Verdana,Arial,Helvetica,sans-serif;
 }
 label.ok {
-	background:url("../img/valid.gif") no-repeat;
+	background:url("../images/valid.gif") no-repeat;
 	padding-left:16px;
 }
 label.error {
@@ -668,19 +668,19 @@ fieldset small {
 	padding-left: 32px;
 	border-top:1px solid #B8E2FB;
 	border-bottom:1px solid #B8E2FB;
-	background:#E8F6FF url("../img/information.png") no-repeat 8px 50%;
+	background:#E8F6FF url("../images/information.png") no-repeat 8px 50%;
 }
 .box-warning{
 	padding-left: 32px;
 	border-top:1px solid #F2DD8C;
 	border-bottom:1px solid #F2DD8C;
-	background:#FFF5CC url("../img/error.png") no-repeat 8px 50%;
+	background:#FFF5CC url("../images/error.png") no-repeat 8px 50%;
 }
 .box-error{
 	padding-left: 32px;
 	border-top:1px solid #F8ACAC;
 	border-bottom:1px solid #F8ACAC;
-	background:#FFD1D1 url("../img/exclamation.png") no-repeat 8px 50%;
+	background:#FFD1D1 url("../images/exclamation.png") no-repeat 8px 50%;
 }
 .box-error-msg{
 	margin-top:-8px;
@@ -698,7 +698,7 @@ fieldset small {
 	padding-left: 32px;
 	border-top:1px solid #BBDF8D;
 	border-bottom:1px solid #BBDF8D;
-	background:#EAF7D9 url("../img/accept.png") no-repeat 8px 50%;
+	background:#EAF7D9 url("../images/accept.png") no-repeat 8px 50%;
 }
 
 .box a:hover {
@@ -783,7 +783,7 @@ header#top aside a{
 	font-size:11px;
 	text-align:right;
 }
-#topnav img.avatar {
+#topnav images.avatar {
 	background:#fff;
 	float:right;
 	margin:5px 0 0 8px;
@@ -905,7 +905,7 @@ ul.sf-menu li li li:hover ul,ul.sf-menu li li li.sfHover ul {
 	height:10px;
 	text-indent:-999em;
 	overflow:hidden;
-	background:url('../img/arrows-ffffff.png') no-repeat -10px -100px; /* 8-bit indexed alpha png. IE6 gets solid image only */
+	background:url('../images/arrows-ffffff.png') no-repeat -10px -100px; /* 8-bit indexed alpha png. IE6 gets solid image only */
 }
 a>.sf-sub-indicator { /* give all except IE6 the correct values */
 	top:.8em;
@@ -929,7 +929,7 @@ a:focus>.sf-sub-indicator,a:hover>.sf-sub-indicator,a:active>.sf-sub-indicator,l
 }
 /*** shadows for all but IE6 ***/
 .sf-shadow ul {
-	background:url('../img/shadow.png') no-repeat bottom right;
+	background:url('../images/shadow.png') no-repeat bottom right;
 	padding:0 8px 9px 0;
 	-moz-border-radius-bottomleft:17px;
 	-moz-border-radius-topright:17px;
@@ -995,7 +995,7 @@ a:focus>.sf-sub-indicator,a:hover>.sf-sub-indicator,a:active>.sf-sub-indicator,l
 	padding:4px 24px 4px 4px;
 	vertical-align:middle;
 	width:202px;
-	background:#fff url("../img/search.gif") no-repeat 99% 56%;
+	background:#fff url("../images/search.gif") no-repeat 99% 56%;
 	-moz-box-shadow:0 0;
 	-webkit-box-shadow:0 0;
 	box-shadow:0 0;
@@ -1126,7 +1126,7 @@ footer#animated a:hover, footer#animated a:focus, footer#animated a:active {
 	position: relative;
 	cursor: pointer;
 	border:1px solid #ccc !important;
-	background:#fff url("../img/btn-overlay.png") repeat-x !important;
+	background:#fff url("../images/btn-overlay.png") repeat-x !important;
 }
 .btn:hover, .btn:focus, .btn:active {
 	outline:medium none;
@@ -1197,13 +1197,13 @@ footer#animated a:hover, footer#animated a:focus, footer#animated a:active {
 	margin-right: 4px;
 }
 .icon-add {
-	background:url("../img/add.png") no-repeat;
+	background:url("../images/add.png") no-repeat;
 }
 .icon-ok {
-	background:url("../img/accept.png") no-repeat;
+	background:url("../images/accept.png") no-repeat;
 }
 .icon-cancel {
-	background:url("../img/cancel.png") no-repeat;
+	background:url("../images/cancel.png") no-repeat;
 }
 
 .btn-special .icon {
@@ -1347,7 +1347,7 @@ footer#animated a:hover, footer#animated a:focus, footer#animated a:active {
 	font-size: 14px;
 	color: #fff;
 }
-.content-box header h3 img{
+.content-box header h3 images{
 	float:left;
 	margin:1px 4px 0 0;
 }
@@ -1357,7 +1357,7 @@ footer#animated a:hover, footer#animated a:focus, footer#animated a:active {
 .content-box-closed {
 }
 .content-box-closed  header{
-	background: #999 url("../img/toggle.gif") no-repeat scroll 96% 15px;
+	background: #999 url("../images/toggle.gif") no-repeat scroll 96% 15px;
 }
 .content-box-closed  section {
 	display:none
@@ -1442,7 +1442,7 @@ a#totop:hover, a#totop:focus, a#totop:active{
 ---------------------------------------------------------------------*/
 
 span.label {
-	background:url("../img/tag-bg.gif") no-repeat scroll 100% 50% transparent;
+	background:url("../images/tag-bg.gif") no-repeat scroll 100% 50% transparent;
 	font:bold 10px/1.2 "tahoma",sans-serif;
 	padding:4px 16px 5px 5px;
 	text-transform:uppercase;
@@ -1513,7 +1513,7 @@ div.wysiwyg ul.panel li a {
 	display:block;
 	width:16px;
 	height:16px;
-	background:url('../img/jquery.wysiwyg.gif') no-repeat -64px -80px;
+	background:url('../images/jquery.wysiwyg.gif') no-repeat -64px -80px;
 	border:0;
 	cursor:pointer;
 	margin:1px;
@@ -1931,19 +1931,19 @@ div.wysiwyg iframe {
 }
 
 .paginate_disabled_previous {
-	background-image: url('../img/datatable/back_disabled.png');
+	background-image: url('../images/datatable/back_disabled.png');
 }
 
 .paginate_enabled_previous {
-	background-image: url('../img/datatable/back_enabled.png');
+	background-image: url('../images/datatable/back_enabled.png');
 }
 
 .paginate_disabled_next {
-	background-image: url('../img/datatable/forward_disabled.png');
+	background-image: url('../images/datatable/forward_disabled.png');
 }
 
 .paginate_enabled_next {
-	background-image: url('../img/datatable/forward_enabled.png');
+	background-image: url('../images/datatable/forward_enabled.png');
 }
 
 table.display {
@@ -1973,23 +1973,23 @@ table.display td.center {
 }
 
 .sorting_asc {
-	background: url('../img/datatable/sort_asc.png') no-repeat center right;
+	background: url('../images/datatable/sort_asc.png') no-repeat center right;
 }
 
 .sorting_desc {
-	background: url('../img/datatable/sort_desc.png') no-repeat center right;
+	background: url('../images/datatable/sort_desc.png') no-repeat center right;
 }
 
 .sorting {
-	background: url('../img/datatable/sort_both.png') no-repeat center right;
+	background: url('../images/datatable/sort_both.png') no-repeat center right;
 }
 
 .sorting_asc_disabled {
-	background: url('../img/datatable/sort_asc_disabled.png') no-repeat center right;
+	background: url('../images/datatable/sort_asc_disabled.png') no-repeat center right;
 }
 
 .sorting_desc_disabled {
-	background: url('../img/datatable/sort_desc_disabled.png') no-repeat center right;
+	background: url('../images/datatable/sort_desc_disabled.png') no-repeat center right;
 }
 
 table.display tr.odd.gradeA {
@@ -2171,7 +2171,7 @@ table.stylized td.highlighted {
 table.stylized td.title > div {
 	position:relative;
 	display:block;
-	background:url("../img/toggle-small-expand.png") 0 2px no-repeat;
+	background:url("../images/toggle-small-expand.png") 0 2px no-repeat;
 	padding:0 0 0 16px;
 }
 
@@ -2242,7 +2242,7 @@ div#nyroModalFull div#nyroModalLoading {
 	width: 150px;
 	height: 150px;
 	text-indent: -9999em;
-	background: #fff url(../img/nyro/ajaxLoader.gif) no-repeat;
+	background: #fff url(../images/nyro/ajaxLoader.gif) no-repeat;
 	background-position: center;
 }
 div#nyroModalFull div#nyroModalLoading.error {
@@ -2266,7 +2266,7 @@ div#nyroModalFull div#nyroModalWrapper a#closeBut {
 	width: 12px;
 	height: 12px;
 	text-indent: -9999em;
-	background: url(../img/nyro/close.gif) no-repeat;
+	background: url(../images/nyro/close.gif) no-repeat;
 	outline: 0;
 }
 div#nyroModalFull div#nyroModalWrapper h1#nyroModalTitle {
@@ -2284,15 +2284,15 @@ div#nyroModalFull div#nyroModalWrapper div#nyroModalContent {
 div#nyroModalFull div#nyroModalWrapper div.wrapper div#nyroModalContent {
 	padding: 5px;
 }
-div#nyroModalFull div#nyroModalWrapper div.wrapperImg div#nyroModalContent {
+div#nyroModalFull div#nyroModalWrapper div.wrapperimages div#nyroModalContent {
 	position: relative;
 	overflow: hidden;
 	text-align: center;
 }
-div#nyroModalFull div#nyroModalWrapper div.wrapperImg div#nyroModalContent img {
+div#nyroModalFull div#nyroModalWrapper div.wrapperimages div#nyroModalContent images {
 	vertical-align: baseline;
 }
-div#nyroModalFull div#nyroModalWrapper div.wrapperImg div#nyroModalContent div {
+div#nyroModalFull div#nyroModalWrapper div.wrapperimages div#nyroModalContent div {
 	position: absolute;
 	bottom: 0;
 	left: 0;
@@ -2303,7 +2303,7 @@ div#nyroModalFull div#nyroModalWrapper div.wrapperImg div#nyroModalContent div {
 	overflow: hidden;
 	opacity: 0.2;
 }
-div#nyroModalFull div#nyroModalWrapper div.wrapperImg div#nyroModalContent div:hover {
+div#nyroModalFull div#nyroModalWrapper div.wrapperimages div#nyroModalContent div:hover {
 	opacity: 0.5;
 	cursor: help;
 }
@@ -2327,12 +2327,12 @@ div#nyroModalFull div#nyroModalWrapper div#nyroModalContent a.nyroModalPrev {
 	left: 0;
 }
 div#nyroModalFull div#nyroModalWrapper div#nyroModalContent a.nyroModalPrev:hover {
-	background-image: url(../img/nyro/prev.gif);
+	background-image: url(../images/nyro/prev.gif);
 }
 div#nyroModalFull div#nyroModalWrapper div#nyroModalContent a.nyroModalNext {
 	right: 0;
 	background-position: right 20%;
 }
 div#nyroModalFull div#nyroModalWrapper div#nyroModalContent a.nyroModalNext:hover {
-	background-image: url(../img/nyro/next.gif);
+	background-image: url(../images/nyro/next.gif);
 }
