@@ -32,8 +32,9 @@ public class OrderInfo implements java.io.Serializable {
 	private String orderPhone;
 	private String message;
 	private String code;
-	private Timestamp orderTime;
-	private String allPrice;
+	private String orderTime;
+	private Double allPrice;
+	private Integer isBackSingle;    //1表示退单的...null表示没有
 	private Set<SaleTable> saleTables = new HashSet<SaleTable>(0);
 	private Set<OrderStatus> orderStatuses = new HashSet<OrderStatus>(0);
 	private Set<OrderGoods> orderGoodses = new HashSet<OrderGoods>(0);
@@ -52,7 +53,7 @@ public class OrderInfo implements java.io.Serializable {
 	/** full constructor */
 	public OrderInfo(UserInfo userInfo, String orderPerson, String orderEmail,
 			String orderCompany, String orderAddress, String orderPhone,
-			String message, String code, Timestamp orderTime, String allPrice,
+			String message, String code, String orderTime, Double allPrice,Integer isBackSingle,
 			Set<SaleTable> saleTables, Set<OrderStatus> orderStatuses,
 			Set<OrderGoods> orderGoodses) {
 		this.userInfo = userInfo;
@@ -68,6 +69,7 @@ public class OrderInfo implements java.io.Serializable {
 		this.saleTables = saleTables;
 		this.orderStatuses = orderStatuses;
 		this.orderGoodses = orderGoodses;
+		this.isBackSingle = isBackSingle;
 	}
 
 	// Property accessors
@@ -104,6 +106,15 @@ public class OrderInfo implements java.io.Serializable {
 	@Column(name = "orderEmail", length = 50)
 	public String getOrderEmail() {
 		return this.orderEmail;
+	}
+
+	@Column(name = "isBackSingle")
+	public Integer getIsBackSingle() {
+		return isBackSingle;
+	}
+
+	public void setIsBackSingle(Integer isBackSingle) {
+		this.isBackSingle = isBackSingle;
 	}
 
 	public void setOrderEmail(String orderEmail) {
@@ -156,20 +167,20 @@ public class OrderInfo implements java.io.Serializable {
 	}
 
 	@Column(name = "orderTime", length = 23)
-	public Timestamp getOrderTime() {
+	public String getOrderTime() {
 		return this.orderTime;
 	}
 
-	public void setOrderTime(Timestamp orderTime) {
+	public void setOrderTime(String orderTime) {
 		this.orderTime = orderTime;
 	}
 
-	@Column(name = "allPrice", length = 50)
-	public String getAllPrice() {
+	@Column(name = "allPrice")
+	public Double getAllPrice() {
 		return this.allPrice;
 	}
 
-	public void setAllPrice(String allPrice) {
+	public void setAllPrice(Double allPrice) {
 		this.allPrice = allPrice;
 	}
 
