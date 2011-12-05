@@ -53,16 +53,17 @@ public class OrderDaoImpl extends HibernateDaoImpl implements OrderDao {
 	/*---------------------统计 订单 数 结束----------------------------*/
 
 	
+	
 	/*----------------------统计订单总额------------------------------*/
 	public Double statisticsOrderAmountForMonth() {
 		Double monthCounts = 0.000;
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM");
 		String month = sdf.format(new Date());
 		//通过截取订单时间的年月来统计月订单数
-		String hql = "select * from OrderInfo o where substring(o.orderTime,0,8) ='"+month+"'";
-		List<OrderInfo> orders = this.getSession().createSQLQuery(hql).list();      
+		String hql = "from OrderInfo o where substring(o.orderTime,0,8) ='"+month+"'";
+		//List<OrderInfo> orders = this.getSession().createSQLQuery(hql).list();  
+		List<OrderInfo> orders = this.find(hql);
 		for(OrderInfo order : orders){             //遍历月的所有订单
-			System.out.println("order对象：："+order);
 			monthCounts += order.getAllPrice();
 		}
 		return monthCounts;
@@ -94,26 +95,56 @@ public class OrderDaoImpl extends HibernateDaoImpl implements OrderDao {
 	}
 	/*----------------------统计订单总额 结束------------------------------*/
 
+	
+	
+	/*----------------------统计退单总额-----------------------------------*/
 	public Double statisticsBackSingleAmountForMonth() {
-		return null;
+		Double monthCounts = 0.000;
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM");
+		String month = sdf.format(new Date());
+		//通过截取订单时间的年月来统计月订单数
+		String hql = "from OrderInfo o where substring(o.orderTime,0,8) ='"+month+"' and o.isBackSingle=1";
+		//List<OrderInfo> orders = this.getSession().createSQLQuery(hql).list();  
+		List<OrderInfo> orders = this.find(hql);
+		for(OrderInfo order : orders){             //遍历月的所有订单
+			monthCounts += order.getAllPrice();
+		}
+		return monthCounts;
 	}
 
 
 	public Double statisticsBackSingleAmountForToday() {
-		// TODO Auto-generated method stub
-		return null;
+		Double todayCounts = 0.000;
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		String today = simpleDateFormat.format(new Date());
+		String hql = "from OrderInfo o where o.orderTime='"+today+"' and o.isBackSingle=1";
+		List<OrderInfo> orders = this.find(hql);      
+		for(OrderInfo order : orders){             //遍历今天的所有订单
+			todayCounts += order.getAllPrice();
+		}
+		return todayCounts;
 	}
 
 
 	public Double statisticsBackSingleAmountForYear() {
-		// TODO Auto-generated method stub
-		return null;
+		Double yearCounts = 0.000;
+		SimpleDateFormat year = new SimpleDateFormat("yyyy");
+		String hql = "from OrderInfo o where substring(o.orderTime,0,5) ='"+year+"' and o.isBackSingle=1";
+		List<OrderInfo> orders = this.find(hql);      
+		for(OrderInfo order : orders){             //遍历今天的所有订单
+			yearCounts += order.getAllPrice();
+		}
+		return yearCounts;
 	}
+	/*----------------------统计退单总额结束-----------------------------------*/
+	
 
-
+    /*----------------------统计退单数---------------------------------------*/
 	public Integer statisticsBackSingleForMonth() {
-		// TODO Auto-generated method stub
-		return null;
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM");    //格式化时间
+		String month = sdf.format(new Date());                        
+		String hql = "from OrderInfo o where o.orderTime='"+month+"' and o.isBackSingle=1";
+		return this.find(hql).size();
 	}
 
 
@@ -126,10 +157,12 @@ public class OrderDaoImpl extends HibernateDaoImpl implements OrderDao {
 
 
 	public Integer statisticsBackSingleForYear() {
-		// TODO Auto-generated method stub
-		return null;
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy");    //格式化时间
+		String year = sdf.format(new Date());                        
+		String hql = "from OrderInfo o where o.orderTime='"+year+"' and o.isBackSingle=1";
+		return this.find(hql).size();
 	}
-	
+	 /*----------------------统计退单数 结束---------------------------------------*/
 	
 
 }
