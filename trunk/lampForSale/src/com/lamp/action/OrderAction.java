@@ -52,6 +52,8 @@ public class OrderAction extends SuperAction {
     	return orderService.statisticsOrderAmountForYear();
     }
     
+    /*--------------------------------------------------------------*/
+    
     @RemoteMethod
     public Integer statisticsBackSingleForMonth() {
     	return orderService.statisticsBackSingleForMonth();

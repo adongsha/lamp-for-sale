@@ -18,11 +18,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
 <![endif]-->
 <!-- Favicons --> 
-<link rel="shortcut icon" type="image/png" HREF="../images/favicons/favicon.png"/>
-<link rel="icon" type="image/png" HREF="../images/favicons/favicon.png"/>
-<link rel="apple-touch-icon" HREF="../images/favicons/apple.png" />
+<link rel="shortcut icon" type="image/png" HREF="images/favicons/favicon.png"/>
+<link rel="icon" type="image/png" HREF="images/favicons/favicon.png"/>
+<link rel="apple-touch-icon" HREF="images/favicons/apple.png" />
 <!-- Main Stylesheet --> 
-<link rel="stylesheet" href="../css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
 <!-- Colour Schemes
 Default colour scheme is blue. Uncomment prefered stylesheet to use it.
 <link rel="stylesheet" href="css/brown.css" type="text/css" media="screen" />  
@@ -32,27 +32,27 @@ Default colour scheme is blue. Uncomment prefered stylesheet to use it.
 <link rel="stylesheet" href="css/red.css" type="text/css" media="screen" />
 -->
 <!-- Your Custom Stylesheet --> 
-<link rel="stylesheet" href="../css/custom.css" type="text/css" />
+<link rel="stylesheet" href="css/custom.css" type="text/css" />
 <!--swfobject - needed only if you require <video> tag support for older browsers -->
-<script type="text/javascript" SRC="../javascript/swfobject.js"></script>
+<script type="text/javascript" SRC="javascript/swfobject.js"></script>
 <!-- jQuery with plugins -->
-<script type="text/javascript" SRC="../javascript/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" SRC="javascript/jquery-1.4.2.min.js"></script>
 <!-- Could be loaded remotely from Google CDN : <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script> -->
-<script type="text/javascript" SRC="../javascript/jquery.ui.core.min.js"></script>
-<script type="text/javascript" SRC="../javascript/jquery.ui.widget.min.js"></script>
-<script type="text/javascript" SRC="../javascript/jquery.ui.tabs.min.js"></script>
+<script type="text/javascript" SRC="javascript/jquery.ui.core.min.js"></script>
+<script type="text/javascript" SRC="javascript/jquery.ui.widget.min.js"></script>
+<script type="text/javascript" SRC="javascript/jquery.ui.tabs.min.js"></script>
 <!-- jQuery tooltips -->
-<script type="text/javascript" SRC="../javascript/jquery.tipTip.min.js"></script>
+<script type="text/javascript" SRC="javascript/jquery.tipTip.min.js"></script>
 <!-- Superfish navigation -->
-<script type="text/javascript" SRC="../javascript/jquery.superfish.min.js"></script>
-<script type="text/javascript" SRC="../javascript/jquery.supersubs.min.js"></script>
+<script type="text/javascript" SRC="javascript/jquery.superfish.min.js"></script>
+<script type="text/javascript" SRC="javascript/jquery.supersubs.min.js"></script>
 <!-- jQuery form validation -->
-<script type="text/javascript" SRC="../javascript/jquery.validate_pack.js"></script>
+<script type="text/javascript" SRC="javascript/jquery.validate_pack.js"></script>
 <!-- jQuery popup box -->
-<script type="text/javascript" SRC="../javascript/jquery.nyroModal.pack.js"></script>
+<script type="text/javascript" SRC="javascript/jquery.nyroModal.pack.js"></script>
 <!-- jQuery graph plugins -->
 <!--[if IE]><script type="text/javascript" src="js/flot/excanvas.min.js"></script><![endif]-->
-<script type="text/javascript" SRC="../javascript/flot/jquery.flot.min.js"></script>
+<script type="text/javascript" SRC="javascript/flot/jquery.flot.min.js"></script>
 <!-- Internet Explorer Fixes --> 
 <!--[if IE]>
 <link rel="stylesheet" type="text/css" media="all" href="css/ie.css"/>
@@ -62,13 +62,16 @@ Default colour scheme is blue. Uncomment prefered stylesheet to use it.
 <!--[if lt IE 8]>
 <script src="js/IE8.js"></script>
 <![endif]-->
+<script type='text/javascript' src='dwr/engine.js'></script>
+<script type='text/javascript' src='dwr/util.js'></script>
+<script type='text/javascript' src='dwr/interface/orderAction.js'></script>
+<script language="javascript" type="text/javascript" src="javascript/pageInfo.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	
-	/* setup navigation, content boxes, etc... */
 	Administry.setup();
-	
-	/* progress bar animations - setting initial values */
+	alert("aaaa");
+	aa();
 	Administry.progress("#progress1", 1, 5);
 	Administry.progress("#progress2", 3, 5);
 	Administry.progress("#progress3", 2, 6);
@@ -90,9 +93,16 @@ $(document).ready(function(){
 		grid: { color: "#666" },
 		colors: ["#0a0", "#f00"]			
     });
-
-
 });
+
+function aa(){
+alert("bbb");
+    orderAction.statisticsOrderForToday(function(data){
+	alert("vvvv");
+	alert("data-->"+data);
+	  $("#todayOrder").html(data);
+	});
+}
 </script>
 </head>
 <body>
@@ -100,10 +110,10 @@ $(document).ready(function(){
 	<header id="top">
 		<div class="wrapper">
 			<!-- Title/Logo - can use text instead of image -->
-			<div id="title"><img SRC="../images/logo.png" alt="Administry" /><!--<span>Administry</span> demo--></div>
+			<div id="title"><img SRC="images/logo.png" alt="Administry" /><!--<span>Administry</span> demo--></div>
 			<!-- Top navigation -->
 			<div id="topnav">
-				<a href="#"><img class="avatar" SRC="../images/user_32.png" alt="" /></a>
+				<a href="#"><img class="avatar" SRC="images/user_32.png" alt="" /></a>
 				Logged in as <b>Admin</b>
 				<span>|</span> <a href="#">Settings</a>
 				<span>|</span> <a href="#">Logout</a><br />
@@ -156,7 +166,7 @@ $(document).ready(function(){
 				
 					<div class="colgroup leading">
 						<div class="column width3 first">
-							<h3>Welcome back, <a href="#">Admin</a></h3>
+							<h3>欢迎你, <a href="#">Admin</a></h3>
 							<p>
 								You are currently signed up to the <b>Free Trial Plan</b>.<br /><a href="#">Upgrade now?</a>
 							</p>
@@ -216,7 +226,7 @@ $(document).ready(function(){
 								<tbody>
 									<tr>
 										<td>今天订单数</td>
-										<td class="ta-right"><a href="#">1</a></td>
+										<td class="ta-right" id="todayOrder"><a href="#">1</a></td>
 										<td class="ta-right"></td>
 									</tr>
 									<tr>
@@ -303,11 +313,11 @@ $(document).ready(function(){
 							<h3>登陆账号</h3>
 						</header>
 						<dl class="first">
-							<dt><img width="16" height="16" alt="" SRC="../images/key.png"></dt>
+							<dt><img width="16" height="16" alt="" SRC="images/key.png"></dt>
 							<dd><a href="#">Administry (admin)</a></dd>
 							<dd class="last">Free Account.</dd>
 							
-							<dt><img width="16" height="16" alt="" SRC="../images/help.png"></dt>
+							<dt><img width="16" height="16" alt="" SRC="images/help.png"></dt>
 							<dd><a href="#">帮助</a></dd>
 							<dd class="last">常见问题解决方法</dd>
 						</dl>
@@ -345,7 +355,7 @@ $(document).ready(function(){
 				<a href="#">业绩图表</a> &middot;
 				
 			</nav>
-			<p>Copyright &copy; 2010 <b><a HREF="http://www.865171.cn" title="关伟海、陆永坚、王海静、梁绮红">小组成员</a></b> | Icons by <a HREF="http://www.865171.cn" title="王华君">09网编1班</a></p>
+			<p>Copyright &copy; 2010 <b><a HREF="" title="关伟海、陆永坚、王海静、梁绮红">小组成员</a></b> | Icons by <a HREF="" title="王华君">09网编1班</a></p>
 		</div>
 	</footer>
 	<!-- End of Page footer -->
@@ -367,6 +377,6 @@ $(document).ready(function(){
 	<a href="#" id="totop">^ scroll to top</a>
 
 <!-- Admin template javascript load -->
-<script type="text/javascript" SRC="../javascript/administry.js"></script>
+<script type="text/javascript" SRC="javascript/administry.js"></script>
 </body>
 </html>
