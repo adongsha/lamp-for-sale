@@ -1,0 +1,318 @@
+/* CSS Document */
+
+@import "style_outline.css";
+
+#d_middle{
+margin:0px;
+padding:0;
+width:900px;
+height:1256px;
+clear:both;
+}
+#d_left{
+width:510px;
+height:1256px;
+float:left;
+padding-left:20px;
+background-image:url(../images/back.gif);
+}
+#d_category{
+width:322px;
+height:1256px;
+float:left;
+padding-left:10px;
+}
+#d_ccenter{                    /*æ”÷–Œª÷√*/
+width:900px;
+height:auto;
+margin:0px auto auto auto;
+padding:0px;
+background-color:#ffffff;
+}
+.dimages{
+width:450px;
+height:900px;
+margin-left:20px;
+margin-top:5px;
+text-align:center;
+}
+.dpicture{
+width:299px;
+height:287px;
+margin-bottom:10px;
+}
+
+
+
+.login_title{
+width:150px;
+height:20px;
+background-color:#c1161e;
+margin-left:50px;
+position:relative;
+top:5px;
+}
+.login_title span{
+color:#FFFFFF;
+font-size:13px;
+font-family:Arial, Helvetica, sans-serif;
+word-spacing:5px;
+}
+.login_border{
+width:450px;
+height:160px;
+border:#999999 1px dashed;
+margin-left:20px;
+}
+.register_border{
+width:450px;
+height:380px;
+border:#999999 1px dashed;
+margin-left:20px;
+}
+.contack_border{
+width:450px;
+height:450px;
+border:#999999 1px dashed;
+margin-left:20px;
+}
+.pay_border{
+width:450px;
+height:300px;
+border:#999999 1px dashed;
+margin-left:20px;
+}
+.detail_border{
+width:450px;
+height:202px;
+margin-left:20px;
+margin-top:10px;
+}
+.d_position{
+width:200px;
+height:192px;
+float:left;
+}
+.d_picture{
+width:180px;
+height:150px;
+margin:10px 10px 0 10px;
+text-align:center;
+}
+.line_left{
+width:450px;
+height:10px;
+margin-left:20px;
+margin-top:5px;
+background-image:url(../images/border.gif);
+}
+.d_category{
+width:450px;
+height:29px;
+margin-left:20px;
+margin-top:5px;
+}
+.d_item{
+width:70px;
+height:20px;
+text-align:center;
+font-size:15px;
+font-weight:bold;
+padding-top:5px;
+margin-right:20px;
+border:solid #FF00FF 1px;
+float:left;
+}
+.d_item a{
+color:#000000;
+}
+.d_item a:hover{
+color:#0000FF;
+text-decoration:none;
+}
+.d_images{
+width:450px;
+height:290px;
+margin-left:20px;
+margin-top:5px;
+text-align:center;
+}
+.d_images img{
+margin-bottom:10px;
+width:369px;
+height:357px;
+}
+.big{
+width:100px;
+height:22px;
+margin-top:5px;
+margin-left:50px;
+}
+.detail{
+width:245px;
+height:180px;
+float:left;
+border:1px #999999 dashed;
+}
+.d_title{
+width:245px;
+height:16px;
+font-size:16px;
+color:#FF0000;
+font-weight:bold;
+}
+.d_content{
+width:220px;
+height:80px;
+padding:10px 10px 10px 15px;
+border-bottom:1px #999999 dashed;
+}
+.d_price{
+width:245px;
+height:20px;
+color:#FF0000;
+font-size:16px;
+font-weight:bold;}
+.d_price span{
+color:#0000FF;
+font-size:16px;
+}
+.p_picture{
+width:70px;
+height:15px;
+font-size:14px;
+text-align:center;
+margin:10px 20px 0 10px;
+border:#999999 solid 1px;
+background-color:#FF6600;
+float:left;
+}
+
+.p_picture a:hover{
+text-decoration:none;
+color:#FFFFFF;
+background-color:#FF0000;
+}
+.username{
+width:300px;
+height:30px;
+margin:25px 0px 0px 40px;
+font-size:14px;
+
+}
+.about_border{
+width:450px;
+height:310px;
+border:#999999 1px dashed;
+margin-left:20px;
+padding:5px;
+line-height:20px;
+color:#000000;
+}
+.about_border a{
+color:#FF0000;
+font-size:16px;
+}
+.about_border a:hover{
+color:#0000CC;
+text-decoration:underline;
+}
+.contact{
+width:355px;
+height:140px;
+margin:25px 0px 0px 40px;
+font-size:14px;
+}
+.contact_textarea{
+width:250px;
+height:100px;
+margin:5px 0 10px 50px;
+font-size:14px;
+
+}
+.tishi{
+width:350px;
+height:20px;
+margin:10px 0 10px 30px;
+color:#666666;
+}
+.tishi a{
+color:#ff0000;
+font-size:16px;
+font-style:italic;
+}
+.tishi a:hover{
+color:#0000ff;
+text-decoration:underline;
+}
+form{
+width:450px;
+height:auto;
+}
+input{
+width:170px;
+height:20px;
+}
+.button{
+width:150px;
+height:30px;
+margin-left:170px;
+}
+.button input{
+width:50px;
+}
+.tips{
+margin:20px 30px 20px 30px;
+color:#0000FF;
+}
+.pay{
+width:330px;
+height:110px;
+margin:25px 0px 0px 40px;
+font-size:15px;
+}
+.pay input{
+width:10px;
+height:10px;
+}
+.p_t{
+float:left;}
+.word{
+width:240px;
+height:22px;
+font-size:11px;
+font-family:"∫⁄ÃÂ";
+float:left;
+margin-left:5px;
+}
+label{
+margin-top:20px;}
+
+.pinglun{
+width:450px;
+height:40px;
+margin-top:10px;
+border-bottom:solid #CCCCCC 1px;
+}
+.user{
+margin:5px;
+width:100px;
+height:20px;
+padding-top:10px;
+float:left;
+border-right:#CCCCCC dotted 1px;
+}
+.pingjia{
+width:325px;
+height:20px;
+padding-top:10px;
+margin:5px;
+float:left;
+}
+.next{
+width:450;
+height:20px;
+margin-top:10px;
+text-align:center;
+padding-top:10px;
+}

@@ -1,0 +1,180 @@
+/* CSS Document */
+@import "style_outline.css";
+
+/*--------------------------------标题栏-----------------------------------------*/
+#pay{
+width:461px;
+height:20px;
+margin-left:20px;
+margin-bottom:5px;
+text-align:right;
+}
+.r{
+font-size:15px;
+color:#FF0000;
+}
+.pay{
+background-color:#FF6600;
+font-size:14px;
+color:#000000;
+padding:2px;
+margin:5px;
+}
+#show_border{
+width:455px;
+height:451px;
+border:dashed 1px;
+margin-left:20px;
+}
+.show_title{
+width:451px;
+height:35px;
+font-size:14px;
+margin-bottom:5px;
+}
+.pic{
+width:65px;
+height:auto;
+padding:5px;
+margin-top:5px;
+margin-left:5px;
+text-align:center;
+background-color:#CCCCCC;
+float:left;
+}
+.p_name{
+width:100px;
+height:auto;
+margin:5px 0 0 5px;
+padding:5px;
+text-align:center;
+background-color:#CCCCCC;
+float:left;
+}
+.price{
+width:45px;
+height:auto;
+margin:5px;
+padding:5px;
+text-align:center;
+background-color:#CCCCCC;
+float:left;
+}
+.count{
+width:60px;
+height:auto;
+margin:5px 5px 0 0;
+padding:5px;
+text-align:center;
+background-color:#CCCCCC;
+float:left;
+}
+.total{
+width:50px;
+height:auto;
+margin:5px 5px 0 0;
+padding:5px;
+text-align:center;
+background-color:#CCCCCC;
+float:left;
+}
+.delete{
+width:30px;
+height:auto;
+margin:5px 5px 0 0;
+padding:5px;
+text-align:center;
+background-color:#CCCCCC;
+float:left;
+}
+/*------------------------------- 展示项----------------------------------------*/
+.show{
+width:455px;
+height:97px;
+margin-bottom:5px;
+border-top:dashed 1px;
+}
+.picture_cart{
+width:75px;
+height:66px;
+margin:20px 5px 5px 5px;
+float:left;
+}
+.picture_cart img{
+width:71px;
+height:62px;
+}
+.produce_name{
+width:105px;
+height:52px;
+float:left;
+margin:5px 5px 0 0;
+text-align:center;
+padding:35px 0 0 5px;
+}
+.produce_name a{
+color:#000000;
+}
+.produce_name a:hover{
+color:#0000ff;
+text-decoration:underline;
+}
+.p_price{
+width:55px;
+height:52px;
+float:left;
+font-size:14px;
+margin:5px 5px 0 0;
+text-align:center;
+padding:35px 0 0 0;
+}
+.p_count{
+width:70px;
+height:52px;
+float:left;
+font-size:14px;
+margin:5px 5px 0 0;
+text-align:center;
+padding:35px 0 0 0;
+}
+.p_total{
+width:60px;
+height:52px;
+float:left;
+font-size:14px;
+margin:5px 5px 0 0;
+text-align:center;
+padding:35px 0 0 0px;
+}
+.p_delete{
+width:30px;
+height:52px;
+float:left;
+font-size:14px;
+margin:5px 0 0 5px;
+text-align:center;
+padding:35px 0 0 0px;
+}
+input{
+width:20px;
+height:20px;
+padding:0px;
+margin-left:5px;
+margin-right:5px;
+}
+.next{
+width:auto;
+height:25px;
+margin-left:25px;
+padding:5px 70px 0 70px;
+text-align:center;
+}
+.next a{
+color:#000000;
+padding:5px;
+color:#f00;
+}
+.next a:hover{
+text-decoration:underline;
+color:#0000FF;
+}
