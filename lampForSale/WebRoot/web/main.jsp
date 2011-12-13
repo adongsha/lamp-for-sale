@@ -15,17 +15,16 @@
 </head>
 
 <body>
-
 <div id="wrap">
 	<div id="bg">
 		<div id="head">
 				<ul>
 					<li class="selected" ><a href="main.html">首页</a></li>
-					<li><a href="about.html">关于我们</a></li>
 					<li><a href="show.html">灯饰</a></li>
 					<li><a href="login.html">我的账号</a></li>
 					<li><a href="register.html">注册</a></li>
 					<li><a href="cart.html">购物车</a></li>
+					<li><a href="about.html">关于我们</a></li>
 					<li><a href="contact.html">联系我们</a></li>
 				</ul>
 		</div>
@@ -41,7 +40,7 @@
 								<div class="left_title">
 									<div class="title"><span class="title_icon"><img src="../images/bullet1.gif" /></span>Featured Produce</div>	
 								</div>
-								<div class="content">
+						  <div class="content">
 										<div class="1">
 											<div class="prod_img">
 													<a href="details.html"><img src="../images/picture1.jpg"/></a>
@@ -89,9 +88,9 @@
 							<div class="cart">
 									  <div class="cart_title"><span class="title_icon"><img src="../images/cart.gif" /></span>购物车</div>
 									  <div class="home_cart_content">
-									  &nbsp;数&nbsp;&nbsp;量&nbsp; |&nbsp; &nbsp;<span class="red">3</span>
+									  	数&nbsp;&nbsp;&nbsp;量&nbsp; &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp; &nbsp;&nbsp;<span class="red">3</span>
 									  </div>
-									  <a href="cart.html" class="view_cart">&nbsp;&nbsp;查看</a>
+									  <a href="cart.html" class="view_cart">查看购物车</a>
 								  
               				</div>
 							<div class="right_title">
@@ -127,6 +126,7 @@
 										<div class="bottom">
 											<a href="main.html"><span>.首页</span></a>
 											<a href="show.html"><span>.灯饰</span></a>
+											<a href="into.html"><span>.进入后台</span></a>
 											<a href="contact.html"><span>.联系我们</span></a>
 										</div>
 										<div class="copyright">

@@ -78,6 +78,14 @@ background:url(../images/button.jpg) repeat-x center;
 #head a:hover{
 background:url(../images/button.jpg) repeat-x center;
 }
+/* -----------------内容----------------------*/
+#ccenter{                    /*居中位置*/
+width:900px;
+height:auto;
+margin:0px auto auto auto;
+padding:0px;
+background-color:#ffffff;
+}
 
 
 /***************************版权层*******************************************/
@@ -88,7 +96,7 @@ border-top:dashed #000 1px;
 }
 #bottom span{
 margin-left:30px;
-color:#000;
+color:#000000;
 }
 .bottom,.copyright{
 margin:0;
