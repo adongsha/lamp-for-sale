@@ -20,7 +20,8 @@ public class OrderAction extends SuperAction {
 	public void setOrderService(OrderService orderService) {
 		this.orderService = orderService;
 	}
-     
+    
+    /*-----------------统计订单数---------------------------*/
     @RemoteMethod
     public Integer statisticsOrderForToday(){
     	return orderService.statisticsOrderForToday();
@@ -35,7 +36,7 @@ public class OrderAction extends SuperAction {
     public Integer statisticsOrderForYear(){
     	return orderService.statisticsOrderForYear();
     }
-    /*--------------------------------------------------------------*/
+    /*---------------------统计订单额-----------------------------------------*/
     
     @RemoteMethod
     public Double statisticsOrderAmountForMonth(){
@@ -52,7 +53,7 @@ public class OrderAction extends SuperAction {
     	return orderService.statisticsOrderAmountForYear();
     }
     
-    /*--------------------------------------------------------------*/
+    /*-------------------------统计退单数-------------------------------------*/
     
     @RemoteMethod
     public Integer statisticsBackSingleForMonth() {
@@ -69,5 +70,20 @@ public class OrderAction extends SuperAction {
     	return orderService.statisticsBackSingleForYear();
     }	
     
+    /*--------------------------统计退单额------------------------------------*/
+
+    @RemoteMethod
+    public Double statisticsOrderBackSingleAmountForDay(){
+    	return orderService.statisticsBackSingleAmountForToday();
+    }
     
+    @RemoteMethod
+    public Double statisticsOrderBackSingleAmountForMonth(){
+    	return orderService.statisticsBackSingleAmountForMonth();
+    }
+    
+    @RemoteMethod
+    public Double statisticsOrderBackSingleAmountForYear(){
+    	return orderService.statisticsBackSingleAmountForYear();
+    }
 }

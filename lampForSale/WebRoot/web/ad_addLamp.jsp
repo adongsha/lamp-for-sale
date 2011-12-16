@@ -115,6 +115,9 @@ function addLampDWR(){
 }
 /*-------------------------------DWR结束 --------------------------------------------*/
 
+function tip(){
+   alert("添加成功!");
+}
 </script>
 </head>
 <body>
@@ -295,7 +298,7 @@ function addLampDWR(){
 								
 							</p>
 							
-							<p class="box"><input type="submit" class="btn btn-green big" value="添加" /> or <input type="reset" class="btn" value="重置"/></p>
+							<p class="box"><input type="submit" class="btn btn-green big" value="添加" onclick="tip()"/> or <input type="reset" class="btn" value="重置"/></p>
 
 						</fieldset>
 
