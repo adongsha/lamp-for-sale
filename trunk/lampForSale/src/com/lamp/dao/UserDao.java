@@ -42,4 +42,6 @@ public interface UserDao {
      * @return
      */
     public Map<String, Integer> countPower();
+    
+
 }
