@@ -23,7 +23,7 @@ public class OrderServiceTest {
 	 */
     @Test
     public void testStatisticsOrderForToday(){
-    	System.out.println(orderService.statisticsOrderForToday());
+    	System.out.println("今天的订单数"+orderService.statisticsOrderForToday());
     }
     
     /**

@@ -20,5 +20,14 @@
       <action name="mainAction" class="OrderAction">
         <result>/web/ad_main.jsp</result>
       </action>
+      
+      <action name="addLamp">
+       <result>/web/ad_addLamp.jsp</result>
+      </action>
+      
+      <action name="addLampAction" class="AddLampAction" >
+       
+      </action>
+      
     </package>
 </struts>    

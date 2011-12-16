@@ -5,8 +5,7 @@
 	String basePath = request.getScheme() + "://"
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
-%>
-<!DOCTYPE html>
+%><!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
@@ -63,46 +62,145 @@ Default colour scheme is blue. Uncomment prefered stylesheet to use it.
 <script src="js/IE8.js"></script>
 <![endif]-->
 <script type='text/javascript' src='dwr/engine.js'></script>
-<script type='text/javascript' src='dwr/util.js'></script>
-<script type='text/javascript' src='dwr/interface/orderAction.js'></script>
-<script language="javascript" type="text/javascript" src="javascript/pageInfo.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){
-	
-	Administry.setup();
-	alert("aaaa");
-	aa();
-	Administry.progress("#progress1", 1, 5);
-	Administry.progress("#progress2", 3, 5);
-	Administry.progress("#progress3", 2, 6);
-	Administry.progress("#progress4", 2, 6);
-	Administry.progress("#progress5", 2, 6);
+		<script type='text/javascript' src='dwr/util.js'></script>
+		<script type='text/javascript' src='dwr/interface/orderAction.js'></script>
+		<script language="javascript" type="text/javascript"
+			src="javascript/pageInfo.js"></script>
+		<script type="text/javascript">
+	$(document).ready(
+			function() {
+				Administry.setup();
+				todayOrder();
+				monthOrder();
+				yearOrder();
+				todayAmount();
+				monthAmount();
+				yearAmount();
+				/*-------------*/
+				todaySingleBackOrder();
+				monthSingleBackOrder();
+				yearSingleBackOrder();
+				statisticsOrderBackSingleAmountForDay();
+				statisticsOrderBackSingleAmountForMonth();
+				statisticsOrderBackSingleAmountForyear();
 
-	/* flot graphs */
-	var sales = [{
-		label: '月销售额',
-		data: [[1, 5555],[2,0],[3,0],[4,0],[5,0],[6,0],[7,9000],[8,0],[9,0],[10,0],[11,0],[12,0]]
+				Administry.progress("#progress1", 1, 5);
+				Administry.progress("#progress2", 3, 5);
+				Administry.progress("#progress3", 2, 6);
+				Administry.progress("#progress4", 2, 6);
+				Administry.progress("#progress5", 2, 6);
+
+				/* flot graphs */
+				var sales = [ {
+					label : '月销售额',
+					data : [ [ 1, 5555 ], [ 2, 0 ], [ 3, 0 ], [ 4, 0 ],
+							[ 5, 0 ], [ 6, 0 ], [ 7, 9000 ], [ 8, 0 ],
+							[ 9, 0 ], [ 10, 0 ], [ 11, 0 ], [ 12, 0 ] ]
+				} ];
+
+				var plot = $.plot($("#placeholder"), sales, {
+					bars : {
+						show : true,
+						lineWidth : 1
+					},
+					legend : {
+						position : "ne"
+					},
+					xaxis : {
+						ticks : [ [ 1, "Jan" ], [ 2, "Feb" ], [ 3, "Mar" ],
+								[ 4, "Apr" ], [ 5, "May" ], [ 6, "Jun" ],
+								[ 7, "Jul" ], [ 8, "Aug" ], [ 9, "Sep" ],
+								[ 10, "Oct" ], [ 11, "Nov" ], [ 12, "Dec" ] ]
+					},
+					yaxis : {
+						min : 0,
+						max : 300000
+					},
+					grid : {
+						color : "#666"
+					},
+					colors : [ "#0a0", "#f00" ]
+				});
+			});
+
+	function todayOrder() {
+		orderAction.statisticsOrderForToday(function(data) {
+			$("#todayOrder").html(data);
+		});
 	}
-	];
 
-	var plot = $.plot($("#placeholder"), sales, {
-		bars: { show: true, lineWidth: 1 },
-		legend: { position: "ne" },
-		xaxis: { ticks: [[1, "Jan"], [2, "Feb"], [3, "Mar"], [4, "Apr"], [5, "May"], [6, "Jun"], [7, "Jul"], [8, "Aug"], [9, "Sep"], [10, "Oct"], [11, "Nov"], [12, "Dec"]] },
-		yaxis: { min: 0, max: 300000 },
-		grid: { color: "#666" },
-		colors: ["#0a0", "#f00"]			
-    });
-});
+	function monthOrder() {
+		orderAction.statisticsOrderForMonth(function(data) {
+			$("#monthOrder").html(data);
+		});
+	}
 
-function aa(){
-alert("bbb");
-    orderAction.statisticsOrderForToday(function(data){
-	alert("vvvv");
-	alert("data-->"+data);
-	  $("#todayOrder").html(data);
-	});
-}
+	function yearOrder() {
+		orderAction.statisticsOrderForYear(function(data) {
+			$("#yearOrder").html(data);
+		});
+	}
+
+	function todayAmount() {
+		orderAction.statisticsOrderAmountForToday(function(data) {
+			$("#todayAmount").html(data);
+		});
+	}
+
+	function monthAmount() {
+		orderAction.statisticsOrderAmountForMonth(function(data) {
+			$("#monthAmount").html(data);
+		});
+	}
+
+	function yearAmount() {
+		orderAction.statisticsOrderAmountForYear(function(data) {
+			$("#yearAmount").html(data);
+		});
+	}
+	/*-------------退单 ---------------------------*/
+	function todaySingleBackOrder() {
+	    orderAction.statisticsBackSingleForToday(function(data) {
+	       $("#singleBackForToday").html(data);
+	    });  
+	}
+	
+	
+	function monthSingleBackOrder(){
+	    orderAction.statisticsBackSingleForMonth(function(data) {
+	       $("#singleBackForMonth").html(data);
+	    });  
+	}
+	
+	
+	function yearSingleBackOrder(){
+		orderAction.statisticsBackSingleForYear(function (data) {
+	       $("#singleBackForYear").html(data);
+		});
+	}
+	
+		
+	
+	//统计日 退单额 
+	function statisticsOrderBackSingleAmountForDay(){
+	    orderAction.statisticsOrderBackSingleAmountForDay(function(data) {
+	       $("#singleBackAmountForToday").html(data);
+	    });
+	}
+    
+    //统计月退单额
+    function statisticsOrderBackSingleAmountForMonth(){
+		orderAction.statisticsOrderBackSingleAmountForMonth(function(data) {
+	       $("#singleBackAmountForMonth").html(data);
+		});
+	}
+	
+	//统计年退单额 
+	function statisticsOrderBackSingleAmountForyear() {
+	    orderAction.statisticsOrderBackSingleAmountForYear(function(data) {
+	       $("#singleBackAmountForYear").html(data);
+	    });
+	}
 </script>
 </head>
 <body>
@@ -114,10 +212,10 @@ alert("bbb");
 			<!-- Top navigation -->
 			<div id="topnav">
 				<a href="#"><img class="avatar" SRC="images/user_32.png" alt="" /></a>
-				Logged in as <b>Admin</b>
-				<span>|</span> <a href="#">Settings</a>
-				<span>|</span> <a href="#">Logout</a><br />
-				<small>You have <a href="#" class="high"><b>1</b> new message!</a></small>
+				<b>Admin</b>
+				<span>|</span> <a href="#">个人信息</a>
+				<span>|</span> <a href="#">注销</a><br />
+				<small>你有<a href="#" class="high"><b>1</b> 新的信息!</a></small>
 			</div>
 			<!-- End of Top navigation -->
 			<!-- Main navigation -->
@@ -168,14 +266,13 @@ alert("bbb");
 						<div class="column width3 first">
 							<h3>欢迎你, <a href="#">Admin</a></h3>
 							<p>
-								You are currently signed up to the <b>Free Trial Plan</b>.<br /><a href="#">Upgrade now?</a>
+								
 							</p>
 						</div>
 						<div class="column width3">
-							<h4>Last login</h4>
+							<h4>最近登录时间</h4>
 							<p>
-								Monday July 12th, 2010 at 11:32am from 127.0.0.1<br />
-								No error login attempts.
+								2011-12-01 00:00:00
 							</p>
 						</div>
 					</div>
@@ -189,32 +286,32 @@ alert("bbb");
 									<tr>
 										<td>今天退单数</td>
 										<td class="ta-right"></td>
-										<td class="ta-right"><a href="#">10</a></td>
+										<td class="ta-right" id="singleBackForToday"><a href="#">10</a></td>
 									</tr>
 									<tr>
 										<td>今天退单额</td>
 										<td class="ta-right"><a href="#"></a></td>
-										<td class="ta-right">900.00 &euro;</td>
+										<td class="ta-right" id="singleBackAmountForToday">900.00 &euro;</td>
 									</tr>
 									<tr>
 										<td>月总退单数</td>
 										<td class="ta-right"></td>
-										<td class="ta-right"><a href="#">1</a></td>
+										<td class="ta-right" id="singleBackForMonth"><a href="#">1</a></td>
 									</tr>
 									<tr>
 										<td>月总退单额</td>
 										<td class="ta-right"></td>
-										<td class="ta-right">0.00 &euro;</td>
+										<td class="ta-right" id="singleBackAmountForMonth">0.00 &euro;</td>
 									</tr>
                                     <tr>
 										<td>年总退单数</td>
 										<td class="ta-right"></td>
-										<td class="ta-right"><a href="#">1</a></td>
+										<td class="ta-right" id="singleBackForYear"><a href="#">1</a></td>
 									</tr>
                                     <tr>
 										<td>年总退单额</td>
 										<td class="ta-right"></td>
-										<td class="ta-right">0.00 &euro;</td>
+										<td class="ta-right" id="singleBackAmountForYear">0.00 &euro;</td>
 									</tr>
 								</tbody>
 							</table>
@@ -226,33 +323,33 @@ alert("bbb");
 								<tbody>
 									<tr>
 										<td>今天订单数</td>
-										<td class="ta-right" id="todayOrder"><a href="#">1</a></td>
 										<td class="ta-right"></td>
+										<td class="ta-right" id="todayOrder"><a href="#">1</a></td>
 									</tr>
 									<tr>
 										<td>今天销售额</td>
-										<td class="ta-right"><a href="#">9</a></td>
-										<td class="ta-right">900.00 &euro;</td>
+										<td class="ta-right"></td>
+										<td class="ta-right" id="todayAmount">900.00 &euro;</td>
 									</tr>
 									<tr>
 										<td>月总订单数</td>
-										<td class="ta-right"><a href="#">5</a></td>
 										<td class="ta-right"></td>
+										<td class="ta-right" id="monthOrder"><a href="#">5</a></td>
 									</tr>
 									<tr>
 										<td>月销售总额</td>
-										<td class="ta-right"><a href="#">9</a></td>
-										<td class="ta-right">900.00 &euro;</td>
+										<td class="ta-right"></td>
+										<td class="ta-right" id="monthAmount">900.00 &euro;</td>
 									</tr>
                                     <tr>
 										<td>年总订单数</td>
-										<td class="ta-right"><a href="#">5</a></td>
 										<td class="ta-right"></td>
+										<td class="ta-right" id="yearOrder"><a href="#">5</a></td>
 									</tr>
 									<tr>
 										<td>年销售总额</td>
-										<td class="ta-right"><a href="#">9</a></td>
-										<td class="ta-right">900.00 &euro;</td>
+										<td class="ta-right"></td>
+										<td class="ta-right" id="yearAmount">900.00 &euro;</td>
 									</tr>
 								</tbody>
 							</table>
@@ -284,12 +381,12 @@ alert("bbb");
                                     <tr>
 										<td>很差</td>
 										<td class="ta-right">2/5</td>
-										<td><div id="progress4" class="progress full progress-red"><span><b></b></span></div></td>
+										<td><div id="progress4" class="progress full progress-yellow"><span><b></b></span></div></td>
 									</tr>
                                     <tr>
 										<td>不表态</td>
 										<td class="ta-right">2/5</td>
-										<td><div id="progress5" class="progress full progress-red"><span><b></b></span></div></td>
+										<td><div id="progress5" class="progress full progress-while"><span><b></b></span></div></td>
 									</tr>
 								</tbody>
 							</table>
@@ -324,14 +421,14 @@ alert("bbb");
 					</div>
 					<div class="content-box">
 						<header>
-							<h3>Latest in the Community</h3>
+							<h3>最新公告</h3>
 						</header>
 						<section>
 							<dl>
-								<dt>Maximize every interaction with a client</dt>
-								<dd><a href="#">Read more</a></dd>
-								<dt>Diversification for Small Business Owners</dt>
-								<dd><a href="#">Read more</a></dd>
+								<dt>.....</dt>
+								<dd><a href="#">更多</a></dd>
+								<dt>.....</dt>
+								<dd><a href="#">更多</a></dd>
 							</dl>
 						</section>
 					</div>
@@ -355,7 +452,7 @@ alert("bbb");
 				<a href="#">业绩图表</a> &middot;
 				
 			</nav>
-			<p>Copyright &copy; 2010 <b><a HREF="" title="关伟海、陆永坚、王海静、梁绮红">小组成员</a></b> | Icons by <a HREF="" title="王华君">09网编1班</a></p>
+			<p>Copyright &copy; 2010 <b><a HREF="http://www.865171.cn" title="关伟海、陆永坚、王海静、梁绮红">小组成员</a></b> | Icons by <a HREF="http://www.865171.cn" title="王华君">09网编1班</a></p>
 		</div>
 	</footer>
 	<!-- End of Page footer -->
