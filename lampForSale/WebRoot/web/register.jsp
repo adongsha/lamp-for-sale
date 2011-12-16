@@ -13,7 +13,14 @@
 <title>无标题文档</title>
 <link href="../css/style1.css" type="text/css" rel="stylesheet"/>
 </head>
-
+<script type='text/javascript' src='dwr/engine.js'></script>
+<script type='text/javascript' src='dwr/util.js'></script>
+<script type='text/javascript' src='dwr/interface/userAction.js'></script>
+<script language="javascript" type="text/javascript" src="javascript/pageInfo.js"></script>
+<script language="javascript" type="text/javascript" src="javascript/jquery-1.6.4.js"></script>
+<script language="javascript" type="text/javascript">
+  
+</script>
 <body>
 <div id="wrap">
 	<div id="bg">
@@ -32,8 +39,6 @@
 </div>
 <div id="ccenter">
 					<div id="middle">
-
-								
 								<div id="left">
 										<div class="title"><span class="title_icon"><img src="../images/bullet1.gif" /></span>Users Register</div>
 										<div class="tishi">
@@ -69,8 +74,11 @@
 													  <input type="text" name="address"/>
 											</div>
 										  <div class="button">
+										              
 													  <input type="reset" name="reset" value="重置"/>
 													  <input type="submit" name="submit" value="提交"/>
+										              
+										             
 										  </div>
 										  </form>
 										</div>

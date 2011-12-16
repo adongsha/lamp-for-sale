@@ -272,16 +272,9 @@
 												<span class="icon"><img src="../images/icon.gif"/></span>
 												<a href="show.html">吊&nbsp;&nbsp;&nbsp;灯</a>
 											</div>
-											
-											
 										</div>
 					  </div>
-					  
-					  
-					  
 					</div>
-
-
 					<div id="bottom">
 										<div class="bottom">
 											<a href="main.html"><span>.首页</span></a>

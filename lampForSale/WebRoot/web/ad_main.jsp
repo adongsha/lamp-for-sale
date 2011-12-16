@@ -61,6 +61,7 @@ Default colour scheme is blue. Uncomment prefered stylesheet to use it.
 <!--[if lt IE 8]>
 <script src="js/IE8.js"></script>
 <![endif]-->
+<script language="javascript" type="text/javascript" src="javascript/jquery-1.6.4.js"></script>
 <script type='text/javascript' src='dwr/engine.js'></script>
 		<script type='text/javascript' src='dwr/util.js'></script>
 		<script type='text/javascript' src='dwr/interface/orderAction.js'></script>
