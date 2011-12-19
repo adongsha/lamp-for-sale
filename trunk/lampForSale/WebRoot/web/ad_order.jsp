@@ -57,6 +57,11 @@ Default colour scheme is blue. Uncomment prefered stylesheet to use it.
 <!--[if lt IE 8]>
 <script src="js/IE8.js"></script>
 <![endif]-->
+<script language="javascript" type="text/javascript" src="javascript/jquery-1.6.4.js"></script>
+<script type='text/javascript' src='dwr/engine.js'></script>
+<script type='text/javascript' src='dwr/util.js'></script>
+<script type='text/javascript' src='dwr/interface/orderAction.js'></script>
+<script language="javascript" type="text/javascript" src="javascript/pageInfo.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	
@@ -68,8 +73,33 @@ $(document).ready(function(){
 	
 	/* expandable rows */
 	Administry.expandableRows();
+	
+	orderAction.notDealOrder(function(data){
+      $("#notDealOrder").html(data)
+     });
+     
+    orderAction.dealOrder(function(data) {
+      $("#dealOrder").html(data);
+    });
+    
+    orderAction.problemOrder(function(data) {
+      $("#problemOrder").html(data);
+    });
+    
+    orderAction.notDealOrderAmount(function(data){
+      $("#notDealAmount").html(data);
+    });
+    
+    orderAction.dealOrderAmount(function(data) {
+      $("#dealAmount").html(data);
+    });
+    
+    orderAction.problemOrderAmount(function(data) {
+      $("#problemAmount").html(data);
+    });
+    
+    
 });
-
 </script>
 </head>
 <body>
@@ -161,9 +191,9 @@ $(document).ready(function(){
 										</div>
 									</div>
 								</td>
-								<td class="ta-right">306,939,000</td>
+								<td class="ta-right" id="notDealorder"></td>
 
-								<td class="ta-right">61,612,300</td>
+								<td class="ta-right" id="notDealAmount"></td>
 
 							</tr>
 							<tr>
@@ -182,8 +212,8 @@ $(document).ready(function(){
 										</div>
 									</div>
 								</td>
-								<td class="ta-right">61,612,300</td>
-								<td class="ta-right">244,820 km<sup>2</sup></td>
+								<td class="ta-right" id="dealorder"></td>
+								<td class="ta-right" id="dealAmount"></td>
 								
 							</tr>
 							<tr>
@@ -203,8 +233,8 @@ $(document).ready(function(){
 										</div>
 									</div>
 								</td>
-								<td class="ta-right">1,147,995,904</td>
-								<td class="ta-right">3,287,240 km<sup>2</sup></td>
+								<td class="ta-right" id="problemOrder"></td>
+								<td class="ta-right" id="problemAmount"></td>
 								
 							</tr>
 						</tbody>

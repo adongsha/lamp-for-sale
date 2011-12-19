@@ -12,21 +12,53 @@
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
 <title>无标题文档</title>
 <link href="../css/style1.css" type="text/css" rel="stylesheet"/>
-</head>
+
 <script type='text/javascript' src='dwr/engine.js'></script>
 <script type='text/javascript' src='dwr/util.js'></script>
 <script type='text/javascript' src='dwr/interface/userAction.js'></script>
 <script language="javascript" type="text/javascript" src="javascript/pageInfo.js"></script>
 <script language="javascript" type="text/javascript" src="javascript/jquery-1.6.4.js"></script>
 <script language="javascript" type="text/javascript">
-  
+  function register(){
+     var userName   = $("#userName").val();
+     if(userName == ""){
+       userName = null;
+     }
+     var password   = $("#password").val();
+     if(password == ""){
+       password = null;
+     }
+     var isPassword = $("#isPassword").val();
+     if(isPassword == ""){
+     password = null;
+     }
+     if(password != isPassword){
+        alert("密码不一致!");
+     }
+     var email      = $("#email").val();
+     if(email == ""){
+       email = null;
+     }
+     var telephone  = $("#telephone").val();
+     if(telephone == ""){
+     telephone = null;
+     }
+     var address    = $("#address").val();
+     if(address == ""){
+     address = null;
+     }
+     userAction.register(userName, password, email, telephone, address, function(){
+        alert("注册成功!");
+     });
+  }
 </script>
+</head>
 <body>
 <div id="wrap">
 	<div id="bg">
 		<div id="head">
 				<ul>
-					<li><a href="main.html">首页</a></li>
+					<li><br /></li><li><a href="main.html">首页</a></li>
 					<li><a href="show.html">灯饰</a></li>
 					<li><a href="login.html">我的账号</a></li>
 					<li class="selected" ><a href="register.html">注册</a></li>
@@ -73,20 +105,13 @@
 													&nbsp;&nbsp;地&nbsp;址&nbsp;：
 													  <input type="text" name="address"/>
 											</div>
-										  <div class="button">
-										              
-													  <input type="reset" name="reset" value="重置"/>
-													  <input type="submit" name="submit" value="提交"/>
-										              
-										             
-										  </div>
+										  <span class="button">
+										              <a onclick=""><img src="../images/register.jpg"></img></a>
+										              <a><img src="../images/one(1).gif"></img></a>  
+										  </span>
 										  </form>
 										</div>
 								</div>
-	
-	
-	
-	
 	
 										<div id="category">
 					  		<div class="cart">

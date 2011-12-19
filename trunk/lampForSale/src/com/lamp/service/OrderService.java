@@ -126,4 +126,52 @@ public class OrderService {
 		return orderDao.statisticsBackSingleAmountForYear();
 	}
 	/*----------------------统计退单总额结束-----------------------------------*/
+	
+	
+	 /**
+     * 未处理的订单
+     */
+    public Integer notDealOrder(){
+    	return orderDao.notDealOrder();
+    }
+    
+    /**
+     * 已经处理的订单
+     * @return
+     */
+    public Integer dealedOrder(){
+    	return orderDao.dealedOrder();
+    }
+    
+    /**
+     * 有问题的订单
+     * @return
+     */
+    public Integer problemOrder(){
+    	return orderDao.problemOrder();
+    }
+    
+    /**
+     * 已处理订单的总额
+     * @return
+     */
+    public Double dealedOrderAmount(){
+    	return orderDao.dealedOrderAmount();
+    }
+    
+    /**
+     * 未处理订单的总额
+     * @return
+     */
+    public Double notDealOrderAmount(){
+    	return orderDao.notDealOrderAmount();
+    }
+    
+    /**
+     * 有问题订单的总额
+     * @return
+     */
+    public Double problemOrderAmount(){
+    	return orderDao.problemOrderAmount();
+    }
 }

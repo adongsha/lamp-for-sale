@@ -28,7 +28,7 @@ public class UserInfo implements java.io.Serializable {
 	private String phone;
 	private String company;
 	private String address;
-	private String power;
+	private Integer power;
 	private Set<OrderInfo> orderInfos = new HashSet<OrderInfo>(0);
 	private Set<Forum> forums = new HashSet<Forum>(0);
 
@@ -46,7 +46,7 @@ public class UserInfo implements java.io.Serializable {
 	/** full constructor */
 	public UserInfo(String userName, String password, String userPicture,
 			String email, String phone, String company, String address,
-			String power, Set<OrderInfo> orderInfos, Set<Forum> forums) {
+			Integer power, Set<OrderInfo> orderInfos, Set<Forum> forums) {
 		this.userName = userName;
 		this.password = password;
 		this.userPicture = userPicture;
@@ -134,12 +134,12 @@ public class UserInfo implements java.io.Serializable {
 		this.address = address;
 	}
 
-	@Column(name = "power", length = 50)
-	public String getPower() {
+	@Column(name = "power")
+	public Integer getPower() {
 		return this.power;
 	}
 
-	public void setPower(String power) {
+	public void setPower(Integer power) {
 		this.power = power;
 	}
 
