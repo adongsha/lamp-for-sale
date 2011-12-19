@@ -18,13 +18,20 @@ public interface UserDao {
     public void register(UserInfo user);
     
     /**
-     * 登录
+     * 前台登录
      * @param userName   用户名
      * @param password   密码
      * @return           
      */
     public boolean login(String userName, String password);
     
+    /**
+     * 后台登陆
+     * @param userName
+     * @param password
+     * @return
+     */
+    public boolean ad_login(String userName, String password);
     /**
      * 修改用户信息
      * @param user   用户对象

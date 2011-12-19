@@ -94,4 +94,42 @@ public interface OrderDao {
      * @return
      */
     public Double statisticsBackSingleAmountForYear();
+    /*------------------------------------------------*/
+    
+    /**
+     * 未处理的订单
+     */
+    public Integer notDealOrder();
+    
+    /**
+     * 已经处理的订单
+     * @return
+     */
+    public Integer dealedOrder();
+    
+    /**
+     * 有问题的订单
+     * @return
+     */
+    public Integer problemOrder();
+    
+    /**
+     * 已处理订单的总额
+     * @return
+     */
+    public Double dealedOrderAmount();
+    
+    /**
+     * 未处理订单的总额
+     * @return
+     */
+    public Double notDealOrderAmount();
+    
+    /**
+     * 有问题订单的总额
+     * @return
+     */
+    public Double problemOrderAmount();
+    
+   // public List<OrderInfo> selectOrder(String orderId);
 }

@@ -163,6 +163,62 @@ public class OrderDaoImpl extends HibernateDaoImpl implements OrderDao {
 		return this.find(hql).size();
 	}
 	 /*----------------------统计退单数 结束---------------------------------------*/
+
+  //  1表示已处理的订单 
+  //  2表示没有处理的订单
+  //  3表示有问题的订单
+	public Integer dealedOrder() {
+		String hql = "from OrderInfo o where o.orderStatus=1";
+		return this.find(hql).size();
+	}
+
+
+	public Integer notDealOrder() {
+		String hql = "from OrderInfo o where o.orderStatus=2";
+		return this.find(hql).size();
+	}
+
+
+	public Integer problemOrder() {
+		String hql = "from OrderInfo o where o.orderStatus=3";
+		return this.find(hql).size();
+	}
+
+
+	public Double dealedOrderAmount() {
+		Double allPrice = 0.00;
+		String hql = "from OrderInfo o where o.orderStatus=1";
+		List<OrderInfo> lists = this.find(hql);
+		for(OrderInfo order : lists){
+			allPrice += order.getAllPrice();
+		}
+		return allPrice;
+	}
+
+
+	public Double notDealOrderAmount() {
+		Double allPrice = 0.00;
+		String hql = "from OrderInfo o where o.orderStatus=2";
+		List<OrderInfo> lists = this.find(hql);
+		for(OrderInfo order : lists){
+			allPrice += order.getAllPrice();
+		}
+		return allPrice;
+	}
+
+
+	public Double problemOrderAmount() {
+		Double allPrice = 0.00;
+		String hql = "from OrderInfo o where o.orderStatus=3";
+		List<OrderInfo> lists = this.find(hql);
+		for(OrderInfo order : lists){
+			allPrice += order.getAllPrice();
+		}
+		return allPrice;
+	}
+	
+
+	
 	
 
 }

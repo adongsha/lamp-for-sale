@@ -35,6 +35,7 @@ public class OrderInfo implements java.io.Serializable {
 	private String orderTime;
 	private Double allPrice;
 	private Integer isBackSingle;    //1表示退单的...null表示没有
+	private Integer orderStatus;
 	private Set<SaleTable> saleTables = new HashSet<SaleTable>(0);
 	private Set<OrderStatus> orderStatuses = new HashSet<OrderStatus>(0);
 	private Set<OrderGoods> orderGoodses = new HashSet<OrderGoods>(0);
@@ -211,4 +212,14 @@ public class OrderInfo implements java.io.Serializable {
 		this.orderGoodses = orderGoodses;
 	}
 
+	@Column(name = "orderStatus")
+	public Integer getOrderStatus() {
+		return orderStatus;
+	}
+
+	public void setOrderStatus(Integer orderStatus) {
+		this.orderStatus = orderStatus;
+	}
+
+	
 }

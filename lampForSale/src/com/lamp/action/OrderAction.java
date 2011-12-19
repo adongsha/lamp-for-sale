@@ -86,4 +86,52 @@ public class OrderAction extends SuperAction {
     public Double statisticsOrderBackSingleAmountForYear(){
     	return orderService.statisticsBackSingleAmountForYear();
     }
+    
+    
+	 /**
+     * 未处理的订单
+     */
+    public Integer notDealOrder(){
+    	return orderService.notDealOrder();
+    }
+    
+    /**
+     * 已经处理的订单
+     * @return
+     */
+    public Integer dealedOrder(){
+    	return orderService.dealedOrder();
+    }
+    
+    /**
+     * 有问题的订单
+     * @return
+     */
+    public Integer problemOrder(){
+    	return orderService.problemOrder();
+    }
+    
+    /**
+     * 已处理订单的总额
+     * @return
+     */
+    public Double dealedOrderAmount(){
+    	return orderService.dealedOrderAmount();
+    }
+    
+    /**
+     * 未处理订单的总额
+     * @return
+     */
+    public Double notDealOrderAmount(){
+    	return orderService.notDealOrderAmount();
+    }
+    
+    /**
+     * 有问题订单的总额
+     * @return
+     */
+    public Double problemOrderAmount(){
+    	return orderService.problemOrderAmount();
+    }
 }
