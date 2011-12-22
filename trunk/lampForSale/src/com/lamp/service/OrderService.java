@@ -1,10 +1,17 @@
 package com.lamp.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Component;
 
 import com.lamp.dao.OrderDao;
+import com.lamp.model.OrderInfo;
+import com.lamp.util.Model2VoUtil;
+import com.lamp.util.PageInfo;
+import com.lamp.vo.OrderInfoVo;
 
 @Component("orderService")
 public class OrderService {
@@ -173,5 +180,17 @@ public class OrderService {
      */
     public Double problemOrderAmount(){
     	return orderDao.problemOrderAmount();
+    }
+    
+    /*---------------------------------------------------*/
+    
+    public List<OrderInfoVo> orderListByPage(PageInfo pageInfo) {
+    	List<OrderInfo> lists = orderDao.orderList(pageInfo);
+    	List<OrderInfoVo> listVos = new ArrayList<OrderInfoVo>();
+    	for(OrderInfo orderInfo : lists){
+    		OrderInfoVo orderInfoVo = Model2VoUtil.orderInfo2orderInfoVo(orderInfo);
+    		listVos.add(orderInfoVo);
+    	}
+    	return listVos;
     }
 }

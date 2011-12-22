@@ -3,6 +3,7 @@ package com.lamp.dao;
 import java.util.List;
 
 import com.lamp.model.OrderInfo;
+import com.lamp.util.PageInfo;
 
 public interface OrderDao {
 	/**
@@ -15,7 +16,7 @@ public interface OrderDao {
      * 订单列表
      * @return  orderInfo对象集
      */
-    public List<OrderInfo> orderList();
+    public List<OrderInfo> orderList(PageInfo pageInfo);
     
     /**
      * 统计总订单数
