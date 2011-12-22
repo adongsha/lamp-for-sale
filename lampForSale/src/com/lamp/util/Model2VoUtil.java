@@ -1,13 +1,20 @@
 package com.lamp.util;
 
+import com.lamp.model.Lamp;
 import com.lamp.model.OrderInfo;
 import com.lamp.model.UserInfo;
+import com.lamp.vo.LampVo;
 import com.lamp.vo.OrderInfoVo;
 import com.lamp.vo.UserInfoVo;
 
 
 public class Model2VoUtil {
 
+	/**
+	 * 将订单类转换成订单VO类
+	 * @param orderInfo  订单信息对象
+	 * @return
+	 */
      public static OrderInfoVo orderInfo2orderInfoVo(OrderInfo orderInfo){
     	 OrderInfoVo orderInfoVo = new OrderInfoVo();
     	 orderInfoVo.setAllPrice(orderInfo.getAllPrice());
@@ -30,6 +37,12 @@ public class Model2VoUtil {
     	 return orderInfoVo;
      }
      
+     
+     /**
+      * 将用户信息类转换成用户信息VO类
+      * @param userInfo  用户信息对象
+      * @return
+      */
      public static UserInfoVo userInfo2userInfoVo(UserInfo userInfo){
     	 UserInfoVo userInfoVo  = new UserInfoVo();
     	 userInfoVo.setAddress(userInfo.getAddress());
@@ -43,5 +56,34 @@ public class Model2VoUtil {
     	 userInfoVo.setUserPicture(userInfo.getUserPicture());
     	 
     	 return userInfoVo;
+     }
+     
+     
+     /**
+      * 将lamp类转换成lampVo类
+      * @param lamp
+      * @return
+      */
+     public static LampVo lamp2lampVo(Lamp lamp){
+    	 LampVo lampVo = new LampVo();
+    	 lampVo.setEvaluationCount(lamp.getEvaluationCount());
+    	 lampVo.setIsbn(lamp.getIsbn());
+    	 lampVo.setIsDiscount(lamp.getIsDiscount());
+    	 lampVo.setLampDescription(lamp.getLampDescription());
+    	 lampVo.setLampId(lamp.getLampId());
+    	 lampVo.setLampName(lamp.getLampName());
+    	 lampVo.setMaterial(lamp.getMaterial());
+    	 lampVo.setOrigin(lamp.getOrigin());
+    	 lampVo.setPrice(lamp.getPrice());
+    	 lampVo.setPrictureImage1(lamp.getPrictureImage1());
+    	 lampVo.setPrictureImage2(lamp.getPrictureImage2());
+    	 lampVo.setPrictureImage3(lamp.getPrictureImage3());
+    	 lampVo.setPrictureImage4(lamp.getPrictureImage4());
+    	 lampVo.setProcess(lamp.getProcess());
+    	 lampVo.setSaleEvMouth(lamp.getSaleEvMouth());
+    	 lampVo.setSize(lamp.getSize());
+    	 lampVo.setType(lamp.getType());
+    	 lampVo.setWeight(lamp.getWeight());
+    	 return lampVo;
      }
 }

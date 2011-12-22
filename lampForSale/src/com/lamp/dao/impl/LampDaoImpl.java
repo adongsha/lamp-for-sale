@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 import com.lamp.dao.LampDao;
 import com.lamp.model.Lamp;
+import com.lamp.util.PageInfo;
 @Component("lampDao")
 public class LampDaoImpl extends HibernateDaoImpl implements LampDao {
 
@@ -13,9 +14,13 @@ public class LampDaoImpl extends HibernateDaoImpl implements LampDao {
         this.save(lamp);
 	}
 
-	public List<Lamp> getLampList() {
+	public List<Lamp> getLampList(PageInfo pageInfo) {
 		String hql = "from Lamp";
+		if(pageInfo == null){
 		return this.find(hql);
+		} else {
+			return this.findPageByQuery(hql, null, pageInfo);
+		}
 	}
 
 	public void updateLamp(Integer lampId) {
