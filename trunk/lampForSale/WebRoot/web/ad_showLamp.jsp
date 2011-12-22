@@ -55,20 +55,48 @@ Default colour scheme is blue. Uncomment prefered stylesheet to use it.
 <!--[if lt IE 8]>
 <script src="js/IE8.js"></script>
 <![endif]-->
+<script language="javascript" type="text/javascript" src="javascript/jquery-1.6.4.js"></script>
+<script type='text/javascript' src='dwr/engine.js'></script>
+<script type='text/javascript' src='dwr/util.js'></script>
+<script type='text/javascript' src='dwr/interface/lampAction.js'></script>
+<script language="javascript" type="text/javascript" src="javascript/pageInfo.js"></script>
 <script type="text/javascript">
 
 $(document).ready(function(){
 	
-	/* setup navigation, content boxes, etc... */
 	Administry.setup();
 
-	/* progress bar animations - setting initial values */
 	Administry.progress("#capacity", 72, 100);
 	
-	/* tabs */
 	$("#tabs").tabs();
 	
+	executeQuery(lampAction.lampListByPage,[lampsLists]);
 });
+function lampsLists(data){
+    alert("data-->"+data);
+    var pageInfo = data.pageInfo;
+    alert("pageInfo-->"+pageInfo);
+    var lampVos = data.lampVos;
+    alert("lampVos-->"+lampVos);
+    for(var i = 0; i<lampVos.length; i++){
+      var lamp = lampVos[i];
+      alert("lamp-->"+lamp);
+      var div = '<div class="colgroup leading">'
+				+'<div class="width1 column first ta-center">'
+				+'<img SRC="'
+				+lamp.prictureImage1
+				+'" alt="" />'
+				+'</div><div class="width5 column">'
+				+'<a href="#" title="First working version of my CV"><b class="big">'
+				+lamp.lampName
+				+'</b></a><br/><small><b></b>   类型: <b>'
+				+lamp.lampType
+				+'</b> |  型号: <a href="#">'
+				+lamp.isbn
+				+'</a></small><br/><a href="#">删除</a> &middot; <a href="#">展示</a> &middot; <a href="#">编辑</a></div>'
+				+'</div>';
+    }
+}
 </script>
 </head>
 <body>
@@ -118,7 +146,7 @@ $(document).ready(function(){
 	<!-- Page title -->
 	<div id="pagetitle">
 		<div class="wrapper">
-			<h1>Samples &rarr; <span>Files</span></h1>
+			<h1>LampForSale</h1>
 			<!-- Quick search box -->
 			<form action="" method="get"><input class="" type="text" id="q" name="q" /></form>
 		</div>
@@ -132,7 +160,7 @@ $(document).ready(function(){
 				<!-- Left column/section -->
 				<section class="column width6 first">					
 
-					<h3>Uploaded Files</h3>
+					<h3>Show Lamps</h3>
 					
 					<div id="tabs">
 						<ul>
@@ -142,7 +170,7 @@ $(document).ready(function(){
 						<div id="tabs-date">
 							<div class="colgroup">
 								<div class="width3 column first">
-									<p>Showing <b>1-5</b> of <b>68</b> results</p>
+									<p>显示 <b>1-5</b> 共<b>68</b>条</p>
 								</div>
 								<div class="width3 column">
 									<p class="pagination ta-right">
@@ -159,7 +187,7 @@ $(document).ready(function(){
 								</div>
 							</div>
 							<div class="clearfix"></div>
-							<hr />
+							<hr id="hr"/>
 							
 							
 							
@@ -168,9 +196,9 @@ $(document).ready(function(){
 									<img SRC="../images/preview-not-available.gif" alt="" />
 								</div>
 								<div class="width5 column">
-									<a href="#" title="First working version of my CV"><b class="big">My Resume.doc</b></a><br/>
-									<small><b>75kB</b> |  Author: <b>UITemplates.com</b> |  Tags: <a href="#">cv</a> <a href="#">resume</a></small><br/>
-									<a href="#">remove</a> &middot; <a href="#">show</a> &middot; <a href="#">edit</a>
+									<a href="#" title="First working version of my CV"><b class="big">一盏漂亮灯</b></a><br/>
+									<small><b>75kB</b> |  类型: <b>台灯</b> |  灯饰: <a href="#">cv</a> <a href="#">xxxx</a></small><br/>
+									<a href="#">删除</a> &middot; <a href="#">展示</a> &middot; <a href="#">编辑</a>
 								</div>
 							</div>
 							
@@ -179,34 +207,34 @@ $(document).ready(function(){
 									<img SRC="../images/preview-not-available.gif" alt="" />
 								</div>
 								<div class="width5 column">
-									<a href="#"><b class="big">My Resume - v2.doc</b></a><br/>
-									<small><b>74kB</b> |  Author: <b>UITemplates.com</b> |  Tags: <a href="#">cv</a> <a href="#">resume</a></small><br/>
-									<a href="#">remove</a> &middot; <a href="#">show</a> &middot; <a href="#">edit</a>
+									<a href="#" title="First working version of my CV"><b class="big">一盏漂亮灯</b></a><br/>
+									<small><b>75kB</b> |  类型: <b>台灯</b> |  灯饰: <a href="#">cv</a> <a href="#">xxxx</a></small><br/>
+									<a href="#">删除</a> &middot; <a href="#">展示</a> &middot; <a href="#">编辑</a>
 								</div>
-							</div>		
+							</div>	
 							
-							<div class="colgroup leading">
+							 <div class="colgroup leading">
 								<div class="width1 column first ta-center">
 									<img SRC="../images/preview-not-available.gif" alt="" />
 								</div>
 								<div class="width5 column">
-									<a href="#"><b class="big">License Agreement.pdf</b></a><br/>
-									<small><b>12kB</b> |  Author: <b>UITemplates.com</b> |  Tags: <a href="#">license</a></small><br/>
-									<a href="#">remove</a> &middot; <a href="#">show</a> &middot; <a href="#">edit</a>
+									<a href="#" title="First working version of my CV"><b class="big">一盏漂亮灯</b></a><br/>
+									<small><b>75kB</b> |  类型: <b>台灯</b> |  灯饰: <a href="#">cv</a> <a href="#">xxxx</a></small><br/>
+									<a href="#">删除</a> &middot; <a href="#">展示</a> &middot; <a href="#">编辑</a>
 								</div>
 							</div>
 							
 							<div class="clearfix"></div>
 						 
 
-							<div class="colgroup leading">
+							 <div class="colgroup leading">
 								<div class="width1 column first ta-center">
 									<img SRC="../images/preview-not-available.gif" alt="" />
 								</div>
 								<div class="width5 column">
-									<a href="#" title="1600x1200, needs resizing"><b class="big">profile picture.jpg</b></a><br/>
-									<small><b>534kB</b> |  Author: <b>UITemplates.com</b> |  Tags: <a href="#">profile</a></small><br/>
-									<a href="#">remove</a> &middot; <a href="#">show</a> &middot; <a href="#">edit</a>
+									<a href="#" title="First working version of my CV"><b class="big">一盏漂亮灯</b></a><br/>
+									<small><b>75kB</b> |  类型: <b>台灯</b> |  灯饰: <a href="#">cv</a> <a href="#">xxxx</a></small><br/>
+									<a href="#">删除</a> &middot; <a href="#">展示</a> &middot; <a href="#">编辑</a>
 								</div>
 							</div>
 						
@@ -214,14 +242,14 @@ $(document).ready(function(){
 							
 							
 
-							<div class="colgroup leading">
+							 <div class="colgroup leading">
 								<div class="width1 column first ta-center">
 									<img SRC="../images/preview-not-available.gif" alt="" />
 								</div>
 								<div class="width5 column">
-									<a href="#"><b class="big">Tutorial1.avi</b></a><br/>
-									<small><b>12MB</b> |  Author: <b>UITemplates.com</b> |  Tags: <a href="#">tutorials</a></small><br/>
-									<a href="#">remove</a> &middot; <a href="#">show</a> &middot; <a href="#">edit</a>
+									<a href="#" title="First working version of my CV"><b class="big">一盏漂亮灯</b></a><br/>
+									<small><b>75kB</b> |  类型: <b>台灯</b> |  灯饰: <a href="#">cv</a> <a href="#">xxxx</a></small><br/>
+									<a href="#">删除</a> &middot; <a href="#">展示</a> &middot; <a href="#">编辑</a>
 								</div>
 							</div>
 							
@@ -230,7 +258,7 @@ $(document).ready(function(){
 							<hr/>
 							<div class="colgroup leading">
 								<div class="width3 column first">
-									<p>Showing <b>1-5</b> of <b>68</b> results</p>
+									<p>显示 <b>1-5</b> 共<b>68</b>条</p>
 								</div>
 								<div class="width3 column">
 									<p class="pagination ta-right">

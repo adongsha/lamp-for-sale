@@ -1,9 +1,9 @@
 package com.lamp.dao;
 
-import java.lang.reflect.Array;
 import java.util.List;
 
 import com.lamp.model.Lamp;
+import com.lamp.util.PageInfo;
 
 /**
  * 灯饰DAO模块
@@ -27,7 +27,7 @@ public interface LampDao {
       * 取得灯的列表
       * @return
       */
-     public List<Lamp> getLampList();
+     public List<Lamp> getLampList(PageInfo pageInfo);
      
 
 }
