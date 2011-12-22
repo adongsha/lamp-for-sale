@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 import com.lamp.dao.UserDao;
 import com.lamp.model.UserInfo;
+import com.lamp.util.PageInfo;
 @Component("userDao")
 public class UserDaoImpl extends HibernateDaoImpl implements UserDao {
     
@@ -56,9 +57,13 @@ public class UserDaoImpl extends HibernateDaoImpl implements UserDao {
 	/**
 	 * 用户列表
 	 */
-	public List<UserInfo> getUserList() {
+	public List<UserInfo> getUserList(PageInfo pageInfo) {
 		String hql = "from UserInfo";
-        return this.find(hql);
+		if(pageInfo == null){
+		return this.find(hql);
+		} else {
+			return this.findPageByQuery(hql, null, pageInfo);
+		}
 	}
 
 	/**

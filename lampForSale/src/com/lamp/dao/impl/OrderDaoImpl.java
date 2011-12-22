@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import com.lamp.dao.OrderDao;
 import com.lamp.model.OrderInfo;
+import com.lamp.util.PageInfo;
 @Component("orderDao")
 public class OrderDaoImpl extends HibernateDaoImpl implements OrderDao {
 
@@ -16,9 +17,13 @@ public class OrderDaoImpl extends HibernateDaoImpl implements OrderDao {
 	}
 
 	
-	public List<OrderInfo> orderList() {
+	public List<OrderInfo> orderList(PageInfo pageInfo) {
 		String hql = "from OrderInfo";
+		if(pageInfo == null){
 		return this.find(hql);
+		}else {
+		return this.findPageByQuery(hql, null, pageInfo);
+		}
 	}
 
 

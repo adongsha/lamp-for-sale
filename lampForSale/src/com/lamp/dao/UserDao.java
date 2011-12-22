@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.lamp.model.UserInfo;
+import com.lamp.util.PageInfo;
 
 /**
  * 用户DAO模块
@@ -42,7 +43,7 @@ public interface UserDao {
      * 得到所用用户列表
      * @return
      */
-    public List<UserInfo> getUserList();
+    public List<UserInfo> getUserList(PageInfo pageInfo);
     
     /**
      * 统计用户权限人数

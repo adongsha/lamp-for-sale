@@ -1,5 +1,9 @@
 package com.lamp.action;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.directwebremoting.annotations.RemoteMethod;
@@ -9,6 +13,8 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.lamp.service.OrderService;
+import com.lamp.util.PageInfo;
+import com.lamp.vo.OrderInfoVo;
 
 @Component("OrderAction")
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
@@ -91,6 +97,7 @@ public class OrderAction extends SuperAction {
 	 /**
      * 未处理的订单
      */
+    @RemoteMethod
     public Integer notDealOrder(){
     	return orderService.notDealOrder();
     }
@@ -99,6 +106,7 @@ public class OrderAction extends SuperAction {
      * 已经处理的订单
      * @return
      */
+    @RemoteMethod
     public Integer dealedOrder(){
     	return orderService.dealedOrder();
     }
@@ -107,6 +115,7 @@ public class OrderAction extends SuperAction {
      * 有问题的订单
      * @return
      */
+    @RemoteMethod
     public Integer problemOrder(){
     	return orderService.problemOrder();
     }
@@ -115,6 +124,7 @@ public class OrderAction extends SuperAction {
      * 已处理订单的总额
      * @return
      */
+    @RemoteMethod
     public Double dealedOrderAmount(){
     	return orderService.dealedOrderAmount();
     }
@@ -123,6 +133,7 @@ public class OrderAction extends SuperAction {
      * 未处理订单的总额
      * @return
      */
+    @RemoteMethod
     public Double notDealOrderAmount(){
     	return orderService.notDealOrderAmount();
     }
@@ -131,7 +142,22 @@ public class OrderAction extends SuperAction {
      * 有问题订单的总额
      * @return
      */
+    @RemoteMethod
     public Double problemOrderAmount(){
     	return orderService.problemOrderAmount();
+    }
+    
+    /**
+     * 订单列表和分页
+     * @param pageInfo 分页参数
+     * @return
+     */
+    @RemoteMethod
+    public Map<String, Object> orderListByPage(PageInfo pageInfo){
+    	List<OrderInfoVo> orderLists = orderService.orderListByPage(pageInfo);
+    	Map<String, Object> map = new HashMap<String, Object>();
+    	map.put("orderLists", orderLists);
+    	map.put("pageInfo", pageInfo);
+    	return map;
     }
 }

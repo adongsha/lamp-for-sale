@@ -10,15 +10,15 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>Admin Template by www.865171.cn</title>
+<title>LampForSale</title>
 <meta name="description" content="Administry - Admin Template by www.865171.cn" />
 <meta name="keywords" content="Admin,Template" />
 <!-- Favicons --> 
-<link rel="shortcut icon" type="image/png" HREF="../images/favicons/favicon.png"/>
-<link rel="icon" type="image/png" HREF="../images/favicons/favicon.png"/>
-<link rel="apple-touch-icon" HREF="../images/favicons/apple.png" />
+<link rel="shortcut icon" type="image/png" HREF="images/favicons/favicon.png"/>
+<link rel="icon" type="image/png" HREF="images/favicons/favicon.png"/>
+<link rel="apple-touch-icon" HREF="images/favicons/apple.png" />
 <!-- Main Stylesheet --> 
-<link rel="stylesheet" href="../css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
 <!-- Colour Schemes
 Default colour scheme is blue. Uncomment prefered stylesheet to use it.
 <link rel="stylesheet" href="css/brown.css" type="text/css" media="screen" />  
@@ -28,26 +28,26 @@ Default colour scheme is blue. Uncomment prefered stylesheet to use it.
 <link rel="stylesheet" href="css/red.css" type="text/css" media="screen" />
 -->
 <!-- Your Custom Stylesheet --> 
-<link rel="stylesheet" href="../css/custom.css" type="text/css" />
+<link rel="stylesheet" href="css/custom.css" type="text/css" />
 <!--swfobject - needed only if you require <video> tag support for older browsers -->
-<script type="text/javascript" SRC="../javascript/swfobject.js"></script>
+<script type="text/javascript" SRC="javascript/swfobject.js"></script>
 <!-- jQuery with plugins -->
-<script type="text/javascript" SRC="../javascript/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" SRC="javascript/jquery-1.4.2.min.js"></script>
 <!-- Could be loaded remotely from Google CDN : <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script> -->
-<script type="text/javascript" SRC="../javascript/jquery.ui.core.min.js"></script>
-<script type="text/javascript" SRC="../javascript/jquery.ui.widget.min.js"></script>
-<script type="text/javascript" SRC="../javascript/jquery.ui.tabs.min.js"></script>
+<script type="text/javascript" SRC="javascript/jquery.ui.core.min.js"></script>
+<script type="text/javascript" SRC="javascript/jquery.ui.widget.min.js"></script>
+<script type="text/javascript" SRC="javascript/jquery.ui.tabs.min.js"></script>
 <!-- jQuery tooltips -->
-<script type="text/javascript" SRC="../javascript/jquery.tipTip.min.js"></script>
+<script type="text/javascript" SRC="javascript/jquery.tipTip.min.js"></script>
 <!-- Superfish navigation -->
-<script type="text/javascript" SRC="../javascript/jquery.superfish.min.js"></script>
-<script type="text/javascript" SRC="../javascript/jquery.supersubs.min.js"></script>
+<script type="text/javascript" SRC="javascript/jquery.superfish.min.js"></script>
+<script type="text/javascript" SRC="javascript/jquery.supersubs.min.js"></script>
 <!-- jQuery form validation -->
-<script type="text/javascript" SRC="../javascript/jquery.validate_pack.js"></script>
+<script type="text/javascript" SRC="javascript/jquery.validate_pack.js"></script>
 <!-- jQuery popup box -->
-<script type="text/javascript" SRC="../javascript/jquery.nyroModal.pack.js"></script>
+<script type="text/javascript" SRC="javascript/jquery.nyroModal.pack.js"></script>
 <!-- jQuery data tables -->
-<script type="text/javascript" SRC="../javascript/jquery.dataTables.min.js"></script>
+<script type="text/javascript" SRC="javascript/jquery.dataTables.min.js"></script>
 <!-- Internet Explorer Fixes --> 
 <!--[if IE]>
 <link rel="stylesheet" type="text/css" media="all" href="css/ie.css"/>
@@ -65,21 +65,15 @@ Default colour scheme is blue. Uncomment prefered stylesheet to use it.
 <script type="text/javascript">
 $(document).ready(function(){
 	
-	/* setup navigation, content boxes, etc... */
-	Administry.setup();
-	
-	/* datatable */
-	$('#example').dataTable();
-	
-	/* expandable rows */
-	Administry.expandableRows();
-	
+		//Administry.setup();
+     	//$('#example').dataTable();
+	   // Administry.expandableRows();
 	orderAction.notDealOrder(function(data){
-      $("#notDealOrder").html(data)
+      $("#notDealorder").html(data)
      });
      
-    orderAction.dealOrder(function(data) {
-      $("#dealOrder").html(data);
+    orderAction.dealedOrder(function(data) {
+      $("#dealorder").html(data);
     });
     
     orderAction.problemOrder(function(data) {
@@ -90,7 +84,7 @@ $(document).ready(function(){
       $("#notDealAmount").html(data);
     });
     
-    orderAction.dealOrderAmount(function(data) {
+    orderAction.dealedOrderAmount(function(data) {
       $("#dealAmount").html(data);
     });
     
@@ -98,8 +92,58 @@ $(document).ready(function(){
       $("#problemAmount").html(data);
     });
     
-    
+    executeQuery(orderAction.orderListByPage,[orderLists]);
 });
+
+function orderLists(data){
+   var page = data.pageInfo;
+   var orders = data.orderLists;
+   if(data == null || data.length == 0){
+      alert("没有订单！ ");
+      return;
+   }
+   if(!page){
+   alert("出错了！请重试...");
+   }
+   //alert(page.totalPage+"|"+page.pageIndex+"|"+page.pageSize+"|"+page.totalRec);
+   initPage(page.totalPage, page.pageIndex, page.pageSize, page.totalRec);
+   for(var i = 0; i < orders.length; i++){
+   var order = orders[i];
+   var orderStatus = order.orderStatus;
+   if(orderStatus = 1){
+      orderStatus = "已处理";
+   }
+   if(orderStatus = 2){
+      orderStatus = "未处理";
+   }
+   var orderId = order.orderId;
+   var userName = order.userName;
+   var allPrice = order.allPrice;
+   var tr = '<tr><td width="15%">'
+          +orderId
+          +'</td><td width="24%">'
+          +userName
+          +'</td><td width="32%">'
+          +'<input type="submit" value="查看" id="'
+          +orderId
+          +'" onclick="seeOrder(this)"/><input type="submit" value="删除" id="'
+          +orderId
+          +'" onclick="delOrder()"/></td><td width="16%">'
+          +allPrice
+          +'</td><td width="13%"><input type="submit" value="'
+          +orderStatus
+          +'"/>'
+          +'</td></tr>'
+    $("#example").append(tr);
+   }
+}
+
+function seeOrder(){
+  orderAction.seeOrder(id,function() {
+    
+  });
+}
+
 </script>
 </head>
 <body>
@@ -107,10 +151,10 @@ $(document).ready(function(){
 	<header id="top">
 		<div class="wrapper">
 			<!-- Title/Logo - can use text instead of image -->
-			<div id="title"><img SRC="../images/logo.png" alt="Administry" /><!--<span>Administry</span> demo--></div>
+			<div id="title"><img SRC="images/logo.png" alt="Administry" /><!--<span>Administry</span> demo--></div>
 			<!-- Top navigation -->
 			<div id="topnav">
-				<a href="#"><img class="avatar" SRC="../images/user_32.png" alt="" /></a>
+				<a href="#"><img class="avatar" SRC="images/user_32.png" alt="" /></a>
 				Logged in as <b>Admin</b>
 				<span>|</span> <a href="#">Settings</a>
 				<span>|</span> <a href="#">Logout</a><br />
@@ -255,8 +299,7 @@ $(document).ready(function(){
                              
 							</tr>
 						</thead>
-						<tbody>
-							<tr class="gradeX">
+							<!--<tr class="gradeX">
 								<td>Trident</td>
 								<td>Internet Explorer 4.0</td>
 								<td>Win 95+</td>
@@ -658,8 +701,7 @@ $(document).ready(function(){
 								<td class="center">-</td>
 								<td class="center">U</td>
 							</tr>
-						</tbody>
-						<tfoot>
+						--><tfoot>
 							<tr>
 								<th width="15%">型号</th>
 								<th width="24%">名称</th>
@@ -669,9 +711,31 @@ $(document).ready(function(){
 							</tr>
 						</tfoot>
 					</table>
-					
+					<div id="allDataDiv">
+							<!--上一页，下一页 开始-->
+							<table width="100%" class="pagecss">
+								<tr>
+									<td align="left">
+										<span id="AllPage">共几页/几条</span>
+										<span id="setupNum">显示每页记录条数</span>
+										<select id="setSize"
+											onchange="ajaxChangeCount(this.options[this.options.selectedIndex].value)">
+										</select>
+									</td>
+									<td align="right">
+										<span id="Flexigrid_Bar"><a href="">上5页</a><span
+											class="dan">1</span><a href="">2</a><a href="">3</a><a
+											href="">下5页</a> </span>
+										<span id="checkPage"><input type="text"
+												style="width: 20px;" />&nbsp;页<a href="">GO</a> </span>
+									</td>
+								</tr>
+							</table>
+							<!--上一页，下一页 结束-->
+						</div>
+						
+						
 					<div class="clear">&nbsp;</div>
-					
 				</section>
 				<!-- End of Left column/section -->
 				
@@ -682,11 +746,11 @@ $(document).ready(function(){
 							<h3>You might also want to check out...</h3>
 						</header>
 						<dl class="first">
-							<dt><img width="16" height="16" alt="Basic styles" SRC="../images/style.png"></dt>
+							<dt><img width="16" height="16" alt="Basic styles" SRC="images/style.png"></dt>
 							<dd><a HREF="styles.html">Basic styles</a></dd>
 							<dd class="last">Basic elements and styles</dd>							
 							
-							<dt><img width="16" height="16" alt="" SRC="../images/book.png"></dt>
+							<dt><img width="16" height="16" alt="" SRC="images/book.png"></dt>
 							<dd><a HREF="http://www.865171.cn">www.865171.cn</a></dd>
 							<dd class="last">Datatable documentation</dd>							
 						</dl>
@@ -710,6 +774,64 @@ $(document).ready(function(){
 		<!-- End of Wrapper -->
 	</div>
 	<!-- End of Page content -->
+	
+	<!-- 查看订单Div对话框 -->
+							<div id="seeOrderDiv" style="display: none;">
+								<div class="noData">
+									<samp>
+										补考结果
+									</samp>
+									<!---暂无数据 根据当前考核结果 动态修改 这个层的文本 不明白效果 问美工-->
+								</div>
+								<table border="0" cellpadding="6" cellspacing="1"
+									class="table_popup1">
+									<tr>
+										<th style="display: none;">
+											分数ID
+										</th>
+										<!-- 获得分数Id ，但不显示，只进行数据传输-->
+										<th>
+											学号
+										</th>
+										<th>
+											姓名
+										</th>
+										<!--
+
+					                    <th><samp>补考</samp>结果</th>
+					                    -->
+										<th>
+											<samp>
+												补考
+											</samp>
+											成绩
+										</th>
+										<th>
+											<samp>
+												补考
+											</samp>
+											次数
+										</th>
+									</tr>
+									<tr class="table_centre">
+										<td style="display: none;" id="markIdAdd"></td>
+										<td id="stuNumAdd">
+											0104100716
+										</td>
+										<td id="stuNameAdd">
+											刘日斯
+										</td>
+										<td id="makeUpScoreAdd">
+											<input type="text" size="5" maxlength="3" id="addInputScore" />
+										</td>
+										<td id="makeUpCountAdd"></td>
+									</tr>
+								</table>
+							</div>
+	
+	
+	
+	
 	
 	<!-- Page footer -->
 	<footer id="bottom">
@@ -744,6 +866,6 @@ $(document).ready(function(){
 	<a href="#" id="totop">^ scroll to top</a>
 
 <!-- User interface javascript load -->
-<script type="text/javascript" SRC="../javascript/administry.js"></script>
+<script type="text/javascript" SRC="javascript/administry.js"></script>
 </body>
 </html>

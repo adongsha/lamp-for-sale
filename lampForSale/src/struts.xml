@@ -29,5 +29,8 @@
        
       </action>
       
+      <action name="orderList" class="OrderAction">
+        <result>/web/ad_order.jsp</result>
+      </action>
     </package>
 </struts>    
