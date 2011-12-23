@@ -14,11 +14,11 @@
 <meta name="description" content="Administry - Admin Template by www.865171.cn" />
 <meta name="keywords" content="Admin,Template" />
 <!-- Favicons --> 
-<link rel="shortcut icon" type="image/png" HREF="../images/favicons/favicon.png"/>
-<link rel="icon" type="image/png" HREF="../images/favicons/favicon.png"/>
-<link rel="apple-touch-icon" HREF="../images/favicons/apple.png" />
+<link rel="shortcut icon" type="image/png" HREF="images/favicons/favicon.png"/>
+<link rel="icon" type="image/png" HREF="images/favicons/favicon.png"/>
+<link rel="apple-touch-icon" HREF="images/favicons/apple.png" />
 <!-- Main Stylesheet --> 
-<link rel="stylesheet" href="../css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
 <!-- Colour Schemes
 Default colour scheme is blue. Uncomment prefered stylesheet to use it.
 <link rel="stylesheet" href="css/brown.css" type="text/css" media="screen" />  
@@ -28,24 +28,24 @@ Default colour scheme is blue. Uncomment prefered stylesheet to use it.
 <link rel="stylesheet" href="css/red.css" type="text/css" media="screen" />
 -->
 <!-- Your Custom Stylesheet --> 
-<link rel="stylesheet" href="../css/custom.css" type="text/css" />
+<link rel="stylesheet" href="css/custom.css" type="text/css" />
 <!--swfobject - needed only if you require <video> tag support for older browsers -->
-<script type="text/javascript" SRC="../javascript/swfobject.js"></script>
+<script type="text/javascript" SRC="javascript/swfobject.js"></script>
 <!-- jQuery with plugins -->
-<script type="text/javascript" SRC="../javascript/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" SRC="javascript/jquery-1.4.2.min.js"></script>
 <!-- Could be loaded remotely from Google CDN : <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script> -->
-<script type="text/javascript" SRC="../javascript/jquery.ui.core.min.js"></script>
-<script type="text/javascript" SRC="../javascript/jquery.ui.widget.min.js"></script>
-<script type="text/javascript" SRC="../javascript/jquery.ui.tabs.min.js"></script>
+<script type="text/javascript" SRC="javascript/jquery.ui.core.min.js"></script>
+<script type="text/javascript" SRC="javascript/jquery.ui.widget.min.js"></script>
+<script type="text/javascript" SRC="javascript/jquery.ui.tabs.min.js"></script>
 <!-- jQuery tooltips -->
-<script type="text/javascript" SRC="../javascript/jquery.tipTip.min.js"></script>
+<script type="text/javascript" SRC="javascript/jquery.tipTip.min.js"></script>
 <!-- Superfish navigation -->
-<script type="text/javascript" SRC="../javascript/jquery.superfish.min.js"></script>
-<script type="text/javascript" SRC="../javascript/jquery.supersubs.min.js"></script>
+<script type="text/javascript" SRC="javascript/jquery.superfish.min.js"></script>
+<script type="text/javascript" SRC="javascript/jquery.supersubs.min.js"></script>
 <!-- jQuery popup box -->
-<script type="text/javascript" SRC="../javascript/jquery.nyroModal.pack.js"></script>
+<script type="text/javascript" SRC="javascript/jquery.nyroModal.pack.js"></script>
 <!-- jQuery form validation -->
-<script type="text/javascript" SRC="../javascript/jquery.validate_pack.js"></script>
+<script type="text/javascript" SRC="javascript/jquery.validate_pack.js"></script>
 <!-- Internet Explorer Fixes --> 
 <!--[if IE]>
 <link rel="stylesheet" type="text/css" media="all" href="css/ie.css"/>
@@ -64,20 +64,19 @@ Default colour scheme is blue. Uncomment prefered stylesheet to use it.
 
 $(document).ready(function(){
 	
-	Administry.setup();
+	//Administry.setup();
 
-	Administry.progress("#capacity", 72, 100);
+	//Administry.progress("#capacity", 72, 100);
 	
-	$("#tabs").tabs();
+	//$("#tabs").tabs();
 	
 	executeQuery(lampAction.lampListByPage,[lampsLists]);
 });
 function lampsLists(data){
     alert("data-->"+data);
     var pageInfo = data.pageInfo;
-    alert("pageInfo-->"+pageInfo);
     var lampVos = data.lampVos;
-    alert("lampVos-->"+lampVos);
+     initPage(page.totalPage, page.pageIndex, page.pageSize, page.totalRec);
     for(var i = 0; i<lampVos.length; i++){
       var lamp = lampVos[i];
       alert("lamp-->"+lamp);
@@ -95,6 +94,7 @@ function lampsLists(data){
 				+lamp.isbn
 				+'</a></small><br/><a href="#">删除</a> &middot; <a href="#">展示</a> &middot; <a href="#">编辑</a></div>'
 				+'</div>';
+		$("#hr").append(div);		
     }
 }
 </script>
@@ -104,10 +104,10 @@ function lampsLists(data){
 	<header id="top">
 		<div class="wrapper">
 			<!-- Title/Logo - can use text instead of image -->
-			<div id="title"><img SRC="../images/logo.png" alt="Administry" /><!--<span>Administry</span> demo--></div>
+			<div id="title"><img SRC="images/logo.png" alt="Administry" /><!--<span>Administry</span> demo--></div>
 			<!-- Top navigation -->
 			<div id="topnav">
-				<a href="#"><img class="avatar" SRC="../images/user_32.png" alt="" /></a>
+				<a href="#"><img class="avatar" SRC="images/user_32.png" alt="" /></a>
 				Logged in as <b>Admin</b>
 				<span>|</span> <a href="#">Settings</a>
 				<span>|</span> <a href="#">Logout</a><br />
@@ -163,12 +163,12 @@ function lampsLists(data){
 					<h3>Show Lamps</h3>
 					
 					<div id="tabs">
-						<ul>
+						<!--<ul>
 							<li><a class="corner-tl" href="#tabs-date">List by date</a></li>
 							
 						</ul>
-						<div id="tabs-date">
-							<div class="colgroup">
+						--><div id="tabs-date">
+							<!--<div class="colgroup">
 								<div class="width3 column first">
 									<p>显示 <b>1-5</b> 共<b>68</b>条</p>
 								</div>
@@ -186,14 +186,14 @@ function lampsLists(data){
 									</p>
 								</div>
 							</div>
-							<div class="clearfix"></div>
+							--><div class="clearfix"></div>
 							<hr id="hr"/>
 							
 							
 							
-						  <div class="colgroup leading">
+						  <!--<div class="colgroup leading">
 								<div class="width1 column first ta-center">
-									<img SRC="../images/preview-not-available.gif" alt="" />
+									<img SRC="images/preview-not-available.gif" alt="" />
 								</div>
 								<div class="width5 column">
 									<a href="#" title="First working version of my CV"><b class="big">一盏漂亮灯</b></a><br/>
@@ -204,7 +204,7 @@ function lampsLists(data){
 							
 						  <div class="colgroup leading">
 								<div class="width1 column first ta-center">
-									<img SRC="../images/preview-not-available.gif" alt="" />
+									<img SRC="images/preview-not-available.gif" alt="" />
 								</div>
 								<div class="width5 column">
 									<a href="#" title="First working version of my CV"><b class="big">一盏漂亮灯</b></a><br/>
@@ -215,7 +215,7 @@ function lampsLists(data){
 							
 							 <div class="colgroup leading">
 								<div class="width1 column first ta-center">
-									<img SRC="../images/preview-not-available.gif" alt="" />
+									<img SRC="images/preview-not-available.gif" alt="" />
 								</div>
 								<div class="width5 column">
 									<a href="#" title="First working version of my CV"><b class="big">一盏漂亮灯</b></a><br/>
@@ -229,7 +229,7 @@ function lampsLists(data){
 
 							 <div class="colgroup leading">
 								<div class="width1 column first ta-center">
-									<img SRC="../images/preview-not-available.gif" alt="" />
+									<img SRC="images/preview-not-available.gif" alt="" />
 								</div>
 								<div class="width5 column">
 									<a href="#" title="First working version of my CV"><b class="big">一盏漂亮灯</b></a><br/>
@@ -244,7 +244,7 @@ function lampsLists(data){
 
 							 <div class="colgroup leading">
 								<div class="width1 column first ta-center">
-									<img SRC="../images/preview-not-available.gif" alt="" />
+									<img SRC="images/preview-not-available.gif" alt="" />
 								</div>
 								<div class="width5 column">
 									<a href="#" title="First working version of my CV"><b class="big">一盏漂亮灯</b></a><br/>
@@ -253,10 +253,32 @@ function lampsLists(data){
 								</div>
 							</div>
 							
-							<div class="clearfix"></div>
+							--><div class="clearfix"></div>
 							
 							<hr/>
-							<div class="colgroup leading">
+							<div id="allDataDiv">
+							<!--上一页，下一页 开始-->
+							<table width="100%" class="pagecss">
+								<tr>
+									<td align="left">
+										<span id="AllPage">共几页/几条</span>
+										<span id="setupNum">显示每页记录条数</span>
+										<select id="setSize"
+											onchange="ajaxChangeCount(this.options[this.options.selectedIndex].value)">
+										</select>
+									</td>
+									<td align="right">
+										<span id="Flexigrid_Bar"><a href="">上5页</a><span
+											class="dan">1</span><a href="">2</a><a href="">3</a><a
+											href="">下5页</a> </span>
+										<span id="checkPage"><input type="text"
+												style="width: 20px;" />&nbsp;页<a href="">GO</a> </span>
+									</td>
+								</tr>
+							</table>
+							<!--上一页，下一页 结束-->
+						</div>
+							<!--<div class="colgroup leading">
 								<div class="width3 column first">
 									<p>显示 <b>1-5</b> 共<b>68</b>条</p>
 								</div>
@@ -274,7 +296,7 @@ function lampsLists(data){
 									</p>
 								</div>
 							</div>
-							<div class="clearfix"></div>
+							--><div class="clearfix"></div>
 						
 						</div>
 				
@@ -323,6 +345,6 @@ function lampsLists(data){
 	<a href="#" id="totop">^ scroll to top</a>
 
 <!-- User interface javascript load -->
-<script type="text/javascript" SRC="../javascript/administry.js"></script>
+<script type="text/javascript" SRC="javascript/administry.js"></script>
 </body>
 </html>

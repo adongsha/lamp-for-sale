@@ -1,6 +1,5 @@
 package com.lamp.model;
 
-import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.CascadeType;
@@ -12,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -34,11 +34,12 @@ public class OrderInfo implements java.io.Serializable {
 	private String code;
 	private String orderTime;
 	private Double allPrice;
-	private Integer isBackSingle;    //1表示退单的...null表示没有
+	private Integer isBackSingle;
 	private Integer orderStatus;
 	private Set<SaleTable> saleTables = new HashSet<SaleTable>(0);
 	private Set<OrderStatus> orderStatuses = new HashSet<OrderStatus>(0);
 	private Set<OrderGoods> orderGoodses = new HashSet<OrderGoods>(0);
+	private CartShop cartShop;
 
 	// Constructors
 
@@ -54,9 +55,10 @@ public class OrderInfo implements java.io.Serializable {
 	/** full constructor */
 	public OrderInfo(UserInfo userInfo, String orderPerson, String orderEmail,
 			String orderCompany, String orderAddress, String orderPhone,
-			String message, String code, String orderTime, Double allPrice,Integer isBackSingle,
+			String message, String code, String orderTime, Double allPrice,
+			Integer isBackSingle, Integer orderStatus,
 			Set<SaleTable> saleTables, Set<OrderStatus> orderStatuses,
-			Set<OrderGoods> orderGoodses) {
+			Set<OrderGoods> orderGoodses, CartShop cartShop) {
 		this.userInfo = userInfo;
 		this.orderPerson = orderPerson;
 		this.orderEmail = orderEmail;
@@ -67,10 +69,12 @@ public class OrderInfo implements java.io.Serializable {
 		this.code = code;
 		this.orderTime = orderTime;
 		this.allPrice = allPrice;
+		this.isBackSingle = isBackSingle;
+		this.orderStatus = orderStatus;
 		this.saleTables = saleTables;
 		this.orderStatuses = orderStatuses;
 		this.orderGoodses = orderGoodses;
-		this.isBackSingle = isBackSingle;
+		this.cartShop = cartShop;
 	}
 
 	// Property accessors
@@ -107,15 +111,6 @@ public class OrderInfo implements java.io.Serializable {
 	@Column(name = "orderEmail", length = 50)
 	public String getOrderEmail() {
 		return this.orderEmail;
-	}
-
-	@Column(name = "isBackSingle")
-	public Integer getIsBackSingle() {
-		return isBackSingle;
-	}
-
-	public void setIsBackSingle(Integer isBackSingle) {
-		this.isBackSingle = isBackSingle;
 	}
 
 	public void setOrderEmail(String orderEmail) {
@@ -167,7 +162,7 @@ public class OrderInfo implements java.io.Serializable {
 		this.code = code;
 	}
 
-	@Column(name = "orderTime", length = 23)
+	@Column(name = "orderTime", length = 100)
 	public String getOrderTime() {
 		return this.orderTime;
 	}
@@ -176,13 +171,31 @@ public class OrderInfo implements java.io.Serializable {
 		this.orderTime = orderTime;
 	}
 
-	@Column(name = "allPrice")
+	@Column(name = "allPrice", precision = 15, scale = 0)
 	public Double getAllPrice() {
 		return this.allPrice;
 	}
 
 	public void setAllPrice(Double allPrice) {
 		this.allPrice = allPrice;
+	}
+
+	@Column(name = "isBackSingle")
+	public Integer getIsBackSingle() {
+		return this.isBackSingle;
+	}
+
+	public void setIsBackSingle(Integer isBackSingle) {
+		this.isBackSingle = isBackSingle;
+	}
+
+	@Column(name = "orderStatus")
+	public Integer getOrderStatus() {
+		return this.orderStatus;
+	}
+
+	public void setOrderStatus(Integer orderStatus) {
+		this.orderStatus = orderStatus;
 	}
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "orderInfo")
@@ -212,14 +225,13 @@ public class OrderInfo implements java.io.Serializable {
 		this.orderGoodses = orderGoodses;
 	}
 
-	@Column(name = "orderStatus")
-	public Integer getOrderStatus() {
-		return orderStatus;
+	@OneToOne(fetch = FetchType.LAZY, mappedBy = "orderInfo")
+	public CartShop getCartShop() {
+		return this.cartShop;
 	}
 
-	public void setOrderStatus(Integer orderStatus) {
-		this.orderStatus = orderStatus;
+	public void setCartShop(CartShop cartShop) {
+		this.cartShop = cartShop;
 	}
 
-	
 }
