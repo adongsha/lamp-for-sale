@@ -32,5 +32,9 @@
       <action name="orderList" class="OrderAction">
         <result>/web/ad_order.jsp</result>
       </action>
+      
+      <action name="showLamp" class="LampAction">
+        <result>/web/ad_showLamp.jsp</result>
+      </action>
     </package>
 </struts>    

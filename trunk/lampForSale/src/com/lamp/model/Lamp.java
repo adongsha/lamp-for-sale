@@ -21,7 +21,6 @@ public class Lamp implements java.io.Serializable {
 	// Fields
 
 	private Integer lampId;
-	private String isbn;
 	private String lampName;
 	private String type;
 	private String lampDescription;
@@ -38,6 +37,8 @@ public class Lamp implements java.io.Serializable {
 	private String prictureImage4;
 	private String evaluationCount;
 	private Integer saleEvMouth;
+	private String isbn;
+	private Set<CartShop> cartShops = new HashSet<CartShop>(0);
 	private Set<Forum> forums = new HashSet<Forum>(0);
 
 	// Constructors
@@ -47,19 +48,18 @@ public class Lamp implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public Lamp(String isbn, String lampName) {
-		this.isbn = isbn;
+	public Lamp(String lampName) {
 		this.lampName = lampName;
 	}
 
 	/** full constructor */
-	public Lamp(String isbn, String lampName, String type,
-			String lampDescription, Double price, String origin,
-			String isDiscount, String size, String material, String process,
-			String weight, String prictureImage1, String prictureImage2,
+	public Lamp(String lampName, String type, String lampDescription,
+			Double price, String origin, String isDiscount, String size,
+			String material, String process, String weight,
+			String prictureImage1, String prictureImage2,
 			String prictureImage3, String prictureImage4,
-			String evaluationCount, Integer saleEvMouth, Set<Forum> forums) {
-		this.isbn = isbn;
+			String evaluationCount, Integer saleEvMouth, String isbn,
+			Set<CartShop> cartShops, Set<Forum> forums) {
 		this.lampName = lampName;
 		this.type = type;
 		this.lampDescription = lampDescription;
@@ -76,6 +76,8 @@ public class Lamp implements java.io.Serializable {
 		this.prictureImage4 = prictureImage4;
 		this.evaluationCount = evaluationCount;
 		this.saleEvMouth = saleEvMouth;
+		this.isbn = isbn;
+		this.cartShops = cartShops;
 		this.forums = forums;
 	}
 
@@ -89,15 +91,6 @@ public class Lamp implements java.io.Serializable {
 
 	public void setLampId(Integer lampId) {
 		this.lampId = lampId;
-	}
-
-	@Column(name = "isbn", nullable = false, length = 50)
-	public String getIsbn() {
-		return this.isbn;
-	}
-
-	public void setIsbn(String isbn) {
-		this.isbn = isbn;
 	}
 
 	@Column(name = "lampName", nullable = false, length = 50)
@@ -190,7 +183,7 @@ public class Lamp implements java.io.Serializable {
 		this.weight = weight;
 	}
 
-	@Column(name = "prictureImage1", length = 50)
+	@Column(name = "prictureImage1", length = 200)
 	public String getPrictureImage1() {
 		return this.prictureImage1;
 	}
@@ -199,7 +192,7 @@ public class Lamp implements java.io.Serializable {
 		this.prictureImage1 = prictureImage1;
 	}
 
-	@Column(name = "prictureImage2", length = 50)
+	@Column(name = "prictureImage2", length = 200)
 	public String getPrictureImage2() {
 		return this.prictureImage2;
 	}
@@ -208,7 +201,7 @@ public class Lamp implements java.io.Serializable {
 		this.prictureImage2 = prictureImage2;
 	}
 
-	@Column(name = "prictureImage3", length = 50)
+	@Column(name = "prictureImage3", length = 200)
 	public String getPrictureImage3() {
 		return this.prictureImage3;
 	}
@@ -217,7 +210,7 @@ public class Lamp implements java.io.Serializable {
 		this.prictureImage3 = prictureImage3;
 	}
 
-	@Column(name = "prictureImage4", length = 50)
+	@Column(name = "prictureImage4", length = 200)
 	public String getPrictureImage4() {
 		return this.prictureImage4;
 	}
@@ -242,6 +235,24 @@ public class Lamp implements java.io.Serializable {
 
 	public void setSaleEvMouth(Integer saleEvMouth) {
 		this.saleEvMouth = saleEvMouth;
+	}
+
+	@Column(name = "isbn", length = 50)
+	public String getIsbn() {
+		return this.isbn;
+	}
+
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
+	}
+
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "lamp")
+	public Set<CartShop> getCartShops() {
+		return this.cartShops;
+	}
+
+	public void setCartShops(Set<CartShop> cartShops) {
+		this.cartShops = cartShops;
 	}
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "lamp")
