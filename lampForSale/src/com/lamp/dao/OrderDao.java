@@ -133,4 +133,13 @@ public interface OrderDao {
     public Double problemOrderAmount();
     
    // public List<OrderInfo> selectOrder(String orderId);
+    
+    /**
+     * 已结账的订单列表
+     * @param pageInfo    分页参数
+     * @param orderStatus 订单的状态
+     * @return
+     */
+    public List<OrderInfo> orderStatusListByPage(PageInfo pageInfo, int orderStatus);
+
 }

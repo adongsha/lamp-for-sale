@@ -7,7 +7,7 @@ public class LampVo {
 	private Integer lampId;
 	private String isbn;
 	private String lampName;
-	private String type;
+	private Integer type;
 	private String lampDescription;
 	private Double price;
 	private String origin;
@@ -47,11 +47,11 @@ public class LampVo {
 		this.lampName = lampName;
 	}
 
-	public String getType() {
+	public Integer getType() {
 		return type;
 	}
 
-	public void setType(String type) {
+	public void setType(Integer type) {
 		this.type = type;
 	}
 

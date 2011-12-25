@@ -44,4 +44,20 @@ public class LampService {
     	}
     	return lampVos;
     }
+    
+    /**
+     * 分类查询灯饰列表
+     * @param pageInfo  分页参数
+     * @param type      灯饰类型
+     * @return
+     */
+    public List<LampVo> lampTypeListByPage(PageInfo pageInfo, Integer type){
+    	List<Lamp> lamps = lampDao.lampTypeListByPage(pageInfo, type);
+    	List<LampVo> lampVos = new ArrayList<LampVo>();
+    	for(Lamp lamp : lamps){
+    		LampVo lampVo = Model2VoUtil.lamp2lampVo(lamp);
+    		lampVos.add(lampVo);
+    	}
+    	return lampVos;
+    }
 }

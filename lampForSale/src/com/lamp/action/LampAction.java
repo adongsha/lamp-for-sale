@@ -28,6 +28,11 @@ public class LampAction extends SuperAction {
 		this.lampService = lampService;
 	}
       
+      /**
+       * 显示所用灯饰
+       * @param pageInfo  分页参数
+       * @return
+       */
     @RemoteMethod
     public Map<String, Object> lampListByPage(PageInfo pageInfo){
     	Map<String, Object> map = new HashMap<String, Object>();
@@ -36,4 +41,19 @@ public class LampAction extends SuperAction {
     	map.put("pageInfo", pageInfo);
     	return map;
     }  
+    
+    /**
+     * 分类显示灯饰
+     * @param pageInfo  分页参数
+     * @param type      类型
+     * @return
+     */
+    @RemoteMethod
+    public Map<String, Object> lampTypeListByPage(PageInfo pageInfo, Integer type){
+    	Map<String, Object> map = new HashMap<String, Object>();
+        List<LampVo> lampVos = lampService.lampTypeListByPage(pageInfo, type);
+        map.put("pageInfo", pageInfo);
+        map.put("lampVos", lampVos);
+        return map;
+    }
 }

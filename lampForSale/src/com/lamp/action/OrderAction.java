@@ -160,4 +160,19 @@ public class OrderAction extends SuperAction {
     	map.put("pageInfo", pageInfo);
     	return map;
     }
+    
+    /**
+     * 分类订单列表
+     * @param pageInfo    分页参数
+     * @param orderStatus 订单状态
+     * @return
+     */
+    @RemoteMethod
+    public Map<String, Object> orderStatusListByPage(PageInfo pageInfo, int orderStatus){
+    	List<OrderInfoVo> orderInfoVos = orderService.orderStatusListByPage(pageInfo, orderStatus);
+    	Map<String, Object> map = new HashMap<String, Object>();
+    	map.put("pageInfo", pageInfo);
+    	map.put("orderInfoVos", orderInfoVos);
+    	return map;
+    }
 }

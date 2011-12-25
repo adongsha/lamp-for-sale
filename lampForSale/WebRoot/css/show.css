@@ -2,23 +2,23 @@
 @import "style_outline.css";
 /*-----------------------------------产品展示----------------------------------------------------*/
 .picture_show{
-width:470px;
+width:420px;
 height:549px;
 margin-left:15px;
 }
 .col{
-width:470px;
+width:420px;
 height:173px;
 margin-bottom:10px;
 }
 .element{
-width:151px;
-height:173px;
+width:120px;
+height:150px;
 float:left;
-margin-right:5px;
+margin-right:3px;
 }
 .row{
-width:130px;
+width:100px;
 height:150px;
 margin-right:0;
 margin-left:10px;
@@ -26,7 +26,7 @@ float:left;
 border:dashed #999999 1px;
 }
 .row_title{
-width:110px;
+width:100px;
 height:12px;
 color:#666666;
 margin-left:10px;

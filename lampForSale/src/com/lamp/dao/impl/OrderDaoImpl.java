@@ -221,8 +221,20 @@ public class OrderDaoImpl extends HibernateDaoImpl implements OrderDao {
 		}
 		return allPrice;
 	}
-	
 
+
+	public List<OrderInfo> orderStatusListByPage(PageInfo pageInfo,
+			int orderStatus) {
+		String hql = "from OrderInfo o where o.orderStatus="+orderStatus;
+		if(pageInfo == null){
+			return this.find(hql);
+		} else {
+	        return this.findPageByQuery(hql, null, pageInfo);		
+		}
+	}
+	
+    
+	
 	
 	
 

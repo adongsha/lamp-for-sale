@@ -183,7 +183,9 @@ public class OrderService {
     }
     
     /*---------------------------------------------------*/
-    
+    /**
+     * 所用订单
+     */
     public List<OrderInfoVo> orderListByPage(PageInfo pageInfo) {
     	List<OrderInfo> lists = orderDao.orderList(pageInfo);
     	List<OrderInfoVo> listVos = new ArrayList<OrderInfoVo>();
@@ -192,5 +194,18 @@ public class OrderService {
     		listVos.add(orderInfoVo);
     	}
     	return listVos;
+    }
+    
+    /**
+     * 分类订单:已处理订单、未处理订单、有问题订单
+     */
+    public List<OrderInfoVo> orderStatusListByPage(PageInfo pageInfo, int orderStatus){
+    	List<OrderInfo> orderInfos = orderDao.orderStatusListByPage(pageInfo, orderStatus);
+        List<OrderInfoVo> orderInfoVos = new ArrayList<OrderInfoVo>();
+        for(OrderInfo orderInfo : orderInfos){
+        	OrderInfoVo orderInfoVo = Model2VoUtil.orderInfo2orderInfoVo(orderInfo);
+        	orderInfoVos.add(orderInfoVo);
+        }
+        return orderInfoVos;
     }
 }
