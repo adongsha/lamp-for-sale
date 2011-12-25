@@ -31,6 +31,15 @@ public class LampDaoImpl extends HibernateDaoImpl implements LampDao {
 
 	}
 
+	public List<Lamp> lampTypeListByPage(PageInfo pageInfo, Integer type) {
+		String hql = "from Lamp l where l.type="+type;
+		if(pageInfo == null){
+			return this.find(hql);
+		} else {
+			return this.findPageByQuery(hql, null, pageInfo);
+		}
+	}
+
 	
     
 }

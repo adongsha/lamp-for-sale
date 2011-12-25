@@ -29,5 +29,12 @@ public interface LampDao {
       */
      public List<Lamp> getLampList(PageInfo pageInfo);
      
+     /**
+      * 按灯饰的类型进行分类
+      * @param pageInfo  分页参数
+      * @param type      灯饰类型
+      * @return
+      */
+     public List<Lamp> lampTypeListByPage(PageInfo pageInfo, Integer type);
 
 }

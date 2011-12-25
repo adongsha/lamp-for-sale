@@ -22,7 +22,7 @@ public class Lamp implements java.io.Serializable {
 
 	private Integer lampId;
 	private String lampName;
-	private String type;
+	private Integer type;
 	private String lampDescription;
 	private Double price;
 	private String origin;
@@ -53,7 +53,7 @@ public class Lamp implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Lamp(String lampName, String type, String lampDescription,
+	public Lamp(String lampName, Integer type, String lampDescription,
 			Double price, String origin, String isDiscount, String size,
 			String material, String process, String weight,
 			String prictureImage1, String prictureImage2,
@@ -102,12 +102,12 @@ public class Lamp implements java.io.Serializable {
 		this.lampName = lampName;
 	}
 
-	@Column(name = "type", length = 50)
-	public String getType() {
+	@Column(name = "type")
+	public Integer getType() {
 		return this.type;
 	}
 
-	public void setType(String type) {
+	public void setType(Integer type) {
 		this.type = type;
 	}
 

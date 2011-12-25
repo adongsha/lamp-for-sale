@@ -13,50 +13,27 @@
 <title>LampForSale</title>
 <meta name="description" content="Administry - Admin Template by www.865171.cn" />
 <meta name="keywords" content="Admin,Template" />
-<!-- Favicons --> 
 <link rel="shortcut icon" type="image/png" HREF="images/favicons/favicon.png"/>
 <link rel="icon" type="image/png" HREF="images/favicons/favicon.png"/>
 <link rel="apple-touch-icon" HREF="images/favicons/apple.png" />
-<!-- Main Stylesheet --> 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
-<!-- Colour Schemes
-Default colour scheme is blue. Uncomment prefered stylesheet to use it.
-<link rel="stylesheet" href="css/brown.css" type="text/css" media="screen" />  
-<link rel="stylesheet" href="css/gray.css" type="text/css" media="screen" />  
-<link rel="stylesheet" href="css/green.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="css/pink.css" type="text/css" media="screen" />  
-<link rel="stylesheet" href="css/red.css" type="text/css" media="screen" />
--->
-<!-- Your Custom Stylesheet --> 
 <link rel="stylesheet" href="css/custom.css" type="text/css" />
-<!--swfobject - needed only if you require <video> tag support for older browsers -->
+<link rel="stylesheet" href="css/jquery-ui-1.8.16.custom.css" type="text/css" />
+
+<script type="text/javascript" SRC="javascript/jquery-ui-1.8.16.custom.min.js"></script>
 <script type="text/javascript" SRC="javascript/swfobject.js"></script>
-<!-- jQuery with plugins -->
 <script type="text/javascript" SRC="javascript/jquery-1.4.2.min.js"></script>
-<!-- Could be loaded remotely from Google CDN : <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script> -->
 <script type="text/javascript" SRC="javascript/jquery.ui.core.min.js"></script>
 <script type="text/javascript" SRC="javascript/jquery.ui.widget.min.js"></script>
 <script type="text/javascript" SRC="javascript/jquery.ui.tabs.min.js"></script>
-<!-- jQuery tooltips -->
 <script type="text/javascript" SRC="javascript/jquery.tipTip.min.js"></script>
-<!-- Superfish navigation -->
 <script type="text/javascript" SRC="javascript/jquery.superfish.min.js"></script>
 <script type="text/javascript" SRC="javascript/jquery.supersubs.min.js"></script>
-<!-- jQuery form validation -->
-<script type="text/javascript" SRC="javascript/jquery.validate_pack.js"></script>
-<!-- jQuery popup box -->
 <script type="text/javascript" SRC="javascript/jquery.nyroModal.pack.js"></script>
-<!-- jQuery data tables -->
-<script type="text/javascript" SRC="javascript/jquery.dataTables.min.js"></script>
-<!-- Internet Explorer Fixes --> 
-<!--[if IE]>
-<link rel="stylesheet" type="text/css" media="all" href="css/ie.css"/>
-<script src="js/html5.js"></script>
-<![endif]-->
-<!--Upgrade MSIE5.5-7 to be compatible with MSIE8: http://ie7-js.googlecode.com/svn/version/2.1(beta3)/IE8.js -->
-<!--[if lt IE 8]>
-<script src="js/IE8.js"></script>
-<![endif]-->
+<script type="text/javascript" SRC="javascript/jquery.validate_pack.js"></script>
+<script language="javascript" type="text/javascript" src="javascript/jquery-1.6.4.js"></script>
+<script language="javascript" type="text/javascript" src="javascript/jquery-ui-1.8.16.custom.min.js"></script>
+<script language="javascript" type="text/javascript" src="javascript/jquery.bgiframe.js"></script>
 <script language="javascript" type="text/javascript" src="javascript/jquery-1.6.4.js"></script>
 <script type='text/javascript' src='dwr/engine.js'></script>
 <script type='text/javascript' src='dwr/util.js'></script>
@@ -114,7 +91,7 @@ function orderLists(data){
       orderStatus = "已处理";
    }
    if(orderStatus = 2){
-      orderStatus = "未处理";
+      orderStatus = "处理";
    }
    var orderId = order.orderId;
    var userName = order.userName;
@@ -124,24 +101,43 @@ function orderLists(data){
           +'</td><td width="24%">'
           +userName
           +'</td><td width="32%">'
-          +'<input type="submit" value="查看" id="'
+          +'<a '
           +orderId
-          +'" onclick="seeOrder(this)"/><input type="submit" value="删除" id="'
+          +' onclick="seeOrder()">查看</a> | <a href="" id="'
           +orderId
-          +'" onclick="delOrder()"/></td><td width="16%">'
+          +'">删除</a></td><td width="16%">'
           +allPrice
-          +'</td><td width="13%"><input type="submit" value="'
+          +'</td><td width="13%"><a href="" onclick="delOrder">'
           +orderStatus
-          +'"/>'
-          +'</td></tr>'
+          +'</a></td></tr>'
     $("#example").append(tr);
    }
 }
 
 function seeOrder(){
-  orderAction.seeOrder(id,function() {
-    
-  });
+  alert("order-->");
+  $("#seeOrderDiv").dialog({
+     modal : true,
+		show : "blind",
+		hide : "blind",
+		width : 700,
+		height : 100,
+				buttons : {
+			"关闭" : function() {
+				var a = confirm("确定取消？");
+				if (a == true) {
+					$(this).dialog("close");
+				} else {
+					return false;
+				}
+			}
+		}
+  }
+  );
+}
+
+function delOrder(){
+
 }
 
 </script>
@@ -223,58 +219,25 @@ function seeOrder(){
 								<td class="title">
 									<div>
 										<a href="#"><b>未处理的订单</b></a>
-										<div class="listingDetails">
-											<div class="pad">
-												<b>Additional information</b>
-												<ul>
-													<li><a HREF="http://www.865171.cn">www.865171.cn</a></li>
-													<li><a HREF="http://www.865171.cn">www.865171.cn</a></li>
-													<li><a HREF="http://www.865171.cn">www.865171.cn</a></li>
-												</ul>
-											</div>
-										</div>
 									</div>
 								</td>
 								<td class="ta-right" id="notDealorder"></td>
-
 								<td class="ta-right" id="notDealAmount"></td>
-
 							</tr>
 							<tr>
 								<td class="title">
 									<div>
 										<a href="#"><b>以处理的订单</b></a>
-										<div class="listingDetails" style="z-index:1">
-											<div class="pad">
-												<b>Additional information</b>
-												<ul>
-													<li><a HREF="http://www.865171.cn">www.865171.cn</a></li>
-													<li><a HREF="http://www.865171.cn">www.865171.cn</a></li>
-													<li><a HREF="http://www.865171.cn">www.865171.cn</a></li>
-												</ul>
-											</div>
-										</div>
+										
 									</div>
 								</td>
 								<td class="ta-right" id="dealorder"></td>
 								<td class="ta-right" id="dealAmount"></td>
-								
 							</tr>
 							<tr>
 								<td class="title">
 									<div>
 										<a href="#"><b>有问题的订单</b></a>
-										<div class="listingDetails">
-											<div class="pad">
-												<b>Additional information</b>
-												<ul>
-
-													<li><a HREF="http://www.865171.cn">www.865171.cn</a></li>
-													<li><a HREF="http://www.865171.cn">www.865171.cn</a></li>
-													<li><a HREF="http://www.865171.cn">www.865171.cn</a></li>
-												</ul>
-											</div>
-										</div>
 									</div>
 								</td>
 								<td class="ta-right" id="problemOrder"></td>
@@ -293,421 +256,19 @@ function seeOrder(){
 							<tr>
 								<th width="15%">订单号</th>
 								<th width="24%">用户名</th>
-								<th width="32%">是否处理</th>
+								<th width="32%">操作</th>
 								<th width="16%">总价钱</th>
-								<th width="13%">操作</th>
+								<th width="13%">是否处理</th>
                              
 							</tr>
 						</thead>
-							<!--<tr class="gradeX">
-								<td>Trident</td>
-								<td>Internet Explorer 4.0</td>
-								<td>Win 95+</td>
-								<td class="center">4</td>
-								<td class="center">X</td>
-							</tr>
-							<tr class="gradeC">
-								<td>Trident</td>
-								<td>Internet
-									 Explorer 5.0</td>
-								<td>Win 95+</td>
-								<td class="center">5</td>
-								<td class="center">C</td>
-							</tr>
-							<tr class="gradeA">
-								<td>Trident</td>
-								<td>Internet
-									 Explorer 5.5</td>
-								<td>Win 95+</td>
-								<td class="center">5.5</td>
-								<td class="center">A</td>
-							</tr>
-							<tr class="gradeA">
-								<td>Trident</td>
-								<td>Internet
-									 Explorer 6</td>
-								<td>Win 98+</td>
-								<td class="center">6</td>
-								<td class="center">A</td>
-							</tr>
-							<tr class="gradeA">
-								<td>Trident</td>
-								<td>Internet Explorer 7</td>
-								<td>Win XP SP2+</td>
-								<td class="center">7</td>
-								<td class="center">A</td>
-							</tr>
-							<tr class="gradeA">
-								<td>Trident</td>
-								<td>AOL browser (AOL desktop)</td>
-								<td>Win XP</td>
-								<td class="center">6</td>
-								<td class="center">A</td>
-							</tr>
-							<tr class="gradeA">
-								<td>Gecko</td>
-								<td>Firefox 1.0</td>
-								<td>Win 98+ / OSX.2+</td>
-								<td class="center">1.7</td>
-								<td class="center">A</td>
-							</tr>
-							<tr class="gradeA">
-								<td>Gecko</td>
-								<td>Firefox 1.5</td>
-								<td>Win 98+ / OSX.2+</td>
-								<td class="center">1.8</td>
-								<td class="center">A</td>
-							</tr>
-							<tr class="gradeA">
-								<td>Gecko</td>
-								<td>Firefox 2.0</td>
-								<td>Win 98+ / OSX.2+</td>
-								<td class="center">1.8</td>
-								<td class="center">A</td>
-							</tr>
-							<tr class="gradeA">
-								<td>Gecko</td>
-								<td>Firefox 3.0</td>
-								<td>Win 2k+ / OSX.3+</td>
-								<td class="center">1.9</td>
-								<td class="center">A</td>
-							</tr>
-							<tr class="gradeA">
-								<td>Gecko</td>
-								<td>Camino 1.0</td>
-								<td>OSX.2+</td>
-								<td class="center">1.8</td>
-								<td class="center">A</td>
-							</tr>
-							<tr class="gradeA">
-								<td>Gecko</td>
-								<td>Camino 1.5</td>
-								<td>OSX.3+</td>
-								<td class="center">1.8</td>
-								<td class="center">A</td>
-							</tr>
-							<tr class="gradeA">
-								<td>Gecko</td>
-								<td>Netscape 7.2</td>
-								<td>Win 95+ / Mac OS 8.6-9.2</td>
-								<td class="center">1.7</td>
-								<td class="center">A</td>
-							</tr>
-							<tr class="gradeA">
-								<td>Gecko</td>
-								<td>Netscape Browser 8</td>
-								<td>Win 98SE+</td>
-								<td class="center">1.7</td>
-								<td class="center">A</td>
-							</tr>
-							<tr class="gradeA">
-								<td>Gecko</td>
-								<td>Netscape Navigator 9</td>
-								<td>Win 98+ / OSX.2+</td>
-								<td class="center">1.8</td>
-								<td class="center">A</td>
-							</tr>
-							<tr class="gradeA">
-								<td>Gecko</td>
-								<td>Mozilla 1.0</td>
-								<td>Win 95+ / OSX.1+</td>
-								<td class="center">1</td>
-								<td class="center">A</td>
-							</tr>
-							<tr class="gradeA">
-								<td>Gecko</td>
-								<td>Mozilla 1.1</td>
-								<td>Win 95+ / OSX.1+</td>
-								<td class="center">1.1</td>
-								<td class="center">A</td>
-							</tr>
-							<tr class="gradeA">
-								<td>Gecko</td>
-								<td>Mozilla 1.2</td>
-								<td>Win 95+ / OSX.1+</td>
-								<td class="center">1.2</td>
-								<td class="center">A</td>
-							</tr>
-							<tr class="gradeA">
-								<td>Gecko</td>
-								<td>Mozilla 1.3</td>
-								<td>Win 95+ / OSX.1+</td>
-								<td class="center">1.3</td>
-								<td class="center">A</td>
-							</tr>
-							<tr class="gradeA">
-								<td>Gecko</td>
-								<td>Mozilla 1.4</td>
-								<td>Win 95+ / OSX.1+</td>
-								<td class="center">1.4</td>
-								<td class="center">A</td>
-							</tr>
-							<tr class="gradeA">
-								<td>Gecko</td>
-								<td>Mozilla 1.5</td>
-								<td>Win 95+ / OSX.1+</td>
-								<td class="center">1.5</td>
-								<td class="center">A</td>
-							</tr>
-							<tr class="gradeA">
-								<td>Gecko</td>
-								<td>Mozilla 1.6</td>
-								<td>Win 95+ / OSX.1+</td>
-								<td class="center">1.6</td>
-								<td class="center">A</td>
-							</tr>
-							<tr class="gradeA">
-								<td>Gecko</td>
-								<td>Mozilla 1.7</td>
-								<td>Win 98+ / OSX.1+</td>
-								<td class="center">1.7</td>
-								<td class="center">A</td>
-							</tr>
-							<tr class="gradeA">
-								<td>Gecko</td>
-								<td>Mozilla 1.8</td>
-								<td>Win 98+ / OSX.1+</td>
-								<td class="center">1.8</td>
-								<td class="center">A</td>
-							</tr>
-							<tr class="gradeA">
-								<td>Gecko</td>
-								<td>Seamonkey 1.1</td>
-								<td>Win 98+ / OSX.2+</td>
-								<td class="center">1.8</td>
-								<td class="center">A</td>
-							</tr>
-							<tr class="gradeA">
-								<td>Gecko</td>
-								<td>Epiphany 2.20</td>
-								<td>Gnome</td>
-								<td class="center">1.8</td>
-								<td class="center">A</td>
-							</tr>
-							<tr class="gradeA">
-								<td>Webkit</td>
-								<td>Safari 1.2</td>
-								<td>OSX.3</td>
-								<td class="center">125.5</td>
-								<td class="center">A</td>
-							</tr>
-							<tr class="gradeA">
-								<td>Webkit</td>
-								<td>Safari 1.3</td>
-								<td>OSX.3</td>
-								<td class="center">312.8</td>
-								<td class="center">A</td>
-							</tr>
-							<tr class="gradeA">
-								<td>Webkit</td>
-								<td>Safari 2.0</td>
-								<td>OSX.4+</td>
-								<td class="center">419.3</td>
-								<td class="center">A</td>
-							</tr>
-							<tr class="gradeA">
-								<td>Webkit</td>
-								<td>Safari 3.0</td>
-								<td>OSX.4+</td>
-								<td class="center">522.1</td>
-								<td class="center">A</td>
-							</tr>
-							<tr class="gradeA">
-								<td>Webkit</td>
-								<td>OmniWeb 5.5</td>
-								<td>OSX.4+</td>
-								<td class="center">420</td>
-								<td class="center">A</td>
-							</tr>
-							<tr class="gradeA">
-								<td>Webkit</td>
-								<td>iPod Touch / iPhone</td>
-								<td>iPod</td>
-								<td class="center">420.1</td>
-								<td class="center">A</td>
-							</tr>
-							<tr class="gradeA">
-								<td>Webkit</td>
-								<td>S60</td>
-								<td>S60</td>
-								<td class="center">413</td>
-								<td class="center">A</td>
-							</tr>
-							<tr class="gradeA">
-								<td>Presto</td>
-								<td>Opera 7.0</td>
-								<td>Win 95+ / OSX.1+</td>
-								<td class="center">-</td>
-								<td class="center">A</td>
-							</tr>
-							<tr class="gradeA">
-								<td>Presto</td>
-								<td>Opera 7.5</td>
-								<td>Win 95+ / OSX.2+</td>
-								<td class="center">-</td>
-								<td class="center">A</td>
-							</tr>
-							<tr class="gradeA">
-								<td>Presto</td>
-								<td>Opera 8.0</td>
-								<td>Win 95+ / OSX.2+</td>
-								<td class="center">-</td>
-								<td class="center">A</td>
-							</tr>
-							<tr class="gradeA">
-								<td>Presto</td>
-								<td>Opera 8.5</td>
-								<td>Win 95+ / OSX.2+</td>
-								<td class="center">-</td>
-								<td class="center">A</td>
-							</tr>
-							<tr class="gradeA">
-								<td>Presto</td>
-								<td>Opera 9.0</td>
-								<td>Win 95+ / OSX.3+</td>
-								<td class="center">-</td>
-								<td class="center">A</td>
-							</tr>
-							<tr class="gradeA">
-								<td>Presto</td>
-								<td>Opera 9.2</td>
-								<td>Win 88+ / OSX.3+</td>
-								<td class="center">-</td>
-								<td class="center">A</td>
-							</tr>
-							<tr class="gradeA">
-								<td>Presto</td>
-								<td>Opera 9.5</td>
-								<td>Win 88+ / OSX.3+</td>
-								<td class="center">-</td>
-								<td class="center">A</td>
-							</tr>
-							<tr class="gradeA">
-								<td>Presto</td>
-								<td>Opera for Wii</td>
-								<td>Wii</td>
-								<td class="center">-</td>
-								<td class="center">A</td>
-							</tr>
-							<tr class="gradeA">
-								<td>Presto</td>
-								<td>Nokia N800</td>
-								<td>N800</td>
-								<td class="center">-</td>
-								<td class="center">A</td>
-							</tr>
-							<tr class="gradeA">
-								<td>Presto</td>
-								<td>Nintendo DS browser</td>
-								<td>Nintendo DS</td>
-								<td class="center">8.5</td>
-								<td class="center">C/A<sup>1</sup></td>
-							</tr>
-							<tr class="gradeC">
-								<td>KHTML</td>
-								<td>Konqureror 3.1</td>
-								<td>KDE 3.1</td>
-								<td class="center">3.1</td>
-								<td class="center">C</td>
-							</tr>
-							<tr class="gradeA">
-								<td>KHTML</td>
-								<td>Konqureror 3.3</td>
-								<td>KDE 3.3</td>
-								<td class="center">3.3</td>
-								<td class="center">A</td>
-							</tr>
-							<tr class="gradeA">
-								<td>KHTML</td>
-								<td>Konqureror 3.5</td>
-								<td>KDE 3.5</td>
-								<td class="center">3.5</td>
-								<td class="center">A</td>
-							</tr>
-							<tr class="gradeX">
-								<td>Tasman</td>
-								<td>Internet Explorer 4.5</td>
-								<td>Mac OS 8-9</td>
-								<td class="center">-</td>
-								<td class="center">X</td>
-							</tr>
-							<tr class="gradeC">
-								<td>Tasman</td>
-								<td>Internet Explorer 5.1</td>
-								<td>Mac OS 7.6-9</td>
-								<td class="center">1</td>
-								<td class="center">C</td>
-							</tr>
-							<tr class="gradeC">
-								<td>Tasman</td>
-								<td>Internet Explorer 5.2</td>
-								<td>Mac OS 8-X</td>
-								<td class="center">1</td>
-								<td class="center">C</td>
-							</tr>
-							<tr class="gradeA">
-								<td>Misc</td>
-								<td>NetFront 3.1</td>
-								<td>Embedded devices</td>
-								<td class="center">-</td>
-								<td class="center">C</td>
-							</tr>
-							<tr class="gradeA">
-								<td>Misc</td>
-								<td>NetFront 3.4</td>
-								<td>Embedded devices</td>
-								<td class="center">-</td>
-								<td class="center">A</td>
-							</tr>
-							<tr class="gradeX">
-								<td>Misc</td>
-								<td>Dillo 0.8</td>
-								<td>Embedded devices</td>
-								<td class="center">-</td>
-								<td class="center">X</td>
-							</tr>
-							<tr class="gradeX">
-								<td>Misc</td>
-								<td>Links</td>
-								<td>Text only</td>
-								<td class="center">-</td>
-								<td class="center">X</td>
-							</tr>
-							<tr class="gradeX">
-								<td>Misc</td>
-								<td>Lynx</td>
-								<td>Text only</td>
-								<td class="center">-</td>
-								<td class="center">X</td>
-							</tr>
-							<tr class="gradeC">
-								<td>Misc</td>
-								<td>IE Mobile</td>
-								<td>Windows Mobile 6</td>
-								<td class="center">-</td>
-								<td class="center">C</td>
-							</tr>
-							<tr class="gradeC">
-								<td>Misc</td>
-								<td>PSP browser</td>
-								<td>PSP</td>
-								<td class="center">-</td>
-								<td class="center">C</td>
-							</tr>
-							<tr class="gradeU">
-								<td>Other browsers</td>
-								<td>All others</td>
-								<td>-</td>
-								<td class="center">-</td>
-								<td class="center">U</td>
-							</tr>
-						--><tfoot>
+							<tfoot>
 							<tr>
-								<th width="15%">型号</th>
-								<th width="24%">名称</th>
-								<th width="32%">类别</th>
-								<th width="16%">价钱</th>
-								<th width="13%">操作</th>
+								<th width="15%">订单号</th>
+								<th width="24%">用户名</th>
+								<th width="32%">操作</th>
+								<th width="16%">总价钱</th>
+								<th width="13%">是否处理</th>
 							</tr>
 						</tfoot>
 					</table>
@@ -776,57 +337,74 @@ function seeOrder(){
 	<!-- End of Page content -->
 	
 	<!-- 查看订单Div对话框 -->
-							<div id="seeOrderDiv" style="display: none;">
-								<div class="noData">
-									<samp>
-										补考结果
-									</samp>
-									<!---暂无数据 根据当前考核结果 动态修改 这个层的文本 不明白效果 问美工-->
-								</div>
-								<table border="0" cellpadding="6" cellspacing="1"
-									class="table_popup1">
+							<div id="seeOrderDiv" style="display: none;"
+								title="订单信息：<samp>HTML+CSS+DIV</samp>">
+								<table border="0" cellspacing="10" class="table_popup1">
 									<tr>
-										<th style="display: none;">
-											分数ID
-										</th>
-										<!-- 获得分数Id ，但不显示，只进行数据传输-->
-										<th>
-											学号
-										</th>
-										<th>
-											姓名
-										</th>
-										<!--
-
-					                    <th><samp>补考</samp>结果</th>
-					                    -->
-										<th>
-											<samp>
-												补考
+										<th colspan="4">
+											订单号:&nbsp;
+											<samp id="studentnumber" class="table_readonly2">
+												0104100716
 											</samp>
-											成绩
-										</th>
-										<th>
-											<samp>
-												补考
+											&nbsp;&nbsp;顾客名:&nbsp;
+											<samp id="studentName" class="table_readonly3">
+												刘日斯
 											</samp>
-											次数
 										</th>
 									</tr>
-									<tr class="table_centre">
-										<td style="display: none;" id="markIdAdd"></td>
-										<td id="stuNumAdd">
-											0104100716
+									<tr>
+										<td class="table_title">
+											送货地址:
 										</td>
-										<td id="stuNameAdd">
-											刘日斯
+										<td class="table_writing1" id="normalScore">
+											<input type="text" size="5" maxlength="3" id="normalScore1" />
 										</td>
-										<td id="makeUpScoreAdd">
-											<input type="text" size="5" maxlength="3" id="addInputScore" />
+										<td class="table_title">
+											电话号码:
 										</td>
-										<td id="makeUpCountAdd"></td>
+										<td class="table_writing2" id="midtermScore">
+											<input type="text" size="5" maxlength="3" id="midtermScore1" />
+										</td>
 									</tr>
-								</table>
+									<tr>
+										<td class="table_title">
+											邮件:
+										</td>
+										<td class="table_writing3" id="terminalScore">
+											<input type="text" size="5" maxlength="3" id="terminalScore1" />
+										</td>
+										<td class="table_title">
+											总价钱:
+										</td>
+										<td class="table_writing4" id="experimentScore">
+											<input type="text" size="5" maxlength="3"
+												id="experimentScore1" />
+										</td>
+									</tr>
+									</table>
+									
+									
+									
+					<table class="display stylized" id="seeOrderList">
+						<thead>
+							<tr>
+								<th >序号</th>
+								<th >灯名</th>
+								<th >单价</th>
+								<th >数量</th>
+								<th >总价</th>
+							</tr>
+						</thead>
+							<tfoot>
+							<tr>
+								<th >序号</th>
+								<th >灯名</th>
+								<th >单价</th>
+								<th >数量</th>
+								<th >总价</th>
+							</tr>
+						</tfoot>
+					</table>
 							</div>
 	
 	

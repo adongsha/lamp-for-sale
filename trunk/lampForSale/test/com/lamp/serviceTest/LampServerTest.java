@@ -3,6 +3,7 @@ package com.lamp.serviceTest;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -10,6 +11,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.lamp.model.Lamp;
 import com.lamp.service.LampService;
+import com.lamp.vo.LampVo;
 
 
 
@@ -48,5 +50,13 @@ public class LampServerTest {
 	     System.out.println(defaultSDF.format(new Date()));
 	     System.out.println(sdf.format(new Date()));
          System.out.println(aaa.format(new Date()));
+   }
+   
+   @Test
+   public void testGetLampList(){
+	  List<LampVo> l = lampService.getLampList(null);
+	  for(LampVo ls : l){
+		  System.out.println(ls);
+	  }
    }
 }

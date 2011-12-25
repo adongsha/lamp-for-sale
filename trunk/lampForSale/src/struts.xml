@@ -7,7 +7,9 @@
     <constant name="struts.multipart.maxSize" value="20721520"/>
     <!-- 前台 -->
     <package name="lampForUser" extends="struts-default" namespace="/">
-      
+      <action name="showLamp" class="LampAction">
+         <result>/web/show.jsp</result>
+      </action>
     </package>
     
     
@@ -33,7 +35,7 @@
         <result>/web/ad_order.jsp</result>
       </action>
       
-      <action name="showLamp" class="LampAction">
+      <action name="ad_showLamp" class="LampAction">
         <result>/web/ad_showLamp.jsp</result>
       </action>
     </package>
