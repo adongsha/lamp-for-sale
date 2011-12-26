@@ -1,106 +1,98 @@
-/* CSS Document */
-body
-{
-background-color:#c0c0c0;
-font-family:"宋体";
-font-size:12px;
-color:#000;
-padding:0px;
-margin:0px auto auto auto;
-margin:0px;
+body {
+    background-color: #C0C0C0;
+    color: #000000;
+    font-family: "微软雅黑, 黑体, 宋体";
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
 }
-a{
-text-decoration:none;
-color:#FFFFFF;
+a {
+    color: #FFFFFF;
+    text-decoration: none;
 }
-a:hover{
-color:#00f;
+a:hover {
+    color: #0000FF;
 }
-.clear{
-clear:both;
+.clear {
+    clear: both;
 }
-
-/* -----------------导航栏----------------------*/
-#wrap{                    /*调导航的居中位置*/
-width:900px;
-height:auto;
-margin:auto;
-background-color:#FFFFFF;
+#wrap {
+    background-color: #FFFFFF;
+    height: auto;
+    margin: auto;
+    width: 900px;
 }
-#bg{
-width:900px;
-height:198px;
-padding:0px 0 0 0;
-background:url(../images/daohang.jpg) no-repeat center;
+#bg {
+    background: url("../images/daohang.jpg") no-repeat scroll center center transparent;
+    height: 198px;
+    padding: 0;
+    width: 900px;
 }
-#head{
-width:767px;
-height:41px;
-padding:153px 0 0 80px;	/*导航栏的左右宽度*/
+#head {
+    height: 41px;
+    padding: 153px 0 0 80px;
+    width: 767px;
 }
-#head ul{
-display:block;
-list-style:none;
-padding:9px 0 0 15px;
-margin:0px;
+#head ul {
+    display: block;
+    list-style: none outside none;
+    margin: 0;
+    padding: 9px 0 0 15px;
 }
-#head ul li{
-display:inline;       /*使li横着排列*/
-padding:0px;
-margin:0px;
-height:27px;
+#head ul li {
+    display: inline;
+    height: 27px;
+    margin: 0;
+    padding: 0;
 }
-#head ul li a{
-height:27px;
-padding:0px 10px 0 10px;
-margin:0 20px 0 20px;
-_margin:0 2px 0 2px;
-float:left;			/*左排列*/
-text-decoration:none;
-text-align:center;
-color:#fff;
-font-size:15px;
-line-height:27px;
+#head ul li a {
+    color: #FFFFFF;
+    float: left;
+    font-size: 15px;
+    height: 27px;
+    line-height: 27px;
+    margin: 0 20px;
+    padding: 0 10px;
+    text-align: center;
+    text-decoration: none;
 }
-#head ul li.selected a{
-height:27px;
-display:block;    /*以块状的形式显示*/
-padding:0px 10px 0 10px;
-margin:0 5px 0 5px;
-float:left;
-text-decoration:none;
-text-align:center;
-color:#fff;
-font-size:15px;
-line-height:27px;
-background:url(../images/button.jpg) repeat-x center;
+#head ul li.selected a {
+    background: url("../images/button.jpg") repeat-x scroll center center transparent;
+    color: #FFFFFF;
+    display: block;
+    float: left;
+    font-size: 15px;
+    height: 27px;
+    line-height: 27px;
+    margin: 0 5px;
+    padding: 0 10px;
+    text-align: center;
+    text-decoration: none;
 }
-#head a:hover{
-background:url(../images/button.jpg) repeat-x center;
+#head a:hover {
+    background: url("../images/button.jpg") repeat-x scroll center center transparent;
 }
-/* -----------------内容----------------------*/
-#ccenter{                    /*居中位置*/
-width:900px;
-height:auto;
-margin:0px auto auto auto;
-padding:0px;
-background-color:#ffffff;
+#ccenter {
+    background-color: #FFFFFF;
+    height: auto;
+    margin: 0 auto auto;
+    padding: 0;
+    width: 900px;
 }
-
-
-/***************************版权层*******************************************/
-#bottom{
-width:900px;
-height:45px;
-border-top:dashed #000 1px;
+#bottom {
+    left: 50%;
+    margin-left: -450px;
+    position: absolute;
+    width: 900px;
 }
-#bottom span{
-margin-left:30px;
-color:#000000;
+#bottom span {
+    color: #000000;
+    margin-left: 30px;
 }
-.bottom,.copyright{
-margin:0;
-padding:5px 0 5px 0;
-text-align:center;
+.bottom, .copyright {
+    margin: 0;
+    padding: 5px 0;
+    position: relative;
+    text-align: center;
+    top: 650px;
 }
-

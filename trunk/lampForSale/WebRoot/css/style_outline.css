@@ -1,7 +1,4 @@
-/* CSS Document */
 @import "head.css";
-
-/*-------------------------------------------Ŀ¼----------------------------------------------------------*/
 #middle {
     float: left;
     height: 651px;
@@ -13,7 +10,7 @@
 #left {
     background-image: url("../images/back.gif");
     float: left;
-    height: 650px;
+    height: 700px;
     padding-left: 20px;
     width: 880px;
 }
