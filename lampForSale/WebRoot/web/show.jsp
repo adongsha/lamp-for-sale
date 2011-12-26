@@ -238,12 +238,12 @@
 
 										  
 										  
-								  </div>
 										<div class="number">
 												<span>&nbsp;&lt; 上一页</span>
 												<span>1 2 3 4 5 6 7 ...</span>
 												<span>&nbsp;下一页 &gt;</span>
 										</div>						
+								  </div>
 				</div>
 	
 	

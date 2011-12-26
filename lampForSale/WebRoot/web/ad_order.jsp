@@ -10,31 +10,40 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>LampForSale</title>
+<title>Order Lamp</title>
 <meta name="description" content="Administry - Admin Template by www.865171.cn" />
 <meta name="keywords" content="Admin,Template" />
+<!-- Favicons --> 
 <link rel="shortcut icon" type="image/png" HREF="images/favicons/favicon.png"/>
 <link rel="icon" type="image/png" HREF="images/favicons/favicon.png"/>
 <link rel="apple-touch-icon" HREF="images/favicons/apple.png" />
+<!-- Main Stylesheet --> 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
+<!-- Your Custom Stylesheet --> 
 <link rel="stylesheet" href="css/custom.css" type="text/css" />
-<link rel="stylesheet" href="css/jquery-ui-1.8.16.custom.css" type="text/css" />
 
-<script type="text/javascript" SRC="javascript/jquery-ui-1.8.16.custom.min.js"></script>
+<link href="web/common/css/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css" /> 
+<script language="javascript" type="text/javascript" src="web/common/js/jquery-1.6.2.min.js"></script> 
+<script language="javascript" type="text/javascript" src="web/common/js/jquery-ui-1.8.16.custom.min.js"></script> 
+
+<!--swfobject - needed only if you require <video> tag support for older browsers -->
 <script type="text/javascript" SRC="javascript/swfobject.js"></script>
-<script type="text/javascript" SRC="javascript/jquery-1.4.2.min.js"></script>
+<!-- jQuery with plugins -->
+<!-- Could be loaded remotely from Google CDN : <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script> -->
 <script type="text/javascript" SRC="javascript/jquery.ui.core.min.js"></script>
 <script type="text/javascript" SRC="javascript/jquery.ui.widget.min.js"></script>
 <script type="text/javascript" SRC="javascript/jquery.ui.tabs.min.js"></script>
+<!-- jQuery tooltips -->
 <script type="text/javascript" SRC="javascript/jquery.tipTip.min.js"></script>
+<!-- Superfish navigation -->
 <script type="text/javascript" SRC="javascript/jquery.superfish.min.js"></script>
 <script type="text/javascript" SRC="javascript/jquery.supersubs.min.js"></script>
-<script type="text/javascript" SRC="javascript/jquery.nyroModal.pack.js"></script>
+<!-- jQuery form validation -->
 <script type="text/javascript" SRC="javascript/jquery.validate_pack.js"></script>
-<script language="javascript" type="text/javascript" src="javascript/jquery-1.6.4.js"></script>
-<script language="javascript" type="text/javascript" src="javascript/jquery-ui-1.8.16.custom.min.js"></script>
-<script language="javascript" type="text/javascript" src="javascript/jquery.bgiframe.js"></script>
-<script language="javascript" type="text/javascript" src="javascript/jquery-1.6.4.js"></script>
+<!-- jQuery popup box -->
+<script type="text/javascript" SRC="javascript/jquery.nyroModal.pack.js"></script>
+<!-- jQuery data tables -->
+<script type="text/javascript" SRC="javascript/jquery.dataTables.min.js"></script>
 <script type='text/javascript' src='dwr/engine.js'></script>
 <script type='text/javascript' src='dwr/util.js'></script>
 <script type='text/javascript' src='dwr/interface/orderAction.js'></script>
@@ -103,7 +112,9 @@ function orderLists(data){
           +'</td><td width="32%">'
           +'<a '
           +orderId
-          +' onclick="seeOrder()">查看</a> | <a href="" id="'
+          +' onclick="seeOrder('
+          +order
+          +')">查看</a> | <a href="" id="'
           +orderId
           +'">删除</a></td><td width="16%">'
           +allPrice
@@ -114,27 +125,27 @@ function orderLists(data){
    }
 }
 
-function seeOrder(){
-  alert("order-->");
+function seeOrder(data){
+  alert("order-->"+data);
+  var userName = data.allPrice;
+  alert("orderId-->"+userName);
   $("#seeOrderDiv").dialog({
-     modal : true,
+        modal : true,
 		show : "blind",
 		hide : "blind",
 		width : 700,
-		height : 100,
+		height : 350,
 				buttons : {
 			"关闭" : function() {
-				var a = confirm("确定取消？");
-				if (a == true) {
+				
 					$(this).dialog("close");
-				} else {
-					return false;
 				}
-			}
 		}
   }
   );
 }
+
+
 
 function delOrder(){
 
@@ -338,47 +349,72 @@ function delOrder(){
 	
 	<!-- 查看订单Div对话框 -->
 							<div id="seeOrderDiv" style="display: none;"
-								title="订单信息：<samp>HTML+CSS+DIV</samp>">
-								<table border="0" cellspacing="10" class="table_popup1">
+								title="订单信息：<samp>123456789</samp>">
+								<table border="0" cellspacing="10" >
 									<tr>
 										<th colspan="4">
 											订单号:&nbsp;
-											<samp id="studentnumber" class="table_readonly2">
-												0104100716
+											<samp id="studentnumber" >
+												010416524
 											</samp>
 											&nbsp;&nbsp;顾客名:&nbsp;
-											<samp id="studentName" class="table_readonly3">
-												刘日斯
+											<samp id="studentName" >
+												张三
 											</samp>
 										</th>
 									</tr>
 									<tr>
-										<td class="table_title">
+										<td class="table_title" width="10%">
 											送货地址:
 										</td>
-										<td class="table_writing1" id="normalScore">
-											<input type="text" size="5" maxlength="3" id="normalScore1" />
+										<td id="normalScore" width="15%">
+											<samp id="studentName" >
+												张三
+											</samp>
 										</td>
-										<td class="table_title">
+										<td class="table_title" width="10%">
 											电话号码:
 										</td>
-										<td class="table_writing2" id="midtermScore">
-											<input type="text" size="5" maxlength="3" id="midtermScore1" />
+										<td class="table_writing2" id="midtermScore" width="15%">
+											13750042440
+										</td>
+										<td class="table_title" width="10%">
+											订单时间:
+										</td>
+										<td class="table_writing2" id="midtermScore" width="15%">
+											2011-12-25
+										</td>
+										<td class="table_title" width="10%">
+											订单状态:
+										</td>
+										<td class="table_writing2" id="midtermScore" width="15%">
+											未处理
 										</td>
 									</tr>
 									<tr>
-										<td class="table_title">
-											邮件:
+									   <td class="table_title" width="10%">
+											订单邮编:
 										</td>
-										<td class="table_writing3" id="terminalScore">
-											<input type="text" size="5" maxlength="3" id="terminalScore1" />
+										<td class="table_writing2" id="midtermScore" width="15%">
+											519090
 										</td>
-										<td class="table_title">
-											总价钱:
+										<td class="table_title" width="10%">
+											订单备注:
 										</td>
-										<td class="table_writing4" id="experimentScore">
-											<input type="text" size="5" maxlength="3"
-												id="experimentScore1" />
+										<td class="table_writing2" id="midtermScore" width="15%">
+											请速度发货
+										</td>
+										<td class="table_title" width="10%">
+											订单邮件:
+										</td>
+										<td class="table_writing3" id="terminalScore" width="15%">
+											106890194@qq.com
+										</td>
+										<td class="table_title" width="10%">
+											订单总价:
+										</td>
+										<td class="table_writing4" id="experimentScore" width="15%">
+											1000￥
 										</td>
 									</tr>
 									</table>
@@ -395,6 +431,7 @@ function delOrder(){
 								<th >总价</th>
 							</tr>
 						</thead>
+						
 							<tfoot>
 							<tr>
 								<th >序号</th>
@@ -408,7 +445,8 @@ function delOrder(){
 							</div>
 	
 	
-	
+<input  type="button"   value="使用dialog()方法" onclick="showBut()" /> 
+<div id="showDiv"  style="display:none; ">这个层 是用 dialog()方法 调用出来的</div>
 	
 	
 	<!-- Page footer -->
