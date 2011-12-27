@@ -81,7 +81,8 @@ a:hover {
 }
 #bottom {
     left: 50%;
-    margin-left: -450px;
+    margin-left: -500px;
+    margin-top: -50px;
     position: absolute;
     width: 900px;
 }
@@ -94,5 +95,4 @@ a:hover {
     padding: 5px 0;
     position: relative;
     text-align: center;
-    top: 650px;
 }

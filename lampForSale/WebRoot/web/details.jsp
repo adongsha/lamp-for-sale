@@ -10,61 +10,148 @@
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
 <title>无标题文档</title>
+<link href="../css/style.css" type="text/css" rel="stylesheet"/>
 <link href="../css/style1.css" type="text/css" rel="stylesheet"/>
+<link href="../css/style2.css" type="text/css" rel="stylesheet"/>
+<link href="../css/lightbox.css" type="text/css" rel="stylesheet"/>
+<script src="../javascript/prototype.js" type="text/javascript"></script>
+<script src="../javascript/scriptaculous.js?load=effects" type="text/javascript"></script>
+<script src="../javascript/lightbox.js" type="text/javascript"></script>
+<script type="text/javascript" src="../javascript/java.js"></script>
+<script type="text/javascript">
+
+var tabber1 = new Yetii({
+id: 'demo'
+});
+
+</script>
 </head>
 <body>
 <div id="wrap">
 	<div id="bg">
 		<div id="head">
 				<ul>
-					<li class="selected" ><a href="main.html">首页</a></li>
-					<li><a href="show.html">灯饰</a></li>
-					<li><a href="login.html">我的账号</a></li>
-					<li><a href="register.html">注册</a></li>
-					<li><a href="cart.html">购物车</a></li>
-					<li><a href="about.html">关于我们</a></li>
-					<li><a href="contact.html">联系我们</a></li>
+					<li class="selected" ><a href="lampAction">首页</a></li>
+					<li><a href="showLampAction">灯饰</a></li>
+					<li><a href="loginAction">我的账号</a></li>
+					<li><a href="registerAction">注册</a></li>
+					<li><a href="cartAction">购物车</a></li>
+					<li><a href="aboutActon">关于我们</a></li>
+					<li><a href="contactAction">联系我们</a></li>
 				</ul>
 		</div>
 	</div>
 </div>
 <div id="d_ccenter">
 					<div id="d_middle">
-								<div id="d_left">
-										<div class="title"><span class="title_icon"><img src="../images/bullet1.gif" /></span>Product Detail</div>
-										<div class="detail_border">
-										<div class="d_position">
-											<div class="d_picture"><img src="../images/picture1.jpg" alt=""/></div>
-										  <div class="big"><a href="../images/picture1.jpg"><img src="../images/big.gif"  alt=""/></a>
-										  </div>
-										</div>
-											
-											<div class="detail">
-												<div class="d_title">详情</div>
-												<div class="d_content">
-															材质：陶瓷灯，带有景德镇独有的镂空瓷，支架是实木制成.<br/>
-															光源：白炽灯（需自配）<br/>
-															规格灯架：直径28cm  厚度19cm 灯罩14*23cm<br/>
-															颜色：浅绿 
-												</div>
-												<div class="d_price">价格：<span> &#65509;200</span></div>
-												<div class="p_picture"><a href="pay.html">立即购买</a></div>
-												<div class="p_picture"><a href="cart.html">放入购物车</a></div>
-											</div>
-										
-										</div>
-										<div class="line_left"></div>
-										<div class="d_category">
-											<div class="d_item"><a href="details.html">产品分图</a></div>
-											<div class="d_item"><a href="details1.html">评论</a></div>
-										</div>
-										<div class="line_left"></div>
-								  		<div class="dimages">
-												<div class="dpicture"><img src="../images/example.jpg" alt=""/></div>
-												<div class="dpicture"><img src="../images/example.jpg" alt=""/></div>
-												<div class="dpicture"><img src="../images/example.jpg" alt=""/></div>
-										</div>
-								</div>
+								       	<div class="left_content">
+    <div class="title"><span class="title_icon"><img src="../images/bullet1.gif" alt="" title="" /></span>Product name</div>
+        
+        	<div class="feat_prod_box_details">
+            
+            	<div class="prod_img"><a href="details.html"><img src="../images/picture1.jpg" alt="" title="" border="0" /></a>
+                <br /><br />
+                <a href="../images/big_pic.jpg" rel="lightbox"><img src="../images/zoom.gif" alt="" title="" border="0" /></a>
+                </div>
+                
+                <div class="prod_det_box">
+                	<div class="box_top"></div>
+                    <div class="box_center">
+                    <div class="prod_title">Details</div>
+                    <p class="details">我们的网站提供了各种各样的灯饰品种繁多价格实惠。 不仅可以照亮你的蜗居而且可以美化你的房子，心动不如行动<br />
+                   我们的网站提供了各种各样的灯饰品种繁多价格实惠。 不仅可以照亮你的蜗居而且可以美化你的房子，心动不如行动 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.                    </p>
+                    <div class="price"><strong>PRICE:</strong> <span class="red">100 $</span></div>
+                    <a href="details.html" class="more"><img src="../images/order_now.gif" alt="" title="" border="0" /></a>
+                    <div class="clear"></div>
+                    </div>
+                    
+                    <div class="box_bottom"></div>
+                </div>    
+            <div class="clear"></div>
+            </div>	
+            
+              
+             <div id="demo" class="demolayout">
+
+                 <ul id="demo-nav" class="demolayout">
+                <li><a class="active" href="">More details</a></li>
+                <li><a class="" href="">Related Products</a></li>
+                </ul>
+    
+            <div class="tabs-container">
+            
+                    <div style="display: block;" class="tab" id="tab1">
+                                        <p class="more_details">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+                                        </p>
+                            <ul class="list">
+                            <li><a href="http://www.865171.cn">Lorem ipsum dolor sit amet, consectetur adipisicing elit</a></li>
+                            <li><a href="http://www.865171.cn">Lorem ipsum dolor sit amet, consectetur adipisicing elit</a></li>
+                            <li><a href="http://www.865171.cn">Lorem ipsum dolor sit amet, consectetur adipisicing elit</a></li>
+                            <li><a href="http://www.865171.cn">Lorem ipsum dolor sit amet, consectetur adipisicing elit</a></li>                                          
+                            </ul>
+                                         <p class="more_details">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+                                        </p>                           
+                    </div>	
+                    
+                            <div style="display: none;" class="tab" id="tab2">
+                    <div class="new_prod_box">
+                        <a href="details.html">product name</a>
+                        <div class="new_prod_bg">
+                        <a href="details.html"><img src="images/thumb1.gif" alt="" title="" class="thumb" border="0" /></a>
+                        </div>           
+                    </div>
+                    
+                    <div class="new_prod_box">
+                        <a href="details.html">product name</a>
+                        <div class="new_prod_bg">
+                        <a href="details.html"><img src="images/thumb2.gif" alt="" title="" class="thumb" border="0" /></a>
+                        </div>           
+                    </div>                    
+                    
+                    <div class="new_prod_box">
+                        <a href="details.html">product name</a>
+                        <div class="new_prod_bg">
+                        <a href="details.html"><img src="images/thumb3.gif" alt="" title="" class="thumb" border="0" /></a>
+                        </div>           
+                    </div>    
+
+                    <div class="new_prod_box">
+                        <a href="details.html">product name</a>
+                        <div class="new_prod_bg">
+                        <a href="details.html"><img src="images/thumb1.gif" alt="" title="" class="thumb" border="0" /></a>
+                        </div>           
+                    </div>
+                    
+                    <div class="new_prod_box">
+                        <a href="details.html">product name</a>
+                        <div class="new_prod_bg">
+                        <a href="details.html"><img src="images/thumb2.gif" alt="" title="" class="thumb" border="0" /></a>
+                        </div>           
+                    </div>                    
+                    
+                    <div class="new_prod_box">
+                        <a href="details.html">product name</a>
+                        <div class="new_prod_bg">
+                        <a href="details.html"><img src="images/thumb3.gif" alt="" title="" class="thumb" border="0" /></a>
+                        </div>           
+                    </div>  
+
+
+                   
+                    <div class="clear"></div>
+                            </div>	
+            
+            </div>
+
+
+			</div>
+            
+
+            
+        <div class="clear"></div>
+        </div><!--end of left content-->
+        
+        
 	
 	
 	

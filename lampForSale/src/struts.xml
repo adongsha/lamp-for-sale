@@ -7,8 +7,34 @@
     <constant name="struts.multipart.maxSize" value="20721520"/>
     <!-- 前台 -->
     <package name="lampForUser" extends="struts-default" namespace="/">
-      <action name="showLamp" class="LampAction">
+      <!-- 首页入口  -->
+      <action name="lampAction">
+         <result>/web/main.jsp</result>
+      </action>
+      
+      <!-- 灯饰展示入口 -->
+      <action name="showLampActon" class="LampAction">
          <result>/web/show.jsp</result>
+      </action>
+      
+      <!-- 登陆页面入口 -->
+      <action name="loginAction">
+         <result>/web/login.jsp</result>
+      </action>
+      
+      <!-- 注册页面入口 -->
+      <action name="registerAction">
+         <result>/web/register.jsp</result>
+      </action>
+      
+      <!-- 关于我们入口 -->
+      <action name="aboutAction">
+         <result>/web/about.jsp</result>
+      </action>
+      
+      <!-- 联系我们入口 -->
+      <action name="contactAction">
+         <result>/web/contact.jsp</result>
       </action>
     </package>
     

@@ -68,7 +68,7 @@ function showPages() {//显示页数
 //显示每页记录数按钮
 //javascript:changeCount(),此函数为点击事件。
 function showPageSize() {
-	var num = 10;
+	var num = 9;
 	$("#setupNum").html("");//初始化
 	$("#setupNum").append("<span>每页显示数量:</span>");
 	$("#setSize").width(50);
