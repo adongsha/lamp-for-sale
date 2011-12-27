@@ -30,7 +30,7 @@ a:hover {
 }
 #head {
     height: 41px;
-    padding: 153px 0 0 80px;
+    padding: 151px 0 0 80px;
     width: 767px;
 }
 #head ul {
@@ -82,7 +82,7 @@ a:hover {
 #bottom {
     left: 50%;
     margin-left: -500px;
-    margin-top: -50px;
+    margin-top: 650px;
     position: absolute;
     width: 900px;
 }

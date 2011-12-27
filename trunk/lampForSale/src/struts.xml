@@ -13,7 +13,7 @@
       </action>
       
       <!-- 灯饰展示入口 -->
-      <action name="showLampActon" class="LampAction">
+      <action name="showLampAction" class="LampAction">
          <result>/web/show.jsp</result>
       </action>
       
@@ -35,6 +35,10 @@
       <!-- 联系我们入口 -->
       <action name="contactAction">
          <result>/web/contact.jsp</result>
+      </action>
+      
+      <action name="test">
+        <result>/web/test1.jsp</result>
       </action>
     </package>
     
