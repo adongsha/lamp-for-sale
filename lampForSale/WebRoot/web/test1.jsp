@@ -26,17 +26,14 @@
 		if (userName == "") {
 			userName = null;
 		}
-		alert("userName-->"+userName);
 		var password = $("#password").val();
 		if (password == "") {
 			password = null;
 		}
-		alert("password-->"+password);
 		var isPassword = $("#isPassword").val();
 		if (isPassword == "") {
 			password = null;
 		}
-		alert("isPassword-->"+isPassword);
 		if (password != isPassword) {
 			alert("密码不一致!");
 		}
@@ -44,17 +41,14 @@
 		if (email == "") {
 			email = null;
 		}
-		alert("email-->"+email);
 		var telephone = $("#telephone").val();
 		if (telephone == "") {
 			telephone = null;
 		}
-		alert("telephone-->"+telephone);
 		var address = $("#address").val();
 		if (address == "") {
 			address = null;
 		}
-		alert("address-->"+address);
 		userAction.register(userName, password, email, telephone, address,
 				function() {
 					alert("注册成功!");
@@ -66,11 +60,8 @@
 		<div id="wrap">
 			<div id="bg">
 				<div id="head">
-					<ul style = "padding-top:0px;">
-						<li>
-							<br />
-						</li>
-						<li class="selected" ><a href="lampAction">首页</a></li>
+					<ul >
+					<li class="selected" ><a href="lampAction">首页</a></li>
 					<li><a href="showLampAction">灯饰</a></li>
 					<li><a href="loginAction">我的账号</a></li>
 					<li><a href="registerAction">注册</a></li>
@@ -84,7 +75,7 @@
 		<div id="ccenter">
 			<div id="middle">
 				<div id="left">
-					<div style = "float:left; position:relative; width:550px;">
+					<div>
 						<div class="title">
 							<span class="title_icon"><img src="images/bullet1.gif" />
 							</span>Users Register
@@ -121,9 +112,9 @@
 									&nbsp;&nbsp;地&nbsp;址&nbsp;：
 									<input type="text" name="address" />
 								</div>
-								<span class="button"> 
-								<a href="javascript:register()" ><img src="images/register.jpg"></img> </a>
-								 </span>
+								<span class="button"> <a onclick= ><img
+											src="images/register.jpg"></img> </a> <!--<a><img src="images/reset.gif"></img></a>  
+											  --> </span>
 							</form>
 						</div>
 					</div>
