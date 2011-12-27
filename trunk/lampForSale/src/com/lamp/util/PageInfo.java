@@ -33,7 +33,7 @@ public class PageInfo {
 	 /**
 	  * 默认每页记录数
 	  */
-	 private final int defaultPageSize = 10;
+	 private final int defaultPageSize = 9;
 
 	 /**
 	  * 每页记录数
@@ -71,7 +71,7 @@ public class PageInfo {
 	 }
 
 	 public void setPageSize(int pageSize) {
-	  this.pageSize = pageSize > 0 ? pageSize : 10;
+	  this.pageSize = pageSize > 0 ? pageSize : 9;
 	 }
 
 	 public int getPrePage() {

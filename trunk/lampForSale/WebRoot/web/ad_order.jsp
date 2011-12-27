@@ -127,8 +127,7 @@ function orderLists(data){
 
 function seeOrder(data){
   alert("order-->"+data);
-  var userName = data.allPrice;
-  alert("orderId-->"+userName);
+  //拿到指定订单 列出订单表 
   $("#seeOrderDiv").dialog({
         modal : true,
 		show : "blind",
@@ -443,10 +442,6 @@ function delOrder(){
 						</tfoot>
 					</table>
 							</div>
-	
-	
-<input  type="button"   value="使用dialog()方法" onclick="showBut()" /> 
-<div id="showDiv"  style="display:none; ">这个层 是用 dialog()方法 调用出来的</div>
 	
 	
 	<!-- Page footer -->

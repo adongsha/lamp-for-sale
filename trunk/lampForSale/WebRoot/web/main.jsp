@@ -11,7 +11,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
 <title>无标题文档</title>
-<link href="../css/main.css" rel="stylesheet" type="text/css"/>
+<link href="css/main.css" rel="stylesheet" type="text/css"/>
 </head>
 
 <body>
@@ -19,13 +19,13 @@
 	<div id="bg">
 		<div id="head">
 				<ul>
-					<li class="selected" ><a href="main.html">首页</a></li>
-					<li><a href="show.html">灯饰</a></li>
-					<li><a href="login.html">我的账号</a></li>
-					<li><a href="register.html">注册</a></li>
-					<li><a href="cart.html">购物车</a></li>
-					<li><a href="about.html">关于我们</a></li>
-					<li><a href="contact.html">联系我们</a></li>
+					<li class="selected" ><a href="lampAction">首页</a></li>
+					<li><a href="showLampAction">灯饰</a></li>
+					<li><a href="loginAction">我的账号</a></li>
+					<li><a href="registerAction">注册</a></li>
+					<li><a href="cartAction">购物车</a></li>
+					<li><a href="aboutActon">关于我们</a></li>
+					<li><a href="contactAction">联系我们</a></li>
 				</ul>
 		</div>
 	</div>
@@ -38,12 +38,12 @@
   <div id="top">
   						<div id="left">
 								<div class="left_title">
-									<div class="title"><span class="title_icon"><img src="../images/bullet1.gif" /></span>Featured Produce</div>	
+									<div class="title"><span class="title_icon"><img src="images/bullet1.gif" /></span>Featured Produce</div>	
 								</div>
 						  <div class="content">
 										<div class="1">
 											<div class="prod_img">
-													<a href="details.html"><img src="../images/picture1.jpg"/></a>
+													<a href="details.html"><img src="images/picture1.jpg"/></a>
 											</div>
 											<div class="prod_det_box">
 													<div class="box_top"></div>
@@ -61,7 +61,7 @@
 										
 										<div class="1">
 											<div class="prod_img">
-													<a href="details.html"><img src="../images/picture2.jpg"/></a>
+													<a href="details.html"><img src="images/picture2.jpg"/></a>
 											</div>
 											<div class="prod_det_box">
 													<div class="box_top"></div>
@@ -86,7 +86,7 @@
 						
   						<div id="right">
 							<div class="cart">
-									  <div class="cart_title"><span class="title_icon"><img src="../images/cart.gif" /></span>购物车</div>
+									  <div class="cart_title"><span class="title_icon"><img src="images/cart.gif" /></span>购物车</div>
 									  <div class="home_cart_content">
 									  	数&nbsp;&nbsp;&nbsp;量&nbsp; &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp; &nbsp;&nbsp;<span class="red">3</span>
 									  </div>
@@ -94,14 +94,14 @@
 								  
               				</div>
 							<div class="right_title">
-								<div class="title"><span class="title_icon"><img src="../images/bullet2.gif" /></span>Produce  Advertisement</div>
+								<div class="title"><span class="title_icon"><img src="images/bullet2.gif" /></span>Produce  Advertisement</div>
 							</div>	
 
 							<div class="right_flash">					
 						  <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="330" height="300">
-                                  <param name="movie" value="../images/big.swf" />
+                                  <param name="movie" value="images/big.swf" />
                                   <param name="quality" value="high" />
-                                  <embed src="../images/big.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="330" height="300"></embed>
+                                  <embed src="images/big.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="330" height="300"></embed>
 						  </object>
 						  </div>
 						</div>
@@ -112,9 +112,9 @@
 					<div id="center">
 								<div id="center_c">
 								  <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase=		"http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="886" height="130">
-                                    <param name="movie" value="../images/small.swf" />
+                                    <param name="movie" value="images/small.swf" />
                                     <param name="quality" value="high" />
-                                    <embed src="../images/small.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="886" height="130"></embed>
+                                    <embed src="images/small.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="886" height="130"></embed>
                                   </object>
 								</div>
 					</div>

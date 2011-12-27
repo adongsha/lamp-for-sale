@@ -12,7 +12,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
 <title>无标题文档</title>
 <link href="css/show.css" type="text/css" rel="stylesheet"/>
-<script language="javascript" type="text/javascript" src="javascript/jquery-1.6.4.js"></script>
+<script language="javascript" type="text/javascript" src="web/common/js/jquery-1.6.2.min.js"></script> 
 <script type='text/javascript' src='dwr/engine.js'></script>
 <script type='text/javascript' src='dwr/util.js'></script>
 <script type='text/javascript' src='dwr/interface/lampAction.js'></script>
@@ -55,6 +55,11 @@
 			   $("#showLamp").append(div);
    }
    }
+   
+   function showLampType(data){
+      alert("data-->"+data);
+      executeQuery(lampAction.lampTypeListByPage,[data,lampShow]);
+   }
 </script>
 </head>
 
@@ -63,13 +68,13 @@
 	<div id="bg">
 		<div id="head">
 				<ul>
-					<li><a href="main.html">首页</a></li>
-					<li class="selected" ><a href="show.html">灯饰</a></li>
-					<li><a href="login.html">我的账号</a></li>
-					<li><a href="register.html">注册</a></li>
-					<li><a href="cart.html">购物车</a></li>
-					<li><a href="about.html">关于我们</a></li>
-					<li><a href="contact.html">联系我们</a></li>
+					<li class="selected" ><a href="lampAction">首页</a></li>
+					<li><a href="showLampAction">灯饰</a></li>
+					<li><a href="loginAction">我的账号</a></li>
+					<li><a href="registerAction">注册</a></li>
+					<li><a href="cartAction">购物车</a></li>
+					<li><a href="aboutActon">关于我们</a></li>
+					<li><a href="contactAction">联系我们</a></li>
 				</ul>
 		</div>
 	</div>
@@ -83,166 +88,31 @@
 								<div id="left">
 									<div class="title"><span class="title_icon"><img src="images/bullet1.gif" /></span>Produce Show </div>
 								  <div class="picture_show" id="showLamp">
-											<!--<div class="col" id="showLamp">
-												<div class="element">
-															<div class="row_title">
-															  <div class="text"><a href="details.html">巴洛克宫廷灯...</a></div>							                                                            </div>
-															
-															<div class="row">
-																<div class="image">
-														<a href="details.html"><img src="images/picture2.jpg"  alt=""/></a>
-																</div>
-																<div class="price">
-																	<div class="sale"><img src="images/sale.gif" alt=""/></div>
-																	<div class="num">￥200</div>
-																</div>
-															</div>
-													</div>
-													
-													<div class="element">
-															<div class="row_title">
-															  <div class="text"><a href="details.html">巴洛克宫廷灯...</a></div>							                                                            </div>
-															
-													  <div class="row">
-																<div class="image">
-														<a href="details.html"><img src="images/picture2.jpg"  /></a>
-																</div>
-																<div class="price">
-																	<div class="sale"><img src="images/sale.gif"/></div>
-																	<div class="num">￥200</div>
-																</div>
-															</div>
-													</div>
-													
-													
-													<div class="element">
-															<div class="row_title">
-															  <div class="text"><a href="details.html">巴洛克宫廷灯...</a></div>							                                                            </div>
-															
-															<div class="row">
-																<div class="image">
-														<a href="details.html"><img src="images/picture2.jpg"  /></a>
-																</div>
-																<div class="price">
-																	<div class="sale"><img src="images/sale.gif"/></div>
-																	<div class="num">￥200</div>
-																</div>
-															</div>
-													</div>
-															
-										 </div>
-										  
-										  <div class="col">
-													<div class="element">
-															<div class="row_title">
-															  <div class="text"><a href="details.html">巴洛克宫廷灯...</a></div>							                                                            </div>
-															
-															<div class="row">
-																<div class="image">
-														<a href="details.html"><img src="images/picture2.jpg"  /></a>
-																</div>
-																<div class="price">
-																	<div class="sale"><img src="images/sale.gif"/></div>
-																	<div class="num">￥200</div>
-																</div>
-															</div>
-													</div>
-													
-													<div class="element">
-															<div class="row_title">
-															  <div class="text"><a href="details.html">巴洛克宫廷灯...</a></div>							                                                            </div>
-															
-															<div class="row">
-																<div class="image">
-														<a href="details.html"><img src="images/picture2.jpg"  /></a>
-																</div>
-																<div class="price">
-																	<div class="sale"><img src="images/sale.gif"/></div>
-																	<div class="num">￥200</div>
-																</div>
-															</div>
-													</div>
-													
-													
-													<div class="element">
-															<div class="row_title">
-															  <div class="text"><a href="details.html">巴洛克宫廷灯...</a></div>							                                                            </div>
-															
-															<div class="row">
-																<div class="image">
-														<a href="details.html"><img src="images/picture2.jpg"  /></a>
-																</div>
-																<div class="price">
-																	<div class="sale"><img src="images/sale.gif"/></div>
-																	<div class="num">￥200</div>
-																</div>
-															</div>
-													</div>
-															
+											
 										  </div>
+						
 										  
-										  
-										  
-										  <div class="col">
-													<div class="element">
-															<div class="row_title">
-															  <div class="text"><a href="details.html">巴洛克宫廷灯...</a></div>							                                                            </div>
-															
-															<div class="row">
-																<div class="image">
-														<a href="details.html"><img src="images/picture2.jpg"  /></a>
-																</div>
-																<div class="price">
-																	<div class="sale"><img src="images/sale.gif"/></div>
-																	<div class="num">￥200</div>
-																</div>
-															</div>
-													</div>
-													
-													<div class="element">
-															<div class="row_title">
-															  <div class="text"><a href="details.html">巴洛克宫廷灯...</a></div>							                                                            </div>
-															
-															<div class="row">
-																<div class="image">
-														<a href="details.html"><img src="images/picture2.jpg"  /></a>
-																</div>
-																<div class="price">
-																	<div class="sale"><img src="images/sale.gif"/></div>
-																	<div class="num">￥200</div>
-																</div>
-															</div>
-													</div>
-													
-													
-													<div class="element">
-															<div class="row_title">
-															  <div class="text"><a href="details.html">巴洛克宫廷灯...</a></div>							                                                            </div>
-															
-															<div class="row">
-																<div class="image">
-														<a href="details.html"><img src="images/picture2.jpg"  /></a>
-																</div>
-																<div class="price">
-																	<div class="sale"><img src="images/sale.gif"/></div>
-																	<div class="num">￥200</div>
-																</div>
-															</div>
-													</div>
-														 -->	
-										  </div>
-										  
-										  
-										  
-
-
-										  
-										  
-										<div class="number">
-												<span>&nbsp;&lt; 上一页</span>
-												<span>1 2 3 4 5 6 7 ...</span>
-												<span>&nbsp;下一页 &gt;</span>
-										</div>						
+							<div id="allDataDiv">
+							<!--上一页，下一页 开始-->
+							<table width="100%" class="pagecss">
+								<tr>
+									<td align="left">
+										<span id="AllPage">共几页/几条</span>
+										<span id="setupNum">显示每页记录条数</span>
+										<select id="setSize"
+											onchange="ajaxChangeCount(this.options[this.options.selectedIndex].value)">
+										</select>
+								
+										<span id="Flexigrid_Bar"><a href="">上5页</a><span
+											class="dan">1</span><a href="">2</a><a href="">3</a><a
+											href="">下5页</a> </span>
+										<span id="checkPage"><input type="text"
+												style="width: 20px;" />&nbsp;页<a href="">GO</a> </span>
+									</td>
+								</tr>
+							</table>
+							<!--上一页，下一页 结束-->
+						</div>	
 								  </div>
 				</div>
 	
@@ -286,35 +156,35 @@
 										<div class="name">
 											<div class="item">
 												<span class="icon"><img src="images/icon.gif"/></span>
-												<a href="show.html">家&nbsp;居&nbsp;灯</a>
+												<a onclick="showLampType(1)">家&nbsp;居&nbsp;灯</a>
 											</div>
 											<div class="item">
 												<span class="icon"><img src="images/icon.gif"/></span>
-												<a href="show.html">创&nbsp;意&nbsp;灯</a>
+												<a onclick="showLampType(2)">创&nbsp;意&nbsp;灯</a>
 											</div>
 											<div class="item">
 												<span class="icon"><img src="images/icon.gif"/></span>
-												<a href="show.html">落&nbsp;地&nbsp;灯</a>
+												<a onclick="showLampType(3)">落&nbsp;地&nbsp;灯</a>
 											</div>
 											<div class="item">
 												<span class="icon"><img src="images/icon.gif"/></span>
-												<a href="show.html">节&nbsp;能&nbsp;灯</a>
+												<a onclick="showLampType(4)">吸&nbsp;顶&nbsp;灯</a>
 											</div>
 											<div class="item">
 												<span class="icon"><img src="images/icon.gif"/></span>
-												<a href="show.html">吸&nbsp;顶&nbsp;灯</a>											
+												<a onclick="showLampType(5)">射&nbsp;&nbsp;&nbsp;灯</a>											
 											</div>
 											<div class="item">
 												<span class="icon"><img src="images/icon.gif"/></span>
-												<a href="show.html">壁&nbsp;&nbsp;&nbsp;灯</a>
+												<a onclick="showLampType(6)">壁&nbsp;&nbsp;&nbsp;灯</a>
 											</div>
 											<div class="item">
 												<span class="icon"><img src="images/icon.gif"/></span>
-												<a href="show.html">台&nbsp;&nbsp;&nbsp;灯</a>
+												<a onclick="showLampType(7)">台&nbsp;&nbsp;&nbsp;灯</a>
 											</div>
 											<div class="item">
 												<span class="icon"><img src="images/icon.gif"/></span>
-												<a href="show.html">吊&nbsp;&nbsp;&nbsp;灯</a>
+												<a onclick="showLampType(8)">吊&nbsp;&nbsp;&nbsp;灯</a>
 											</div>
 										</div>
 					  </div>
