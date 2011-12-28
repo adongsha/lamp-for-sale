@@ -29,6 +29,7 @@ public class UserService {
 	 * @param user  ”√ªß
 	 */
 	public void register(UserInfo user) {
+		System.out.println("--service--");
 		userDao.register(user);
 	}
 	

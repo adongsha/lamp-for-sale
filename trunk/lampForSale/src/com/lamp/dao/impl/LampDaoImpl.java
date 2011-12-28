@@ -22,6 +22,11 @@ public class LampDaoImpl extends HibernateDaoImpl implements LampDao {
 			return this.findPageByQuery(hql, null, pageInfo);
 		}
 	}
+	
+	public Lamp detailsLamp(Integer lampId){
+		String hql = "from Lamp l where l.lampId="+lampId;
+		return (Lamp) this.find(hql).get(0);
+	}
 
 	public void updateLamp(Integer lampId) {
 		String hql = "update Lamp l set l.isdn=?, l.lampName=?, l.type=?, l.lampDescription=?, l.price=?,"+
