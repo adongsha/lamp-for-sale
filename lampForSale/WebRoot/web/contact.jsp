@@ -24,16 +24,16 @@
 					<li><a href="loginAction">我的账号</a></li>
 					<li><a href="registerAction">注册</a></li>
 					<li><a href="cartAction">购物车</a></li>
-					<li><a href="aboutActon">关于我们</a></li>
+					<li><a href="aboutAction">关于我们</a></li>
 					<li><a href="contactAction">联系我们</a></li>
 				</ul>
 		</div>
 	</div>
 </div>
 <div id="ccenter">
-					<div id="middle">
+					<div id="middle" style = "width:auto;">
 
-						
+							<div style = "float:left; position:relative; width:540px;">
 								<div id="left">
 										<div class="title"><span class="title_icon"><img src="images/bullet1.gif" /></span>Contact Us</div>
 										<div class="tishi">
@@ -72,6 +72,7 @@
 										  </form>
 										</div>	
 								</div>
+							</div>
 	
 	
 	
@@ -155,25 +156,11 @@
 
 
 					<div id="bottom">
-										<div class="bottom">
-											<a href="main.html"><span>.首页</span></a>
-											<a href="show.html"><span>.灯饰</span></a>
-											<a href="into.html"><span>.进入后台</span></a>
-											<a href="contact.html"><span>.联系我们</span></a>
-										</div>
-										<div class="copyright">
-											<span>&copy;Copyright:</span>
-											<span>王华君&nbsp;王海静&nbsp;梁绮红&nbsp;关伟海&nbsp;陆永坚</span>
-										</div>
+										
 					
 					</div>
 </div>
 </body>
 </html>
-��&nbsp;������&nbsp;��粺�&nbsp;��ΰ��&nbsp;½����</span>
-										</div>
-					
-					</div>
-</div>
-</body>
-</html>
+										
+

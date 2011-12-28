@@ -80,9 +80,9 @@ a:hover {
     width: 900px;
 }
 #bottom {
+	background-color: #FFFFFF;
     left: 50%;
-    margin-left: -500px;
-    margin-top: 650px;
+    margin-left: -450px;
     position: absolute;
     width: 900px;
 }

@@ -75,7 +75,7 @@
 					<li><a href="loginAction">我的账号</a></li>
 					<li><a href="registerAction">注册</a></li>
 					<li><a href="cartAction">购物车</a></li>
-					<li><a href="aboutActon">关于我们</a></li>
+					<li><a href="aboutAction">关于我们</a></li>
 					<li><a href="contactAction">联系我们</a></li>
 					</ul>
 				</div>
@@ -99,27 +99,27 @@
 							<form action="main.html" method="post">
 								<div class="username">
 									&nbsp;&nbsp;用户名：
-									<input type="text" name="username" />
+									<input type="text" id="userName" />
 								</div>
 								<div class="username">
 									&nbsp;&nbsp;密&nbsp;&nbsp;码：
-									<input type="password" name="password" />
+									<input type="password" id="password" />
 								</div>
 								<div class="username">
 									确认密码：
-									<input type="password" name="password2" />
+									<input type="password" id="isPassword" />
 								</div>
 								<div class="username">
 									&nbsp;&nbsp;Email&nbsp;：
-									<input type="text" name="email" />
+									<input type="text" id="email" />
 								</div>
 								<div class="username">
 									&nbsp;&nbsp;电&nbsp;话&nbsp;：
-									<input type="text" name="phone" />
+									<input type="text" id="telephone" />
 								</div>
 								<div class="username">
 									&nbsp;&nbsp;地&nbsp;址&nbsp;：
-									<input type="text" name="address" />
+									<input type="text" id="address" />
 								</div>
 								<span class="button"> 
 								<a href="javascript:register()" ><img src="images/register.jpg"></img> </a>
@@ -231,19 +231,6 @@
 			</div>
 
 
-			<div id="bottom">
-				<div class="bottom">
-					<a href="main.html"><span>.首页</span> </a>
-					<a href="show.html"><span>.灯饰</span> </a>
-					<a href="into.html"><span>.进入后台</span> </a>
-					<a href="contact.html"><span>.联系我们</span> </a>
-				</div>
-				<div class="copyright">
-					<span>&copy;Copyright:</span>
-					<span>王华君&nbsp;王海静&nbsp;梁绮红&nbsp;关伟海&nbsp;陆永坚</span>
-				</div>
-
-			</div>
 		</div>
 	</body>
 </html>

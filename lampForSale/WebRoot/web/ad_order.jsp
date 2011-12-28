@@ -104,6 +104,12 @@ function orderLists(data){
    }
    var orderId = order.orderId;
    var userName = order.userName;
+   var address = order.orderAddress;
+   var email = order.orderEmail;
+   var telephone = order.orderPhone;
+   var message = order.message;
+   var code  = order.code;
+   var orderTime = order.orderTime;
    var allPrice = order.allPrice;
    var tr = '<tr><td width="15%">'
           +orderId
@@ -112,9 +118,10 @@ function orderLists(data){
           +'</td><td width="32%">'
           +'<a '
           +orderId
-          +' onclick="seeOrder('
-          +order
-          +')">查看</a> | <a href="" id="'
+          +' onclick="seeOrder(\''
+          +orderStatus+'\',\''+orderId+'\',\''+userName+'\',\''+address+'\',\''+email+'\',\''+telephone+'\',\''
+          +message+'\',\''+code+'\',\''+orderTime+'\',\''+allPrice
+          +'\')">查看</a> | <a href="" id="'
           +orderId
           +'">删除</a></td><td width="16%">'
           +allPrice
@@ -122,12 +129,30 @@ function orderLists(data){
           +orderStatus
           +'</a></td></tr>'
     $("#example").append(tr);
-   }
+   } 
 }
 
-function seeOrder(data){
-  alert("order-->"+data);
+function seeOrder(orderStatus, orderId, userName, address, email, telephone, message, code, orderTime, allPrice){
+      console.log("orderId-->"+orderId);
+      console.log("userName-->"+userName);
+      console.log("address-->"+address);
+      console.log("email-->"+email);
+      console.log("telephone-->"+telephone);
+      console.log("message-->"+message);
+      console.log("code-->"+code);
+      console.log("orderTime-->"+orderTime);
+      console.log("allPrice-->"+allPrice);
+      $("#orderId").html(orderId);
+      $("#userName").html(userName);
+      $("#address").html(address);
+      $("#email").html(email);
+      $("#telephone").html(telephone);
+      $("#message").html(message);
+      $("#code").html(code);
+      $("#orderTime").html(orderTime);
+      $("#allPrice").html(allPrice);
   //拿到指定订单 列出订单表 
+  
   $("#seeOrderDiv").dialog({
         modal : true,
 		show : "blind",
@@ -349,15 +374,15 @@ function delOrder(){
 	<!-- 查看订单Div对话框 -->
 							<div id="seeOrderDiv" style="display: none;"
 								title="订单信息：<samp>123456789</samp>">
-								<table border="0" cellspacing="10" >
+								<table border="0" cellspacing="10" width="700">
 									<tr>
 										<th colspan="4">
 											订单号:&nbsp;
-											<samp id="studentnumber" >
+											<samp id="orderId" >
 												010416524
 											</samp>
 											&nbsp;&nbsp;顾客名:&nbsp;
-											<samp id="studentName" >
+											<samp id="userName" >
 												张三
 											</samp>
 										</th>
@@ -366,7 +391,7 @@ function delOrder(){
 										<td class="table_title" width="10%">
 											送货地址:
 										</td>
-										<td id="normalScore" width="15%">
+										<td id="address" width="15%">
 											<samp id="studentName" >
 												张三
 											</samp>
@@ -374,19 +399,19 @@ function delOrder(){
 										<td class="table_title" width="10%">
 											电话号码:
 										</td>
-										<td class="table_writing2" id="midtermScore" width="15%">
+										<td class="table_writing2" id="telephone" width="15%">
 											13750042440
 										</td>
 										<td class="table_title" width="10%">
 											订单时间:
 										</td>
-										<td class="table_writing2" id="midtermScore" width="15%">
+										<td class="table_writing2" id="orderTime" width="15%">
 											2011-12-25
 										</td>
 										<td class="table_title" width="10%">
 											订单状态:
 										</td>
-										<td class="table_writing2" id="midtermScore" width="15%">
+										<td class="table_writing2" id="orderStatus" width="15%">
 											未处理
 										</td>
 									</tr>
@@ -394,25 +419,25 @@ function delOrder(){
 									   <td class="table_title" width="10%">
 											订单邮编:
 										</td>
-										<td class="table_writing2" id="midtermScore" width="15%">
+										<td class="table_writing2" id="code" width="15%">
 											519090
 										</td>
 										<td class="table_title" width="10%">
 											订单备注:
 										</td>
-										<td class="table_writing2" id="midtermScore" width="15%">
+										<td class="table_writing2" id="message" width="15%">
 											请速度发货
 										</td>
 										<td class="table_title" width="10%">
 											订单邮件:
 										</td>
-										<td class="table_writing3" id="terminalScore" width="15%">
+										<td class="table_writing3" id="email" width="15%">
 											106890194@qq.com
 										</td>
 										<td class="table_title" width="10%">
 											订单总价:
 										</td>
-										<td class="table_writing4" id="experimentScore" width="15%">
+										<td class="table_writing4" id="allPrice" width="15%">
 											1000￥
 										</td>
 									</tr>

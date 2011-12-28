@@ -59,4 +59,13 @@ public class LampServerTest {
 		  System.out.println(ls);
 	  }
    }
+   
+   /**
+    * 测试获取灯饰的详细信息
+    */
+   @Test
+   public void testDetailsLamp(){
+	   LampVo lamp = lampService.detailsLamp(1);
+	   System.out.println("lamp-->"+lamp);
+   }
 }

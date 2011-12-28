@@ -36,6 +36,7 @@
    initPage(page.totalPage, page.pageIndex, page.pageSize, page.totalRec);
    for(var i = 0; i < lamps.length; i++){
       var lamp = lamps[i];
+      var lampId = lamp.lampId;
       var lampName = lamp.lampName;
       var lampPrice = lamp.price;
       var lampPricture = lamp.prictureImage1;
@@ -43,14 +44,22 @@
       var div = '<div class="element">'
 			   +'<div class="row_title">'
 			   +'<div class="text">'
-			   +'<a href="details.html">巴洛克宫廷灯...</a></div></div>'
+			   +'<a href="detailsLampAction.action?lampId='
+			   +lampId
+			   +'">'
+			   +lampName
+			   +'</a></div></div>'
 		       +'<div class="row">'
 			   +'<div class="image">'
-			   +'<a href="details.html"><img src="images/picture2.jpg"  alt=""/></a>'
+			   +'<a href="details.html"><img src="images/'
+			   +lampPricture
+			   +'"  alt=""/></a>'
 			   +'</div>'
 			   +'<div class="price">'
 			   +'<div class="sale"><img src="images/sale.gif" alt=""/></div>'
-			   +'<div class="num">￥200</div>'
+			   +'<div class="num">￥'
+			   +lampPrice
+			   +'</div>'
 			   +'</div></div></div>' ;
 			   $("#showLamp").append(div);
    }
@@ -73,7 +82,7 @@
 					<li><a href="loginAction">我的账号</a></li>
 					<li><a href="registerAction">注册</a></li>
 					<li><a href="cartAction">购物车</a></li>
-					<li><a href="aboutActon">关于我们</a></li>
+					<li><a href="aboutAction">关于我们</a></li>
 					<li><a href="contactAction">联系我们</a></li>
 				</ul>
 		</div>
@@ -189,20 +198,7 @@
 										</div>
 					  </div>
 					</div>
-					<div id="bottom">
-										<div class="bottom">
-											<a href="main.html"><span>.首页</span></a>
-											<a href="show.html"><span>.灯饰</span></a>
-											<a href="into.html"><span>.进入后台</span></a>
-											<a href="contact.html"><span>.联系我们</span></a>
-										</div>
-										<div class="copyright">
-											<span>&copy;Copyright:</span>
-											<span>王华君&nbsp;王海静&nbsp;梁绮红&nbsp;关伟海&nbsp;陆永坚</span>
-										</div>
 					
-					
-					</div>
-</div>
+
 </body>
 </html>

@@ -24,6 +24,13 @@ public interface LampDao {
      public void updateLamp(Integer lampId);
      
      /**
+      * 获得灯的详细信息
+      * @param lampId  灯的ID
+      * @return
+      */
+     public Lamp detailsLamp(Integer lampId);
+     
+     /**
       * 取得灯的列表
       * @return
       */

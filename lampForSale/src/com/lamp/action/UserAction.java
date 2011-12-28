@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Resource;
+
 import org.directwebremoting.annotations.RemoteMethod;
 import org.directwebremoting.annotations.RemoteProxy;
 import org.springframework.beans.factory.config.BeanDefinition;
@@ -22,6 +24,7 @@ import com.lamp.vo.UserInfoVo;
 public class UserAction extends SuperAction {
    private UserService userService;
 
+   @Resource
 	public void setUserService(UserService userService) {
 		this.userService = userService;
 	}

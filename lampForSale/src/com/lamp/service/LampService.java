@@ -31,6 +31,18 @@ public class LampService {
     }
     
     /**
+     * 获得灯的详细信息
+     * @param lampId  灯的id
+     * @return
+     */
+    public LampVo detailsLamp(Integer lampId){
+    	Lamp lamp =  lampDao.detailsLamp(lampId);
+    	LampVo lampVo = Model2VoUtil.lamp2lampVo(lamp);
+    	return lampVo;
+    }
+    
+    
+    /**
      * 灯饰列表和分页
      * @param pageInfo 分页参数
      * @return

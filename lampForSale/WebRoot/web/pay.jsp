@@ -19,13 +19,13 @@
 	<div id="bg">
 		<div id="head">
 				<ul>
-					<li><a href="main.html">首页</a></li>
-					<li><a href="show.html">灯饰</a></li>
-					<li><a href="login.html">我的账号</a></li>
-					<li><a href="register.html">注册</a></li>
-					<li class="selected" ><a href="cart.html">购物车</a></li>
-					<li><a href="about.html">关于我们</a></li>
-					<li><a href="contact.html">联系我们</a></li>
+					<li class="selected" ><a href="lampAction">首页</a></li>
+					<li><a href="showLampAction">灯饰</a></li>
+					<li><a href="loginAction">我的账号</a></li>
+					<li><a href="registerAction">注册</a></li>
+					<li><a href="cartAction">购物车</a></li>
+					<li><a href="aboutAction">关于我们</a></li>
+					<li><a href="contactAction">联系我们</a></li>
 				</ul>
 		</div>
 	</div>

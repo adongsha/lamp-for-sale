@@ -17,6 +17,16 @@
          <result>/web/show.jsp</result>
       </action>
       
+      <!-- 灯饰的详细信息入口 -->
+      <action name="detailsLampAction" class="LampAction">
+         <result>/web/details.jsp</result>
+      </action>
+      
+      <!-- 购物车入口 -->
+      <action name="cartAction">
+         <result>/web/cart.jsp</result>
+      </action>
+      
       <!-- 登陆页面入口 -->
       <action name="loginAction">
          <result>/web/login.jsp</result>
@@ -49,7 +59,7 @@
        <result>/web/ad_addLamp.jsp</result>
       </action>
       
-      <action name="mainAction" class="OrderAction">
+      <action name="ad_mainAction" class="OrderAction">
         <result>/web/ad_main.jsp</result>
       </action>
       
@@ -61,11 +71,11 @@
        
       </action>
       
-      <action name="orderList" class="OrderAction">
+      <action name="ad_orderAction" class="OrderAction">
         <result>/web/ad_order.jsp</result>
       </action>
       
-      <action name="ad_showLamp" class="LampAction">
+      <action name="ad_showLampAction" class="LampAction">
         <result>/web/ad_showLamp.jsp</result>
       </action>
     </package>

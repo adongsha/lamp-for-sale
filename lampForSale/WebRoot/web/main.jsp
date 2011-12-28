@@ -24,7 +24,7 @@
 					<li><a href="loginAction">我的账号</a></li>
 					<li><a href="registerAction">注册</a></li>
 					<li><a href="cartAction">购物车</a></li>
-					<li><a href="aboutActon">关于我们</a></li>
+					<li><a href="aboutAction">关于我们</a></li>
 					<li><a href="contactAction">联系我们</a></li>
 				</ul>
 		</div>
