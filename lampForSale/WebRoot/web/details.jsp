@@ -28,7 +28,10 @@
 		<script type="text/javascript">
 
 $(document).ready(function(){
-  
+   //lampAction.cartCount(function(data) {
+   //         console.log("data-->"+data);
+   //      $("#count").html(data);
+   //});
    var lampId = GetQueryString("lampId");
    if(lampId == ""){
      lampId = null;
@@ -46,7 +49,7 @@ $(document).ready(function(){
         $("#p2").attr("href",p2);
         $("#p3").attr("href",p3);
         $("#p4").attr("href",p4);
-        alert("--------->"+$("#p4").val());
+       
     $("#price").html(price);
     $("#description").html(lampDescription);
     $("#img").attr("src",pri);
@@ -59,11 +62,15 @@ function cartAddOne() {
      if(lampId == ""){
        lampId = null;
      }
-     lampAction.addLampToCart(evalDwrData(lampId),function(data){
-         console.log("data-->"+data);
+     
+     lampAction.addLampToCart(evalDwrData(lampId));
+     
+     lampAction.cartCount(function(data) {
+            console.log("data-->"+data);
          $("#count").html(data);
      });
 }
+
 
 
 //通过js获取URL的值 
