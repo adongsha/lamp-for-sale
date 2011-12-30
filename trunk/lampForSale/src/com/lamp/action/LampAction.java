@@ -78,25 +78,30 @@ public class LampAction extends SuperAction implements SessionAware{
      */
     @RemoteMethod
     public Integer addLampToCart(Integer lampId){
-    	System.out.println("-----------");
     	LampVo lampVo = lampService.detailsLamp(lampId);
     	List<LampVo> listLamps = new ArrayList<LampVo>();
     	listLamps.add(lampVo); 	
-    	System.out.println(listLamps.size());
     	ActionContext.getContext().getSession().put("listLamps", listLamps);
-    	System.out.println("======="+ActionContext.getContext().getSession().get("listLamps"));
-    	return listLamps.size();
+    	ActionContext.getContext().getSession().put("cartSize", listLamps.size());
+    	return null;
     }
     
+    /**
+     * 取得购物车的物价数
+     * @return
+     */
+    @RemoteMethod
+    public Integer cartCount(){
+    	return (Integer)ActionContext.getContext().getSession().get("cartSize");
+    	
+    }
     /**
      * 获取购物车的所有物品
      * @return
      */
     @RemoteMethod
     public List<LampVo> cartLamp(){
-    	System.out.println("开始");
        List list = (List)ActionContext.getContext().getSession().get("listLamps");
-       System.out.println("lampsss-->"+list);
        return list;
     }
     
