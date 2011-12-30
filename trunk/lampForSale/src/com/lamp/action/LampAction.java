@@ -2,6 +2,7 @@ package com.lamp.action;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -26,6 +27,7 @@ import com.opensymphony.xwork2.ActionContext;
 public class LampAction extends SuperAction implements SessionAware{
       LampService lampService;
       Map<String, Object> session;
+      Map cart;
       @Resource
 	public void setLampService(LampService lampService) {
 		this.lampService = lampService;
@@ -77,13 +79,15 @@ public class LampAction extends SuperAction implements SessionAware{
      * @return
      */
     @RemoteMethod
-    public Integer addLampToCart(Integer lampId){
+    public void addLampToCart(Integer lampId){
+    	cart = (Map)ActionContext.getContext().getSession().get("cart");
+    	System.out.println("cart-->"+cart);
+    	if(cart == null){
+    		 cart = new HashMap();
+    	}
     	LampVo lampVo = lampService.detailsLamp(lampId);
-    	List<LampVo> listLamps = new ArrayList<LampVo>();
-    	listLamps.add(lampVo); 	
-    	ActionContext.getContext().getSession().put("listLamps", listLamps);
-    	ActionContext.getContext().getSession().put("cartSize", listLamps.size());
-    	return null;
+    	cart.put(lampId, lampVo);	
+    	ActionContext.getContext().getSession().put("cart", cart);
     }
     
     /**
@@ -101,7 +105,13 @@ public class LampAction extends SuperAction implements SessionAware{
      */
     @RemoteMethod
     public List<LampVo> cartLamp(){
-       List list = (List)ActionContext.getContext().getSession().get("listLamps");
+       Map map = (Map)ActionContext.getContext().getSession().get("cart");
+       System.out.println("mapSize-->"+map.size());
+       List list = new ArrayList();
+       Iterator it = map.keySet().iterator();
+       while(it.hasNext()){
+    	   list.add(map.get(it.next()));
+       }
        return list;
     }
     

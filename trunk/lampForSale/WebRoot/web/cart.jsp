@@ -21,16 +21,21 @@
 	    $(document).ready(function(){
 	    lampAction.cartLamp(function(data){
 	       console.log("data-->"+data);
+	       var allSum = 0;
 	       for(var i = 0; i<data.length; i++){
 	         var lamp = data[i];
+	         var lampId = lamp.lampId;
 	         var lampName = lamp.lampName;
 	         var price = lamp.price;
+	         allSum += price;
+	         console.log("-----"+allSum);
+	        
 	         var pic = "images/lampImages/"+lamp.prictureImage1+".jpg";
 	         var div = '<div class="show">'
 					   +'<div class="picture_cart">'
-					   +'<a href="details.html"><img src="'
+					   +'<img src="'
 					   +pic
-					   +'" /></a>'
+					   +'" />'
 					   +'</div>'
 					   +'<div class="produce_name">'
 					   +lampName
@@ -41,50 +46,55 @@
 					   +'<div class="p_count">'
 					   +'<input type="button" value="-" onclick="jian('
 					   +price
-					   +')"/><samp id="aaa">'
+					   +','+lampId+')"/><samp id="'+lampId+'">'
 					   +1
 					   +'</samp><input type="button" value="+" onclick="add('
 					   +price
-					   +')"/>'
+					   +','+lampId+')"/>'
 					   +'</div>'
-					   +'<div class="p_total"><samp id="sum">'
+					   +'<div class="p_total"><samp id="sum'+lampId+'">'
 					   +price
 					   +'</samp></div>'
 					   +'<div class="p_delete" ><a href="javascript:del()"><img src="images/delete.gif" /></a></div>'
 					   +'</div>';
 					   $("#show_border").append(div);
 	       }
+	        $("#allSum").html(allSum);
 	    });
 	 });
-	 function jian(price){
-	    var smapNum = document.getElementById('aaa');
+	 function jian(price,lampId){
+	    var smapNum = document.getElementById(lampId);
 	    var num = Number(smapNum.innerHTML);
-	
+	    
+	    var allSum = Number(document.getElementById('allSum').innerHTML)-price;
+	    console.log("allSum-->"+allSum);
+	    document.getElementById('allSum').innerHTML = allSum;
 	    num = num - 1;
+	    
 	    if(num < 0 ){
 	      alert("数量已经为零，不能再减..");
 	      smapNum.innerHTML = 0;
-	      document.getElementById('sum').innerHTML = 0;
+	      document.getElementById('sum'+lampId).innerHTML = 0;
 	    } else {
 	    	smapNum.innerHTML = num;
 	    }
 	     var sum = num*price;
-	     document.getElementById('sum').innerHTML = sum;
+	     document.getElementById('sum'+lampId).innerHTML = sum;
 	 }
 	 
-	 function add(price) {
-	 	var smapNum = document.getElementById('aaa');
+	 function add(price,lampId) {
+	 	var smapNum = document.getElementById(lampId);
 	    var num = Number(smapNum.innerHTML);
-	
+	    
+	    var allSum = Number(document.getElementById('allSum').innerHTML)+price;
+	    console.log("allSum-->"+allSum);
+	    document.getElementById('allSum').innerHTML = allSum;
 	    num = num + 1;
 	    smapNum.innerHTML = num;
 	    var sum = num*price;
-	     document.getElementById('sum').innerHTML = sum;
+	     document.getElementById('sum'+lampId).innerHTML = sum;
 	 }
-	 
-	 function sum(){
-	     
-	 }
+
 	 
 	 function del() {
 	     
@@ -98,7 +108,7 @@
 				<div id="head">
 					<ul>
 						<li class="selected">
-							<a href="lampAction">首页</a>
+							<a href="lampAction">a首页</a>
 						</li>
 						<li>
 							<a href="showLampAction">灯饰</a>
@@ -135,7 +145,7 @@
 						</div>
 						<div id="pay">
 							<span>支付：</span>
-							<span class="r">￥800</span>
+							<span class="r" id="allSum">￥800</span>
 							<a href="pay.html"><span class="pay">结算</span>
 							</a>
 						</div>
