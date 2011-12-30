@@ -113,12 +113,10 @@ function evalDwrData(data) {
 
 <div id="ccenter">
 					<div id="middle">
-
 								
 								<div id="left">
 									<div class="title"><span class="title_icon"><img src="images/bullet1.gif" /></span>Produce Show </div>
 								  <div class="picture_show" id="showLamp">
-											
 										  </div>
 						
 										  

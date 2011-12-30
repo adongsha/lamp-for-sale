@@ -46,6 +46,7 @@ $(document).ready(function(){
         $("#p2").attr("href",p2);
         $("#p3").attr("href",p3);
         $("#p4").attr("href",p4);
+        alert("--------->"+$("#p4").val());
     $("#price").html(price);
     $("#description").html(lampDescription);
     $("#img").attr("src",pri);

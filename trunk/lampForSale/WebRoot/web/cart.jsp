@@ -39,9 +39,13 @@
 					   +price
 					   +'</div>'
 					   +'<div class="p_count">'
-					   +'<input type="button" value="-" onclick="jian()"/><samp id="num">'
+					   +'<input type="button" value="-" onclick="jian('
+					   +price
+					   +')"/><samp id="aaa">'
 					   +1
-					   +'</samp><input type="button" value="+" onclik="add()"/>'
+					   +'</samp><input type="button" value="+" onclick="add('
+					   +price
+					   +')"/>'
 					   +'</div>'
 					   +'<div class="p_total"><samp id="sum">'
 					   +price
@@ -52,20 +56,34 @@
 	       }
 	    });
 	 });
-	 function jian(){
-	    var num = $("#num").val();
-	    if(num<1){
-	      alert("对不起，数量已经为0,不能再减 .... ");
-	      $("#num").html(0);
+	 function jian(price){
+	    var smapNum = document.getElementById('aaa');
+	    var num = Number(smapNum.innerHTML);
+	
+	    num = num - 1;
+	    if(num < 0 ){
+	      alert("数量已经为零，不能再减..");
+	      smapNum.innerHTML = 0;
+	      document.getElementById('sum').innerHTML = 0;
+	    } else {
+	    	smapNum.innerHTML = num;
 	    }
-	    num-= num;
-	    $("#num").html(num);
+	     var sum = num*price;
+	     document.getElementById('sum').innerHTML = sum;
 	 }
 	 
-	 function add() {
-	    var num = $("#num").val();
-	    num+=num;
-	    $("#num").html(num);
+	 function add(price) {
+	 	var smapNum = document.getElementById('aaa');
+	    var num = Number(smapNum.innerHTML);
+	
+	    num = num + 1;
+	    smapNum.innerHTML = num;
+	    var sum = num*price;
+	     document.getElementById('sum').innerHTML = sum;
+	 }
+	 
+	 function sum(){
+	     
 	 }
 	 
 	 function del() {
