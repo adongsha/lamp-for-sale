@@ -18,11 +18,59 @@
 		<script type='text/javascript' src='dwr/util.js'></script>
 		<script type='text/javascript' src='dwr/interface/lampAction.js'></script>
 		<script type="text/javascript">
-	//$(document).ready(function(){
-	//    lampAction.cartLamp(function(data){
-	//       console.log("data-->"+data);
-	//    });
-	// });
+	    $(document).ready(function(){
+	    lampAction.cartLamp(function(data){
+	       console.log("data-->"+data);
+	       for(var i = 0; i<data.length; i++){
+	         var lamp = data[i];
+	         var lampName = lamp.lampName;
+	         var price = lamp.price;
+	         var pic = "images/lampImages/"+lamp.prictureImage1+".jpg";
+	         var div = '<div class="show">'
+					   +'<div class="picture_cart">'
+					   +'<a href="details.html"><img src="'
+					   +pic
+					   +'" /></a>'
+					   +'</div>'
+					   +'<div class="produce_name">'
+					   +lampName
+					   +'</div>'
+					   +'<div class="p_price">'
+					   +price
+					   +'</div>'
+					   +'<div class="p_count">'
+					   +'<input type="button" value="-" onclick="jian()"/><samp id="num">'
+					   +1
+					   +'</samp><input type="button" value="+" onclik="add()"/>'
+					   +'</div>'
+					   +'<div class="p_total"><samp id="sum">'
+					   +price
+					   +'</samp></div>'
+					   +'<div class="p_delete" ><a href="javascript:del()"><img src="images/delete.gif" /></a></div>'
+					   +'</div>';
+					   $("#show_border").append(div);
+	       }
+	    });
+	 });
+	 function jian(){
+	    var num = $("#num").val();
+	    if(num<1){
+	      alert("对不起，数量已经为0,不能再减 .... ");
+	      $("#num").html(0);
+	    }
+	    num-= num;
+	    $("#num").html(num);
+	 }
+	 
+	 function add() {
+	    var num = $("#num").val();
+	    num+=num;
+	    $("#num").html(num);
+	 }
+	 
+	 function del() {
+	     
+	 }
 </script>
 	</head>
 
@@ -94,7 +142,7 @@
 									删除
 								</div>
 							</div>
-							<div class="show">
+							<!--<div class="show">
 								<div class="picture_cart">
 									<a href="details.html"><img src="images/picture1.jpg" />
 									</a>
@@ -187,7 +235,7 @@
 									<img src="images/delete.gif" />
 								</div>
 							</div>
-						</div>
+						--></div>
 	
 						
 					</div>
