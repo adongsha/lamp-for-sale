@@ -18,7 +18,7 @@
 <link rel="icon" type="image/png" HREF="images/favicons/favicon.png"/>
 <link rel="apple-touch-icon" HREF="images/favicons/apple.png" />
 <!-- Main Stylesheet --> 
-<link rel="stylesheet" href="../css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
 <!-- Colour Schemes
 Default colour scheme is blue. Uncomment prefered stylesheet to use it.
 <link rel="stylesheet" href="css/brown.css" type="text/css" media="screen" />  
@@ -129,10 +129,9 @@ function tip(){
 			<!-- Top navigation -->
 			<div id="topnav">
 				<a href="#"><img class="avatar" SRC="images/user_32.png" alt="" /></a>
-				Logged in as <b>Admin</b>
-				<span>|</span> <a href="#">Settings</a>
-				<span>|</span> <a href="#">Logout</a><br />
-				<small>You have <a href="#" class="high"><b>1</b> new message!</a></small>
+				<b>Admin</b>
+				<span>|</span> <a href="#">个人信息</a>
+				<span>|</span> <a href="#">注销</a><br />
 			</div>
 			<!-- End of Top navigation -->
 			<!-- Main navigation -->
@@ -254,7 +253,26 @@ function tip(){
 							</p>
                             </td>
                             <td width="50%">
-           
+                            <p>
+								<label class="required" for="weight">灯饰类型:</label><br/>
+								<select id="type">
+										<option value="">
+											--请选择类型--
+										</option>
+										<option>
+											0
+										</option>
+										<option>
+											1
+										</option>
+										<option>
+											2
+										</option>
+										<option>
+											3
+										</option>
+									</select>
+							</p>
                             </td>
                             </tr>
                             </table>

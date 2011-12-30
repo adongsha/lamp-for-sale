@@ -14,10 +14,10 @@ import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import com.lamp.model.Lamp;
 import com.lamp.service.LampService;
 import com.lamp.util.PageInfo;
 import com.lamp.vo.LampVo;
+import com.opensymphony.xwork2.ActionContext;
 
 
 @Component("LampAction")
@@ -26,7 +26,6 @@ import com.lamp.vo.LampVo;
 public class LampAction extends SuperAction implements SessionAware{
       LampService lampService;
       Map<String, Object> session;
-      
       @Resource
 	public void setLampService(LampService lampService) {
 		this.lampService = lampService;
@@ -62,11 +61,13 @@ public class LampAction extends SuperAction implements SessionAware{
      * @return
      */
     @RemoteMethod
-    public Map<String, Object> lampTypeListByPage(PageInfo pageInfo, Integer type){
+    public Map<String, Object> lampTypeListByPage(Integer type, PageInfo pageInfo){
     	Map<String, Object> map = new HashMap<String, Object>();
+    	System.out.println("---------------");
         List<LampVo> lampVos = lampService.lampTypeListByPage(pageInfo, type);
         map.put("pageInfo", pageInfo);
         map.put("lampVos", lampVos);
+       
         return map;
     }
     
@@ -76,12 +77,15 @@ public class LampAction extends SuperAction implements SessionAware{
      * @return
      */
     @RemoteMethod
-    public Map<String, Object> addLampToCart(Integer lampId){
+    public Integer addLampToCart(Integer lampId){
+    	System.out.println("-----------");
     	LampVo lampVo = lampService.detailsLamp(lampId);
     	List<LampVo> listLamps = new ArrayList<LampVo>();
-    	listLamps.add(lampVo);
-    	Map map = (Map)session.put("listLamps", listLamps);
-    	return map;
+    	listLamps.add(lampVo); 	
+    	System.out.println(listLamps.size());
+    	ActionContext.getContext().getSession().put("listLamps", listLamps);
+    	System.out.println("======="+ActionContext.getContext().getSession().get("listLamps"));
+    	return listLamps.size();
     }
     
     /**
@@ -90,8 +94,10 @@ public class LampAction extends SuperAction implements SessionAware{
      */
     @RemoteMethod
     public List<LampVo> cartLamp(){
-       List<LampVo> lamps = (List)session.get("listLamps");  	
-       return lamps;
+    	System.out.println("¿ªÊ¼");
+       List list = (List)ActionContext.getContext().getSession().get("listLamps");
+       System.out.println("lampsss-->"+list);
+       return list;
     }
     
     

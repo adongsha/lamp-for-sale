@@ -186,10 +186,9 @@ function delOrder(){
 			<!-- Top navigation -->
 			<div id="topnav">
 				<a href="#"><img class="avatar" SRC="images/user_32.png" alt="" /></a>
-				Logged in as <b>Admin</b>
-				<span>|</span> <a href="#">Settings</a>
-				<span>|</span> <a href="#">Logout</a><br />
-				<small>You have <a href="#" class="high"><b>1</b> new message!</a></small>
+				<b>Admin</b>
+				<span>|</span> <a href="#">个人信息</a>
+				<span>|</span> <a href="#">注销</a><br />
 			</div>
 			<!-- End of Top navigation -->
 			<!-- Main navigation -->
@@ -214,7 +213,6 @@ function delOrder(){
 			</nav>
 			<!-- End of Main navigation -->
 			<!-- Aside links -->
-			<aside><b>English</b> &middot; <a href="#">Spanish</a> &middot; <a href="#">German</a></aside>
 			<!-- End of Aside links -->
 		</div>
 	</header>
@@ -297,7 +295,7 @@ function delOrder(){
                              
 							</tr>
 						</thead>
-							<tfoot>
+						<tfoot>
 							<tr>
 								<th width="15%">订单号</th>
 								<th width="24%">用户名</th>
@@ -347,7 +345,7 @@ function delOrder(){
 							<dd class="last">Basic elements and styles</dd>							
 							
 							<dt><img width="16" height="16" alt="" SRC="images/book.png"></dt>
-							<dd><a HREF="http://www.865171.cn">www.865171.cn</a></dd>
+							<dd><a HREF="">www.865171.cn</a></dd>
 							<dd class="last">Datatable documentation</dd>							
 						</dl>
 					</div>
@@ -359,7 +357,7 @@ function delOrder(){
 							Try other alternatives:<br/>
 							<dl>
 								<dt></dt>
-								<dd><a HREF="http://www.865171.cn">www.865171.cn</a></dd>
+								<dd><a HREF="">www.865171.cn</a></dd>
 							</dl>
 						</section>
 					</div>
@@ -480,7 +478,7 @@ function delOrder(){
 				<a href="#">用户管理</a> &middot;
 				<a href="#">业绩图表</a>
 			</nav>
-			<p>Copyright &copy; 2010 <b><a HREF="http://www.865171.cn" title="关伟海、陆永坚、王海静、梁绮红">小组成员</a></b> | Icons by <a HREF="http://www.865171.cn" title="王华君">09网编1班</a></p>
+			<p>Copyright &copy; 2010 <b><a HREF="" title="关伟海、陆永坚、王海静、梁绮红">小组成员</a></b> | Icons by <a HREF="" title="王华君">09网编1班</a></p>
 		</div>
 	</footer>
 	<!-- End of Page footer -->
