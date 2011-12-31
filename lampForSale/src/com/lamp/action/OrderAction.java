@@ -1,5 +1,6 @@
 package com.lamp.action;
 
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,6 +13,7 @@ import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import com.lamp.model.OrderInfo;
 import com.lamp.service.OrderService;
 import com.lamp.util.PageInfo;
 import com.lamp.vo.OrderInfoVo;
@@ -174,5 +176,32 @@ public class OrderAction extends SuperAction {
     	map.put("pageInfo", pageInfo);
     	map.put("orderInfoVos", orderInfoVos);
     	return map;
+    }
+    
+    /**
+     * 添加订单      2表示没有处理的订单
+     * @param userName   用户名
+     * @param telephone  电话
+     * @param message    备注
+     * @param email      邮件
+     * @param code       邮编
+     * @param address    地址
+     * @param allPrice   总价钱
+     */
+    @RemoteMethod
+    public void addOrder(String userName, String telephone, String message, 
+    		String email, String code, String address, Double allPrice){
+    	OrderInfo order = new OrderInfo();
+    	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); 
+    	order.setAllPrice(allPrice);
+    	order.setCode(code);
+    	order.setMessage(message);
+    	order.setOrderEmail(email);
+    	order.setOrderPerson(userName);
+    	order.setOrderAddress(address);
+    	order.setOrderPhone(telephone);
+    	order.setOrderTime(sdf.toString());
+    	order.setOrderStatus(2);
+    	orderService.addOrder(order);
     }
 }

@@ -49,4 +49,9 @@ public class OrderServiceTest {
     public void testStatisticsOrderAmountForMonth(){
     	System.out.println(orderService.statisticsOrderAmountForMonth());
     }
+    
+    @Test
+    public void testTest(){
+    	orderService.test();
+    }
 }
