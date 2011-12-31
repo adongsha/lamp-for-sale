@@ -208,4 +208,17 @@ public class OrderService {
         }
         return orderInfoVos;
     }
+    
+    /**
+     * 添加订单
+     * @param order  订单对象
+     */
+    public void addOrder(OrderInfo order){
+    	orderDao.addOrder(order);
+    }
+    
+    public void test(){
+    	Long s = System.currentTimeMillis();
+    	System.out.println("--->"+s);
+    }
 }

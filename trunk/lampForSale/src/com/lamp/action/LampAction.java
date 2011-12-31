@@ -115,5 +115,9 @@ public class LampAction extends SuperAction implements SessionAware{
        return list;
     }
     
+    public String orderID(){
+    	Long s = System.currentTimeMillis();
+    	return null;
+    }
     
 }
