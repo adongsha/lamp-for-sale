@@ -32,7 +32,6 @@
 </div>
 <div id="ccenter">
 					<div id="middle" style = "width:auto;">
-
 							<div style = "float:left; position:relative; width:540px;">
 								<div id="left">
 										<div class="title"><span class="title_icon"><img src="images/bullet1.gif" /></span>Contact Us</div>

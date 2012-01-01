@@ -79,13 +79,16 @@ public class LampAction extends SuperAction implements SessionAware{
      * @return
      */
     @RemoteMethod
-    public void addLampToCart(Integer lampId){
+    public void addLampToCart(Integer lampId, Integer count){
     	cart = (Map)ActionContext.getContext().getSession().get("cart");
     	System.out.println("cart-->"+cart);
     	if(cart == null){
     		 cart = new HashMap();
     	}
     	LampVo lampVo = lampService.detailsLamp(lampId);
+    	
+    		lampVo.setCount(count);
+    
     	cart.put(lampId, lampVo);	
     	ActionContext.getContext().getSession().put("cart", cart);
     }
@@ -115,9 +118,12 @@ public class LampAction extends SuperAction implements SessionAware{
        return list;
     }
     
-    public String orderID(){
-    	Long s = System.currentTimeMillis();
-    	return null;
+    /**
+     * ±£´æ¶©µ¥..
+     */
+    public void insertAllLamp(){
+    	List<LampVo> listVo = this.cartLamp();
+    	
     }
     
 }

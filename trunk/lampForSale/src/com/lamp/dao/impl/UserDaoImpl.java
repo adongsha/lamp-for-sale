@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import com.lamp.dao.UserDao;
 import com.lamp.model.UserInfo;
 import com.lamp.util.PageInfo;
+
 @Component("userDao")
 public class UserDaoImpl extends HibernateDaoImpl implements UserDao {
     
@@ -17,12 +18,18 @@ public class UserDaoImpl extends HibernateDaoImpl implements UserDao {
 	 * Ç°Ì¨µÇÂ¼
 	 */
 	public boolean login(String userName, String password) {
-		String hql = "from UserInfo u where u.userName="+userName+"' and u.power=0";
-        UserInfo user = (UserInfo)this.find(hql).get(0);
+		String hql = "from UserInfo u where u.userName='"+userName+"' and u.power=0";
+        List<UserInfo> list = this.find(hql);
+        if(list.size()<1){
+        	System.out.println("aaaaaaaa");
+        	return false;
+        }
+        UserInfo user = list.get(0);
         if(user.getPassword().equals(password)){
         	return true;
         }
         return false;
+     
 	}
 	
 	

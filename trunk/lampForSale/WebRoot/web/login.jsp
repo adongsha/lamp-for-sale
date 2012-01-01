@@ -12,6 +12,51 @@
 <meta http-equiv="Content-Type" content="text/html;charset=gbk" />
 <title>LampForSale</title>
 <link href="css/style1.css" type="text/css" rel="stylesheet"/>
+
+<script language="javascript" type="text/javascript" src="web/common/js/jquery-1.6.2.min.js"></script>
+<script type='text/javascript' src='dwr/engine.js'></script>
+<script type='text/javascript' src='dwr/util.js'></script>
+<script type='text/javascript' src='dwr/interface/userAction.js'></script>
+<script type='text/javascript'>
+   function login(){
+     var userName = $('#userName').val();
+     console.log("userName-->"+userName);
+     if(userName == ""){
+       userName = null;
+     }
+     var password = $('#password').val();
+     if(password == ""){
+       password = null;
+     }
+     console.log("password-->"+password);
+     userAction.login(userName, password, function(data){
+         if(data == false){
+             alert("账号错误..请重新登录 ");
+         } 
+         if(data == true){
+            window.location.href='contactAction.action';
+         }
+     });
+     
+   }
+   
+   function zhuce(){
+     window.location.href = 'registerAction.action';
+   }   
+   
+    // 将DWR中值转化以便于传递后台
+function evalDwrData(data) {
+	if (!data) {
+		return null;
+	}
+	if (data == "") {
+		return null;
+	}
+
+	return eval(data);
+}
+
+</script>
 </head>
 
 <body>
@@ -47,20 +92,20 @@
 									<span>Login into your account</span>
 								</div>
 								<div class="login_border">
-									<form method="post" action="main.html">
+									
 										<div class="username">
 											用户名：
-											<input type="text" name="username"/>
+											<input type="text" id="userName"/>
 										</div>
 										<div class="username">
 											密&nbsp;&nbsp;码：
-											<input type="password" name="password"/>
+											<input type="password" id="password"/>
 										</div>
 										<div class="button">
-											<input type="reset" value="重置" name="reset"/>
-											<input type="submit" value="登陆" name="submit"/>
+											<input type="submit" value="登陆" name="submit" onclick="login()"/>
+											<input type="reset" value="注册" name="reset" onclick="zhuce()"/>
 										</div>
-									</form>
+									
 								</div>
 							</div>
 							

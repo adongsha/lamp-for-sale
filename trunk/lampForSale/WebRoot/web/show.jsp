@@ -16,18 +16,15 @@
 <script type='text/javascript' src='dwr/engine.js'></script>
 <script type='text/javascript' src='dwr/util.js'></script>
 <script type='text/javascript' src='dwr/interface/lampAction.js'></script>
+<script type='text/javascript' src='dwr/interface/userAction.js'></script>
 <script language="javascript" type="text/javascript" src="javascript/pageInfo.js"></script>
 <script type="text/javascript">
    $(document).ready(function(){
-          //lampAction.cartCount(function(data) {
-           // console.log("data-->"+data);
-           // if(data == null){
-           //    data = 0;
-           // }
-        // $("#count").html(data);
-    // });
      executeQuery(lampAction.lampListByPage,[lampShow]);
-   })
+     userAction.loadUserName(function(data){
+        $("#userName").html(data);
+     });
+   });
    
    function lampShow(data){
     console.log("data-->"+data);
@@ -75,7 +72,7 @@
    }
    }
 
-   
+  
    
    
    function showLampType(data){
@@ -158,7 +155,7 @@ function evalDwrData(data) {
 	<div id="category">
 					  		<div class="cart">
 									  <div class="cart_title"><span class="title_icon"><img src="images/cart.gif" /></span>购物车</div>
-									  <div class="home_cart_content">数&nbsp;&nbsp;量&nbsp;&nbsp;&brvbar;&nbsp; &nbsp;<span class="red" id="count"></span>
+									  <div class="home_cart_content">用户名&brvbar;&nbsp;<span class="red" id="userName"></span>
 									  </div>
 									  <a href="cart.html" class="view_cart">查看购物车</a>
 								  

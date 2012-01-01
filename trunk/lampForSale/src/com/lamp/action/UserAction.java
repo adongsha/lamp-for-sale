@@ -17,6 +17,7 @@ import com.lamp.model.UserInfo;
 import com.lamp.service.UserService;
 import com.lamp.util.PageInfo;
 import com.lamp.vo.UserInfoVo;
+import com.opensymphony.xwork2.ActionContext;
 
 @Component("UserAction")
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
@@ -50,6 +51,21 @@ public class UserAction extends SuperAction {
 	}
 	
 	/**
+	 * 登录
+	 * @param userName  用户名
+	 * @param password  密码
+	 * @return
+	 */
+	@RemoteMethod
+	public boolean login(String userName, String password){
+		boolean flag = userService.login(userName, password);
+		if(flag == true){
+		ActionContext.getContext().getSession().put("userName", userName);
+		}
+		return flag;
+	}
+	
+	/**
 	 * 统计用户级别的人数
 	 * @return
 	 */
@@ -71,4 +87,20 @@ public class UserAction extends SuperAction {
 		map.put("userLists", lists);
 		return map;
 	}
+	
+	/**
+	 * 得到用户名
+	 * @return
+	 */
+	@RemoteMethod
+	public String loadUserName(){	
+		String userName = (String)ActionContext.getContext().getSession().get("userName");
+		if(userName == null){
+			return "";
+		}else{
+			return userName;
+		}
+		
+	}
+    
 }

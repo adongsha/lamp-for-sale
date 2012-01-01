@@ -13,6 +13,7 @@ import com.lamp.model.UserInfo;
 import com.lamp.util.Model2VoUtil;
 import com.lamp.util.PageInfo;
 import com.lamp.vo.UserInfoVo;
+import com.opensymphony.xwork2.ActionContext;
 
 @Component("userService")
 public class UserService {
@@ -47,7 +48,8 @@ public class UserService {
 	 * Ç°Ì¨µÇÂ¼
 	 */
 	public boolean login(String userName, String password) {
-		return userDao.login(userName, password);
+		boolean flag = userDao.login(userName, password);
+		return flag;
 	}
 	
 	
@@ -73,4 +75,6 @@ public class UserService {
 		}
 		return userInfoVos;
 	}
+	
+
 }
