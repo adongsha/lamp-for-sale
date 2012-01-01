@@ -22,6 +22,7 @@ public class LampVo {
 	private String prictureImage4;
 	private String evaluationCount;
 	private Integer saleEvMouth;
+	private Integer count;
 
 	public Integer getLampId() {
 		return lampId;
@@ -166,4 +167,14 @@ public class LampVo {
 	public void setSaleEvMouth(Integer saleEvMouth) {
 		this.saleEvMouth = saleEvMouth;
 	}
+
+	public Integer getCount() {
+		return count;
+	}
+
+	public void setCount(Integer count) {
+		this.count = count;
+	}
+	
+	
 }

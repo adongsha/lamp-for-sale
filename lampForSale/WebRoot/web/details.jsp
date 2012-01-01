@@ -25,13 +25,10 @@
 		<script type='text/javascript' src='dwr/engine.js'></script>
 		<script type='text/javascript' src='dwr/util.js'></script>
 		<script type='text/javascript' src='dwr/interface/lampAction.js'></script>
+		<script type='text/javascript' src='dwr/interface/userAction.js'></script>
 		<script type="text/javascript">
 
 $(document).ready(function(){
-   //lampAction.cartCount(function(data) {
-   //         console.log("data-->"+data);
-   //      $("#count").html(data);
-   //});
    var lampId = GetQueryString("lampId");
    if(lampId == ""){
      lampId = null;
@@ -54,6 +51,10 @@ $(document).ready(function(){
     $("#description").html(lampDescription);
     $("#img").attr("src",pri);
    });
+   
+   userAction.loadUserName(function(data){
+        $("#userName").html(data);
+     });
 });
 
 
@@ -63,7 +64,7 @@ function cartAddOne() {
        lampId = null;
      }
      
-     lampAction.addLampToCart(evalDwrData(lampId));
+     lampAction.addLampToCart(evalDwrData(lampId),1);
      
      lampAction.cartCount(function(data) {
             console.log("data-->"+data);
@@ -236,8 +237,8 @@ function evalDwrData(data) {
 						</span>购物车
 					</div>
 					<div class="home_cart_content">
-						数&nbsp;&nbsp;量&nbsp;&nbsp;&brvbar;&nbsp; &nbsp;
-						<span class="red" id="count">0</span>
+						用户名&brvbar;&nbsp; &nbsp;
+						<span class="red" id="userName"></span>
 					</div>
 					<a href="cartAction" class="view_cart">查看购物车</a>
 

@@ -22,8 +22,14 @@
 		<script type='text/javascript' src='dwr/util.js'></script>
 		<script type='text/javascript' src='dwr/interface/lampAction.js'></script>
 		<script type='text/javascript' src='dwr/interface/orderAction.js'></script>
+		<script type='text/javascript' src='dwr/interface/userAction.js'></script>
 		<script type="text/javascript">
 	    $(document).ready(function(){
+	    
+	    userAction.loadUserName(function(data){
+        $("#userName").html(data);
+         }); 
+	    
 	    lampAction.cartLamp(function(data){
 	       console.log("data-->"+data);
 	       var allSum = 0;
@@ -32,6 +38,7 @@
 	         var lampId = lamp.lampId;
 	         var lampName = lamp.lampName;
 	         var price = lamp.price;
+	         var count = lamp.count;
 	         allSum += price;
 	         console.log("-----"+allSum);
 	        
@@ -52,7 +59,7 @@
 					   +'<input type="button" value="-" onclick="jian('
 					   +price
 					   +','+lampId+')"/><samp id="'+lampId+'">'
-					   +1
+					   +count
 					   +'</samp><input type="button" value="+" onclick="add('
 					   +price
 					   +','+lampId+')"/>'
@@ -85,6 +92,7 @@
 	    }
 	     var sum = num*price;
 	     document.getElementById('sum'+lampId).innerHTML = sum;
+	     lampAction.addLampToCart(lampId,num);
 	 }
 	 
 	 function add(price,lampId) {
@@ -98,11 +106,20 @@
 	    smapNum.innerHTML = num;
 	    var sum = num*price;
 	     document.getElementById('sum'+lampId).innerHTML = sum;
+	     lampAction.addLampToCart(lampId,num);
 	 }
 
 	 
 	 
 function jieZhang(){
+    var userName = document.getElementById('userName').innerHTML;
+    if(userName == "" ){
+       alert("对不起！你还没有登录，请先登录..");
+       window.location.href='loginAction.action';
+    }else{
+       window.location.href='contactAction.action';
+    }
+    /*
     var allPrice = document.getElementById('allSum').innerHTML;
     $("#allPrice").html(allPrice);
     var userName = $("#userName").val();
@@ -135,6 +152,7 @@ function jieZhang(){
 		}
   }
   );
+  */
 }
 </script>
 	</head>
@@ -222,8 +240,8 @@ function jieZhang(){
 							<span class="title_icon"><img src="images/cart.gif" /> </span>购物车
 						</div>
 						<div class="home_cart_content">
-							数&nbsp;&nbsp;量&nbsp;&nbsp;&brvbar;&nbsp; &nbsp;
-							<span class="red">3</span>
+							欢迎你&brvbar;&nbsp;
+							<span class="red" id="userName"></span>
 						</div>
 						<a href="cart.html" class="view_cart">查看购物车</a>
 

@@ -33,4 +33,12 @@ public class UserServiceTest {
 		user.setEmail("sdfsdf");
 		userService.register(user);
 	}
+	
+	@Test
+	public void testLogin(){
+		boolean flag = userService.login("asd", "asd");
+		System.out.println(flag);
+		System.out.println(userService.login("asd", "asd"));
+		
+	}
 }
