@@ -61,7 +61,7 @@ Default colour scheme is blue. Uncomment prefered stylesheet to use it.
 <!--[if lt IE 8]>
 <script src="js/IE8.js"></script>
 <![endif]-->
-<script language="javascript" type="text/javascript" src="javascript/jquery-1.6.4.js"></script>
+
 <script type='text/javascript' src='dwr/engine.js'></script>
 		<script type='text/javascript' src='dwr/util.js'></script>
 		<script type='text/javascript' src='dwr/interface/orderAction.js'></script>
@@ -222,21 +222,21 @@ Default colour scheme is blue. Uncomment prefered stylesheet to use it.
 			<!-- Main navigation -->
 			<nav id="menu">
 								<ul class="sf-menu">
-					<li class="current"><a HREF="adminLamp.html">管理主页</a></li>
+					<li class="current"><a HREF="MainAction">管理主页</a></li>
 					<li>
-						<a HREF="styles.html">产品管理</a>
+						<a HREF="">产品管理</a>
 						<ul>
 							<li>
-								<a HREF="addLamp.html">添加灯饰</a>
+								<a HREF="AddLampAction">添加灯饰</a>
 							</li>
 							<li>
-								<a HREF="showLamp.html">产品展示</a>
+								<a HREF="LampMangerAction">灯饰管理</a>
 							</li>
 						</ul>
 					</li>
-					<li ><a HREF="adminUser.html">用户管理</a></li>
-					<li><a HREF="styles.html">订单管理</a></li>	
-					<li><a HREF="graphs.html">业绩图表</a></li>	
+					<li ><a HREF="UserMangerAction">用户管理</a></li>
+					<li><a HREF="OrderMangeAction">订单管理</a></li>	
+					
 				</ul>
 			</nav>
 			<!-- End of Main navigation -->
@@ -287,32 +287,32 @@ Default colour scheme is blue. Uncomment prefered stylesheet to use it.
 									<tr>
 										<td>今天退单数</td>
 										<td class="ta-right"></td>
-										<td class="ta-right" id="singleBackForToday"><a href="#">10</a></td>
+										<td class="ta-right" id="singleBackForToday"><a href="#"></a></td>
 									</tr>
 									<tr>
 										<td>今天退单额</td>
 										<td class="ta-right"><a href="#"></a></td>
-										<td class="ta-right" id="singleBackAmountForToday">900.00 &euro;</td>
+										<td class="ta-right" id="singleBackAmountForToday"></td>
 									</tr>
 									<tr>
 										<td>月总退单数</td>
 										<td class="ta-right"></td>
-										<td class="ta-right" id="singleBackForMonth"><a href="#">1</a></td>
+										<td class="ta-right" id="singleBackForMonth"><a href="#"></a></td>
 									</tr>
 									<tr>
 										<td>月总退单额</td>
 										<td class="ta-right"></td>
-										<td class="ta-right" id="singleBackAmountForMonth">0.00 &euro;</td>
+										<td class="ta-right" id="singleBackAmountForMonth"></td>
 									</tr>
                                     <tr>
 										<td>年总退单数</td>
 										<td class="ta-right"></td>
-										<td class="ta-right" id="singleBackForYear"><a href="#">1</a></td>
+										<td class="ta-right" id="singleBackForYear"><a href="#"></a></td>
 									</tr>
                                     <tr>
 										<td>年总退单额</td>
 										<td class="ta-right"></td>
-										<td class="ta-right" id="singleBackAmountForYear">0.00 &euro;</td>
+										<td class="ta-right" id="singleBackAmountForYear"></td>
 									</tr>
 								</tbody>
 							</table>
@@ -325,32 +325,32 @@ Default colour scheme is blue. Uncomment prefered stylesheet to use it.
 									<tr>
 										<td>今天订单数</td>
 										<td class="ta-right"></td>
-										<td class="ta-right" id="todayOrder"><a href="#">1</a></td>
+										<td class="ta-right" id="todayOrder"><a href="#"></a></td>
 									</tr>
 									<tr>
 										<td>今天销售额</td>
 										<td class="ta-right"></td>
-										<td class="ta-right" id="todayAmount">900.00 &euro;</td>
+										<td class="ta-right" id="todayAmount"></td>
 									</tr>
 									<tr>
 										<td>月总订单数</td>
 										<td class="ta-right"></td>
-										<td class="ta-right" id="monthOrder"><a href="#">5</a></td>
+										<td class="ta-right" id="monthOrder"><a href="#"></a></td>
 									</tr>
 									<tr>
 										<td>月销售总额</td>
 										<td class="ta-right"></td>
-										<td class="ta-right" id="monthAmount">900.00 &euro;</td>
+										<td class="ta-right" id="monthAmount"></td>
 									</tr>
                                     <tr>
 										<td>年总订单数</td>
 										<td class="ta-right"></td>
-										<td class="ta-right" id="yearOrder"><a href="#">5</a></td>
+										<td class="ta-right" id="yearOrder"><a href="#"></a></td>
 									</tr>
 									<tr>
 										<td>年销售总额</td>
 										<td class="ta-right"></td>
-										<td class="ta-right" id="yearAmount">900.00 &euro;</td>
+										<td class="ta-right" id="yearAmount"></td>
 									</tr>
 								</tbody>
 							</table>

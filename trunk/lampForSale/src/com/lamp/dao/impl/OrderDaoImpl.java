@@ -75,16 +75,20 @@ public class OrderDaoImpl extends HibernateDaoImpl implements OrderDao {
 		return monthCounts;
 	}
 
-
+	              
 	public Double statisticsOrderAmountForToday() {
+		System.out.println("==========");
 		Double todayCounts = 0.000;
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		String today = simpleDateFormat.format(new Date());
 		String hql = "from OrderInfo o where o.orderTime='"+today+"'";
-		List<OrderInfo> orders = this.find(hql);      
+		System.out.println("-----------");
+		List<OrderInfo> orders = this.find(hql);
+		System.out.println("orders-->"+orders);
 		for(OrderInfo order : orders){             //遍历今天的所有订单
 			todayCounts += order.getAllPrice();
 		}
+		System.out.println("todayCounts-->"+todayCounts);
 		return todayCounts;
 	}
 
@@ -256,8 +260,8 @@ public class OrderDaoImpl extends HibernateDaoImpl implements OrderDao {
 			Long userId) {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); 
 		String time = sdf.format(new Date()).toString();
-		String sql = "insert into orderInfo (orderId,userId,orderPerson,orderEmail,orderAddress,orderPhone,message,orderTime,orderStatus)"
-			         +" values("+orderId+","+userId+",'"+userName+"','"+email+"','"+address+"','"+phone+"','"+message+"','"+time+"',"+2+")";
+		String sql = "insert into orderInfo (orderId,userId,orderPerson,orderEmail,orderAddress,orderPhone,message,orderTime,orderStatus,allPrice)"
+			         +" values("+orderId+","+userId+",'"+userName+"','"+email+"','"+address+"','"+phone+"','"+message+"','"+time+"',"+2+","+allPrice+")";
 		this.getSession().createSQLQuery(sql).executeUpdate();
 	}
 	
