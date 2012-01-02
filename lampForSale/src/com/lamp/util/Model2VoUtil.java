@@ -1,8 +1,10 @@
 package com.lamp.util;
 
+import com.lamp.model.CartShop;
 import com.lamp.model.Lamp;
 import com.lamp.model.OrderInfo;
 import com.lamp.model.UserInfo;
+import com.lamp.vo.CartShopVo;
 import com.lamp.vo.LampVo;
 import com.lamp.vo.OrderInfoVo;
 import com.lamp.vo.UserInfoVo;
@@ -84,6 +86,15 @@ public class Model2VoUtil {
     	 lampVo.setSize(lamp.getSize());
     	 lampVo.setType(lamp.getType());
     	 lampVo.setWeight(lamp.getWeight());
+    	 
     	 return lampVo;
+     }
+     
+     public static CartShopVo cartShop2cartShopVo(CartShop cartShop){
+    	 CartShopVo cartShopVo = new CartShopVo();
+    	 /* cartShopVo.setCartId(cartShop.getCartId());
+    	 cartShopVo.setCount(cartShop.getCount());
+    	 cartShopVo.setLampid(lampid)*/
+    	 return cartShopVo;
      }
 }

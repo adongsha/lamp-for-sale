@@ -20,7 +20,7 @@ public class UserInfo implements java.io.Serializable {
 
 	// Fields
 
-	private Integer userId;
+	private Long userId;
 	private String userName;
 	private String password;
 	private String userPicture;
@@ -62,12 +62,12 @@ public class UserInfo implements java.io.Serializable {
 	// Property accessors
 	@Id
 	@GeneratedValue
-	@Column(name = "userId", unique = true, nullable = false)
-	public Integer getUserId() {
+	@Column(name = "userId", unique = true, nullable = false, precision = 18, scale = 0)
+	public Long getUserId() {
 		return this.userId;
 	}
 
-	public void setUserId(Integer userId) {
+	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
 

@@ -4,7 +4,7 @@ import org.directwebremoting.annotations.DataTransferObject;
 
 @DataTransferObject
 public class LampVo {
-	private Integer lampId;
+	private Long lampId;
 	private String isbn;
 	private String lampName;
 	private Integer type;
@@ -23,12 +23,23 @@ public class LampVo {
 	private String evaluationCount;
 	private Integer saleEvMouth;
 	private Integer count;
+	private Long orderId;
+	
+	
 
-	public Integer getLampId() {
+	public Long getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(Long orderId) {
+		this.orderId = orderId;
+	}
+
+	public Long getLampId() {
 		return lampId;
 	}
 
-	public void setLampId(Integer lampId) {
+	public void setLampId(Long lampId) {
 		this.lampId = lampId;
 	}
 

@@ -17,6 +17,8 @@ import com.lamp.model.OrderInfo;
 import com.lamp.service.OrderService;
 import com.lamp.util.PageInfo;
 import com.lamp.vo.OrderInfoVo;
+import com.lamp.vo.UserInfoVo;
+import com.opensymphony.xwork2.ActionContext;
 
 @Component("OrderAction")
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
@@ -204,4 +206,54 @@ public class OrderAction extends SuperAction {
     	order.setOrderStatus(2);
     	orderService.addOrder(order);
     }
+    
+    /**
+     * 填充订单个人信息
+     * @return
+     */
+    @RemoteMethod
+    public Map<String,Object> orderInfo(){
+    	Map<String, Object> map = new HashMap<String, Object>();
+    	long orderId = System.currentTimeMillis();  //随机生成订单号
+    	map.put("orderId", orderId);
+    	String userName = (String)ActionContext.getContext().getSession().get("userName");
+    	UserInfoVo user = orderService.personalInfo(userName);
+    	map.put("userInfo", user);
+    	Double allPrice = (Double)ActionContext.getContext().getSession().get("allPrice");
+    	map.put("allPrice", allPrice);
+    	return map;
+    }
+    
+    /**
+     * 记住总价钱
+     * @param allPrice  总价钱
+     */
+    @RemoteMethod
+    public void sessionAllPrice(Double allPrice){
+    	ActionContext.getContext().getSession().put("allPrice", allPrice);
+    }
+    
+    /**
+     * 提交订单信息
+     * @param orderId   订单id
+     * @param allPrice  订单总价
+     * @param userName  接收人
+     * @param email     邮件
+     * @param phone     电话
+     * @param address   地址
+     * @param message   备注
+     */
+    public void addOrder(Long orderId, Double allPrice, String userName, 
+    		String email, String phone, String address, String message){
+    	OrderInfo orderInfo = new OrderInfo();
+    	orderInfo.setAllPrice(allPrice);
+    	orderInfo.setOrderId(orderId);
+    	orderInfo.setOrderAddress(address);
+    	orderInfo.setOrderEmail(email);
+    	orderInfo.setOrderPerson(userName);
+    	orderInfo.setMessage(message);
+    	orderInfo.setAllPrice(allPrice);
+    	orderService.addOrder(orderInfo);
+    }
+    
 }

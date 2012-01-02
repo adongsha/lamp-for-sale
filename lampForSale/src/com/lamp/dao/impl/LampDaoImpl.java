@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import com.lamp.dao.LampDao;
+import com.lamp.model.CartShop;
 import com.lamp.model.Lamp;
 import com.lamp.util.PageInfo;
 @Component("lampDao")
@@ -43,6 +44,10 @@ public class LampDaoImpl extends HibernateDaoImpl implements LampDao {
 		} else {
 			return this.findPageByQuery(hql, null, pageInfo);
 		}
+	}
+
+	public void addCartShop(CartShop cartShop) {
+	    this.save(cartShop);
 	}
 
 	

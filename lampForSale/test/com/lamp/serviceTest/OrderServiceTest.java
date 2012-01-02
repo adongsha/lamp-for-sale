@@ -52,6 +52,6 @@ public class OrderServiceTest {
     
     @Test
     public void testTest(){
-    	orderService.test();
+    	//orderService.test();
     }
 }

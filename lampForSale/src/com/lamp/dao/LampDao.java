@@ -2,6 +2,7 @@ package com.lamp.dao;
 
 import java.util.List;
 
+import com.lamp.model.CartShop;
 import com.lamp.model.Lamp;
 import com.lamp.util.PageInfo;
 
@@ -43,5 +44,11 @@ public interface LampDao {
       * @return
       */
      public List<Lamp> lampTypeListByPage(PageInfo pageInfo, Integer type);
+     
+     /**
+      * 添加购物车商品
+      * @param cartShop
+      */
+     public void addCartShop(CartShop cartShop);
 
 }

@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 /**
@@ -18,10 +20,12 @@ public class SaledLamp implements java.io.Serializable {
 
 	// Fields
 
-	private Integer saledLampId;
-	private Lamp lamp;
-	private OrderInfo orderInfo;
+	private Long saledLampId;
+	private OrderInfo orderInfoByOrderId;
+	private OrderInfo orderInfoByLampId;
 	private Integer count;
+	private Integer orderNumber;
+	private Long orderId;
 
 	// Constructors
 
@@ -29,43 +33,51 @@ public class SaledLamp implements java.io.Serializable {
 	public SaledLamp() {
 	}
 
+	/** minimal constructor */
+	public SaledLamp(OrderInfo orderInfoByOrderId) {
+		this.orderInfoByOrderId = orderInfoByOrderId;
+	}
+
 	/** full constructor */
-	public SaledLamp(Lamp lamp, OrderInfo orderInfo, Integer count) {
-		this.lamp = lamp;
-		this.orderInfo = orderInfo;
+	public SaledLamp(OrderInfo orderInfoByOrderId, OrderInfo orderInfoByLampId,
+			Integer count, Integer orderNumber, Long orderId) {
+		this.orderInfoByOrderId = orderInfoByOrderId;
+		this.orderInfoByLampId = orderInfoByLampId;
 		this.count = count;
+		this.orderNumber = orderNumber;
+		this.orderId = orderId;
 	}
 
 	// Property accessors
 	@Id
 	@GeneratedValue
-	@Column(name = "saledLampId", unique = true, nullable = false)
-	public Integer getSaledLampId() {
+	@Column(name = "saledLampId", unique = true, nullable = false, precision = 18, scale = 0)
+	public Long getSaledLampId() {
 		return this.saledLampId;
 	}
 
-	public void setSaledLampId(Integer saledLampId) {
+	public void setSaledLampId(Long saledLampId) {
 		this.saledLampId = saledLampId;
+	}
+
+	@OneToOne(fetch = FetchType.LAZY)
+	@PrimaryKeyJoinColumn
+	public OrderInfo getOrderInfoByOrderId() {
+		return this.orderInfoByOrderId;
+	}
+
+	public void setOrderInfoByOrderId(OrderInfo orderInfoByOrderId) {
+		this.orderInfoByOrderId = orderInfoByOrderId;
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "lampId")
-	public Lamp getLamp() {
-		return this.lamp;
+	public OrderInfo getOrderInfoByLampId() {
+		return this.orderInfoByLampId;
 	}
 
-	public void setLamp(Lamp lamp) {
-		this.lamp = lamp;
-	}
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "orderId")
-	public OrderInfo getOrderInfo() {
-		return this.orderInfo;
-	}
-
-	public void setOrderInfo(OrderInfo orderInfo) {
-		this.orderInfo = orderInfo;
+	public void setOrderInfoByLampId(OrderInfo orderInfoByLampId) {
+		this.orderInfoByLampId = orderInfoByLampId;
 	}
 
 	@Column(name = "count")
@@ -75,6 +87,24 @@ public class SaledLamp implements java.io.Serializable {
 
 	public void setCount(Integer count) {
 		this.count = count;
+	}
+
+	@Column(name = "orderNumber")
+	public Integer getOrderNumber() {
+		return this.orderNumber;
+	}
+
+	public void setOrderNumber(Integer orderNumber) {
+		this.orderNumber = orderNumber;
+	}
+
+	@Column(name = "orderId", precision = 18, scale = 0)
+	public Long getOrderId() {
+		return this.orderId;
+	}
+
+	public void setOrderId(Long orderId) {
+		this.orderId = orderId;
 	}
 
 }

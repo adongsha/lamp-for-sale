@@ -3,6 +3,7 @@ package com.lamp.dao;
 import java.util.List;
 
 import com.lamp.model.OrderInfo;
+import com.lamp.model.UserInfo;
 import com.lamp.util.PageInfo;
 
 public interface OrderDao {
@@ -141,5 +142,12 @@ public interface OrderDao {
      * @return
      */
     public List<OrderInfo> orderStatusListByPage(PageInfo pageInfo, int orderStatus);
+    
+    /**
+     * 通过用户名得到个人的信息
+     * @param userName   用户名
+     * @return
+     */
+    public UserInfo personalInfo(String userName);
 
 }
