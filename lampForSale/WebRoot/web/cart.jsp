@@ -114,7 +114,7 @@
 function jieZhang(){
     var userName = document.getElementById('userName').innerHTML;
     var allPrice = document.getElementById('allSum').innerHTML;
-    orderAction.sessionAllPrice(allPrice);
+    orderAction.sessionAllPrice(evalDwrData(allPrice));
     if(userName == "" ){
        alert("对不起！你还没有登录，请先登录..");
        window.location.href='loginAction.action';
@@ -155,6 +155,18 @@ function jieZhang(){
   }
   );
   */
+}
+
+ // 将DWR中值转化以便于传递后台
+function evalDwrData(data) {
+	if (!data) {
+		return null;
+	}
+	if (data == "") {
+		return null;
+	}
+
+	return eval(data);
 }
 </script>
 	</head>

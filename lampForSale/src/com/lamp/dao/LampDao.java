@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.lamp.model.CartShop;
 import com.lamp.model.Lamp;
+import com.lamp.model.OrderInfo;
 import com.lamp.util.PageInfo;
 
 /**
@@ -29,7 +30,7 @@ public interface LampDao {
       * @param lampId  灯的ID
       * @return
       */
-     public Lamp detailsLamp(Integer lampId);
+     public Lamp detailsLamp(Long lampId);
      
      /**
       * 取得灯的列表
@@ -50,5 +51,29 @@ public interface LampDao {
       * @param cartShop
       */
      public void addCartShop(CartShop cartShop);
+     
+     
+     /**
+      * 拿到指定的lamp
+      * @param lampId
+      * @return
+      */
+     public Lamp loadLampByLampId(Long lampId);
+     
+     /**
+      * 拿到指定的訂單
+      * @param orderId
+      * @return
+      */
+     public OrderInfo loadOrderByOrderId(Long orderId);
+     
+     /**
+      * 添加訂單的物品
+      * @param lampId
+      * @param orderId
+      * @param count
+      * @param perPrice
+      */
+     public void insertCartShop(Long lampId, Long orderId, Integer count, Double perPrice);
 
 }

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import com.lamp.dao.LampDao;
 import com.lamp.model.CartShop;
 import com.lamp.model.Lamp;
+import com.lamp.model.OrderInfo;
 import com.lamp.util.Model2VoUtil;
 import com.lamp.util.PageInfo;
 import com.lamp.vo.LampVo;
@@ -36,7 +37,7 @@ public class LampService {
      * @param lampId  灯的id
      * @return
      */
-    public LampVo detailsLamp(Integer lampId){
+    public LampVo detailsLamp(Long lampId){
     	Lamp lamp =  lampDao.detailsLamp(lampId);
     	LampVo lampVo = Model2VoUtil.lamp2lampVo(lamp);
     	return lampVo;
@@ -80,5 +81,35 @@ public class LampService {
      */
     public void addCartShop(CartShop cartShop) {
     	lampDao.addCartShop(cartShop);
+    }
+    
+    /**
+     * 通過lampid獲得對象
+     * @param lampId
+     * @return
+     */
+    public Lamp loadLampByLampId(Long lampId) {
+    	return lampDao.loadLampByLampId(lampId);
+    }
+    
+    /**
+     * 同過指定orderId拿到訂單對象
+     * @param orderId
+     * @return
+     */
+    public OrderInfo loadOrderByOrderId(Long orderId){
+    	return lampDao.loadOrderByOrderId(orderId);
+    }
+    
+    /**
+     * 插入訂單物品
+     * @param lampId
+     * @param orderId
+     * @param count
+     * @param perPrice
+     */
+    public void insertCartShop(Long lampId, Long orderId, Integer count,
+			Double perPrice) {
+    	lampDao.insertCartShop(lampId, orderId, count, perPrice);
     }
 }

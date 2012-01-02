@@ -14,6 +14,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.lamp.model.OrderInfo;
+import com.lamp.model.UserInfo;
 import com.lamp.service.OrderService;
 import com.lamp.util.PageInfo;
 import com.lamp.vo.OrderInfoVo;
@@ -196,7 +197,6 @@ public class OrderAction extends SuperAction {
     	OrderInfo order = new OrderInfo();
     	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); 
     	order.setAllPrice(allPrice);
-    	order.setCode(code);
     	order.setMessage(message);
     	order.setOrderEmail(email);
     	order.setOrderPerson(userName);
@@ -230,7 +230,9 @@ public class OrderAction extends SuperAction {
      */
     @RemoteMethod
     public void sessionAllPrice(Double allPrice){
+    	System.out.println("進入allPrice");
     	ActionContext.getContext().getSession().put("allPrice", allPrice);
+    	System.out.println("輸出allPRice:"+ActionContext.getContext().getSession().get("allPrice"));
     }
     
     /**
@@ -243,9 +245,18 @@ public class OrderAction extends SuperAction {
      * @param address   地址
      * @param message   备注
      */
+    @RemoteMethod
+    public void insertOrder(Long orderId, Double allPrice, String userName,
+			String email, String phone, String address, String message,
+			Long userId) {
+    	orderService.insertOrder(orderId, allPrice, userName, email, phone, address, message, userId);
+    }
+/*    @RemoteMethod
     public void addOrder(Long orderId, Double allPrice, String userName, 
-    		String email, String phone, String address, String message){
+    		String email, String phone, String address, String message, Long userId){
     	OrderInfo orderInfo = new OrderInfo();
+    	UserInfo user = orderService.loadUserByUserId(userId);
+    	orderInfo.setUserInfo(user);
     	orderInfo.setAllPrice(allPrice);
     	orderInfo.setOrderId(orderId);
     	orderInfo.setOrderAddress(address);
@@ -253,7 +264,9 @@ public class OrderAction extends SuperAction {
     	orderInfo.setOrderPerson(userName);
     	orderInfo.setMessage(message);
     	orderInfo.setAllPrice(allPrice);
+    	System.out.println("進入addOrder");
     	orderService.addOrder(orderInfo);
-    }
+    	System.out.println("成功");
+    }*/
     
 }

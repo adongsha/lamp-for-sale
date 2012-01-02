@@ -65,7 +65,12 @@ public class LampServerTest {
     */
    @Test
    public void testDetailsLamp(){
-	   LampVo lamp = lampService.detailsLamp(1);
+	   LampVo lamp = lampService.detailsLamp(1l);
 	   System.out.println("lamp-->"+lamp);
+   }
+   
+   @Test
+   public void testInsertLamp(){
+	   lampService.insertCartShop(22l, 1325486783635l, 10, 10.0);
    }
 }
