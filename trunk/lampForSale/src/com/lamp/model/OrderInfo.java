@@ -23,7 +23,7 @@ public class OrderInfo implements java.io.Serializable {
 
 	// Fields
 
-	private Integer orderId;
+	private Long orderId;
 	private UserInfo userInfo;
 	private String orderPerson;
 	private String orderEmail;
@@ -36,9 +36,12 @@ public class OrderInfo implements java.io.Serializable {
 	private Double allPrice;
 	private Integer isBackSingle;
 	private Integer orderStatus;
+	private Long orderNumber;
 	private Set<SaleTable> saleTables = new HashSet<SaleTable>(0);
+	private Set<SaledLamp> saledLampsForLampId = new HashSet<SaledLamp>(0);
 	private Set<OrderStatus> orderStatuses = new HashSet<OrderStatus>(0);
 	private Set<OrderGoods> orderGoodses = new HashSet<OrderGoods>(0);
+	private SaledLamp saledLampByOrderId;
 	private CartShop cartShop;
 
 	// Constructors
@@ -47,18 +50,14 @@ public class OrderInfo implements java.io.Serializable {
 	public OrderInfo() {
 	}
 
-	/** minimal constructor */
-	public OrderInfo(UserInfo userInfo) {
-		this.userInfo = userInfo;
-	}
-
 	/** full constructor */
 	public OrderInfo(UserInfo userInfo, String orderPerson, String orderEmail,
 			String orderCompany, String orderAddress, String orderPhone,
 			String message, String code, String orderTime, Double allPrice,
-			Integer isBackSingle, Integer orderStatus,
-			Set<SaleTable> saleTables, Set<OrderStatus> orderStatuses,
-			Set<OrderGoods> orderGoodses, CartShop cartShop) {
+			Integer isBackSingle, Integer orderStatus, Long orderNumber,
+			Set<SaleTable> saleTables, Set<SaledLamp> saledLampsForLampId,
+			Set<OrderStatus> orderStatuses, Set<OrderGoods> orderGoodses,
+			SaledLamp saledLampByOrderId, CartShop cartShop) {
 		this.userInfo = userInfo;
 		this.orderPerson = orderPerson;
 		this.orderEmail = orderEmail;
@@ -71,26 +70,29 @@ public class OrderInfo implements java.io.Serializable {
 		this.allPrice = allPrice;
 		this.isBackSingle = isBackSingle;
 		this.orderStatus = orderStatus;
+		this.orderNumber = orderNumber;
 		this.saleTables = saleTables;
+		this.saledLampsForLampId = saledLampsForLampId;
 		this.orderStatuses = orderStatuses;
 		this.orderGoodses = orderGoodses;
+		this.saledLampByOrderId = saledLampByOrderId;
 		this.cartShop = cartShop;
 	}
 
 	// Property accessors
 	@Id
 	@GeneratedValue
-	@Column(name = "orderId", unique = true, nullable = false)
-	public Integer getOrderId() {
+	@Column(name = "orderId", unique = true, nullable = false, precision = 18, scale = 0)
+	public Long getOrderId() {
 		return this.orderId;
 	}
 
-	public void setOrderId(Integer orderId) {
+	public void setOrderId(Long orderId) {
 		this.orderId = orderId;
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "userId", nullable = false)
+	@JoinColumn(name = "userId")
 	public UserInfo getUserInfo() {
 		return this.userInfo;
 	}
@@ -198,6 +200,15 @@ public class OrderInfo implements java.io.Serializable {
 		this.orderStatus = orderStatus;
 	}
 
+	@Column(name = "orderNumber", precision = 18, scale = 0)
+	public Long getOrderNumber() {
+		return this.orderNumber;
+	}
+
+	public void setOrderNumber(Long orderNumber) {
+		this.orderNumber = orderNumber;
+	}
+
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "orderInfo")
 	public Set<SaleTable> getSaleTables() {
 		return this.saleTables;
@@ -205,6 +216,15 @@ public class OrderInfo implements java.io.Serializable {
 
 	public void setSaleTables(Set<SaleTable> saleTables) {
 		this.saleTables = saleTables;
+	}
+
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "orderInfoByLampId")
+	public Set<SaledLamp> getSaledLampsForLampId() {
+		return this.saledLampsForLampId;
+	}
+
+	public void setSaledLampsForLampId(Set<SaledLamp> saledLampsForLampId) {
+		this.saledLampsForLampId = saledLampsForLampId;
 	}
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "orderInfo")
@@ -223,6 +243,15 @@ public class OrderInfo implements java.io.Serializable {
 
 	public void setOrderGoodses(Set<OrderGoods> orderGoodses) {
 		this.orderGoodses = orderGoodses;
+	}
+
+	@OneToOne(fetch = FetchType.LAZY, mappedBy = "orderInfoByOrderId")
+	public SaledLamp getSaledLampByOrderId() {
+		return this.saledLampByOrderId;
+	}
+
+	public void setSaledLampByOrderId(SaledLamp saledLampByOrderId) {
+		this.saledLampByOrderId = saledLampByOrderId;
 	}
 
 	@OneToOne(fetch = FetchType.LAZY, mappedBy = "orderInfo")

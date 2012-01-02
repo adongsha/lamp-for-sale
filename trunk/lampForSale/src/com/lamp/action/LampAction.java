@@ -15,6 +15,8 @@ import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import com.lamp.model.CartShop;
+import com.lamp.model.Lamp;
 import com.lamp.service.LampService;
 import com.lamp.util.PageInfo;
 import com.lamp.vo.LampVo;
@@ -121,9 +123,23 @@ public class LampAction extends SuperAction implements SessionAware{
     /**
      * ±£´æ¶©µ¥..
      */
-    public void insertAllLamp(){
+    @RemoteMethod
+    public void insertAllLamp(Long orderId){
     	List<LampVo> listVo = this.cartLamp();
-    	
+    	for(LampVo lamp : listVo){
+    		CartShop cartShop = new CartShop();
+    		
+    		if(cartShop.getLamp() == null){
+    			Lamp lamp1 = new Lamp();
+    			lamp1.setLampId(lamp.getLampId());
+    		}else{
+    			cartShop.getLamp().setLampId(lamp.getLampId());
+    		}
+    		cartShop.setCount(lamp.getCount());
+    		cartShop.setOrderId(orderId);
+    		cartShop.setPerPrice(lamp.getPrice());
+    		lampService.addCartShop(cartShop);
+    	}
     }
     
 }

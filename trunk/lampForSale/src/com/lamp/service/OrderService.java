@@ -9,9 +9,11 @@ import org.springframework.stereotype.Component;
 
 import com.lamp.dao.OrderDao;
 import com.lamp.model.OrderInfo;
+import com.lamp.model.UserInfo;
 import com.lamp.util.Model2VoUtil;
 import com.lamp.util.PageInfo;
 import com.lamp.vo.OrderInfoVo;
+import com.lamp.vo.UserInfoVo;
 
 @Component("orderService")
 public class OrderService {
@@ -217,8 +219,14 @@ public class OrderService {
     	orderDao.addOrder(order);
     }
     
-    public void test(){
-    	Long s = System.currentTimeMillis();
-    	System.out.println("--->"+s);
+    /**
+     * 获得个人信息
+     * @param userName 用户名
+     * @return
+     */
+    public UserInfoVo personalInfo(String userName) {
+    	UserInfo user = orderDao.personalInfo(userName);
+    	UserInfoVo userInfoVo = Model2VoUtil.userInfo2userInfoVo(user);
+    	return userInfoVo;
     }
 }

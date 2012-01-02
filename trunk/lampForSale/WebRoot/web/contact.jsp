@@ -12,6 +12,46 @@
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
 <title>无标题文档</title>
 <link href="css/style1.css" type="text/css" rel="stylesheet"/>
+<script language="javascript" type="text/javascript"
+			src="web/common/js/jquery-1.6.2.min.js"></script>
+<script type='text/javascript' src='dwr/engine.js'></script>
+<script type='text/javascript' src='dwr/util.js'></script>
+<script type='text/javascript' src='dwr/interface/orderAction.js'></script>
+<script type='text/javascript' src='dwr/interface/userAction.js'></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    userAction.loadUserName(function(data){
+        $("#userName").html(data);
+         }); 
+    
+    orderAction.orderInfo(function(data){
+       console.log("data-->"+data);
+       var user = data.userInfo;
+       var orderId = data.orderId;
+       $("#orderId").html(orderId);
+       var allPrice = data.allPrice;
+       $("#allPrice").html(allPrice);
+       $("#userName").attr("value",user.userName);
+       $("#email").attr("value", user.email);
+       $("#address").attr("value",user.address);
+       $("#phone").attr("value", user.phone);
+    }); 
+  });
+  
+  function addOrder(){
+      var orderId = document.ElementById('orderId').innerHTML;
+      var allPrice = document.ElementById('allPrice').innerHTML;
+      var userName = $("#userName").val();
+      var email = $("#email").val();
+      var phone = $("#phone").val();
+      var address = $("#address").val();
+      var message = $("#message").val();
+      orderAction.addOrder(orderId,allPrice,userName,email,phone,address,message,function(data){
+          lampAction.insertAllLamp(orderId);
+          alert("提交成功...");
+      });
+  }
+</script>
 </head>
 
 <body>
@@ -42,33 +82,35 @@
 											<span>Send your message</span>									
 										</div>
 										<div class="contack_border">
-										<form action="main.html" method="post">
+										
+										    <div class="zhanghao">订单号：<span id="orderId">161631363</span>
+										         总价：<span id="allPrice">65452</span>
+										    </div>
 											<div class="username">
 													&nbsp;&nbsp;用户名：
-													  <input type="text" name="username"/>
+													  <input type="text" name="username" id="userName"/>
 											</div>
 											
 											<div class="username">
 													&nbsp;&nbsp;Email&nbsp;：
-													  <input type="text" name="email"/>
+													  <input type="text" name="email" id="email"/>
 											</div>
 											<div class="username">
 													&nbsp;&nbsp;电&nbsp;话&nbsp;：
-													  <input type="text" name="phone"/>
+													  <input type="text" name="phone" id="phone"/>
 											</div>
 											<div class="username">
 													&nbsp;&nbsp;地&nbsp;址&nbsp;：
-													  <input type="text" name="address"/>
+													  <input type="text" name="address" id="address"/>
 											</div>
 											<div class="contact">
 													&nbsp;&nbsp;信&nbsp;息&nbsp;：
-													<textarea name="textarea" class="contact_textarea" cols="5" rows="5"></textarea>
+													<textarea name="textarea" class="contact_textarea" cols="5" rows="5" id="message"></textarea>
 											</div>
 										  <div class="button">
 													  <input type="reset" name="reset" value="重置"/>
 													  <input type="submit" name="submit" value="发送"/>
 										  </div>
-										  </form>
 										</div>	
 								</div>
 							</div>

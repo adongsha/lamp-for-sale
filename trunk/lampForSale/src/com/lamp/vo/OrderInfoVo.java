@@ -6,7 +6,7 @@ import com.lamp.model.UserInfo;
 
 @DataTransferObject
 public class OrderInfoVo {
-	private Integer orderId;
+	private Long orderId;
 	private String userName;
 	private String orderPerson;
 	private String orderEmail;
@@ -20,11 +20,11 @@ public class OrderInfoVo {
 	private Integer isBackSingle; // 1表示退单的...null表示没有
 	private Integer orderStatus;
 
-	public Integer getOrderId() {
+	public Long getOrderId() {
 		return orderId;
 	}
 
-	public void setOrderId(Integer orderId) {
+	public void setOrderId(Long orderId) {
 		this.orderId = orderId;
 	}
 

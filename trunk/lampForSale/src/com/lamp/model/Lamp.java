@@ -20,7 +20,7 @@ public class Lamp implements java.io.Serializable {
 
 	// Fields
 
-	private Integer lampId;
+	private Long lampId;
 	private String lampName;
 	private Integer type;
 	private String lampDescription;
@@ -84,12 +84,12 @@ public class Lamp implements java.io.Serializable {
 	// Property accessors
 	@Id
 	@GeneratedValue
-	@Column(name = "lampId", unique = true, nullable = false)
-	public Integer getLampId() {
+	@Column(name = "lampId", unique = true, nullable = false, precision = 18, scale = 0)
+	public Long getLampId() {
 		return this.lampId;
 	}
 
-	public void setLampId(Integer lampId) {
+	public void setLampId(Long lampId) {
 		this.lampId = lampId;
 	}
 

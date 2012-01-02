@@ -8,6 +8,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Component;
 
 import com.lamp.dao.LampDao;
+import com.lamp.model.CartShop;
 import com.lamp.model.Lamp;
 import com.lamp.util.Model2VoUtil;
 import com.lamp.util.PageInfo;
@@ -71,5 +72,13 @@ public class LampService {
     		lampVos.add(lampVo);
     	}
     	return lampVos;
+    }
+    
+    /**
+     * 添加购物车商品
+     * @param cartShop  对象
+     */
+    public void addCartShop(CartShop cartShop) {
+    	lampDao.addCartShop(cartShop);
     }
 }

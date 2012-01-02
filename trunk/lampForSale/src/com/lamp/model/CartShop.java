@@ -20,10 +20,10 @@ public class CartShop implements java.io.Serializable {
 
 	// Fields
 
-	private Integer cartId;
+	private Long cartId;
 	private Lamp lamp;
 	private OrderInfo orderInfo;
-	private Integer orderId;
+	private Long orderId;
 	private Integer count;
 	private Double perPrice;
 	private Double totalPrice;
@@ -34,8 +34,13 @@ public class CartShop implements java.io.Serializable {
 	public CartShop() {
 	}
 
+	/** minimal constructor */
+	public CartShop(OrderInfo orderInfo) {
+		this.orderInfo = orderInfo;
+	}
+
 	/** full constructor */
-	public CartShop(Lamp lamp, OrderInfo orderInfo, Integer orderId,
+	public CartShop(Lamp lamp, OrderInfo orderInfo, Long orderId,
 			Integer count, Double perPrice, Double totalPrice) {
 		this.lamp = lamp;
 		this.orderInfo = orderInfo;
@@ -48,17 +53,17 @@ public class CartShop implements java.io.Serializable {
 	// Property accessors
 	@Id
 	@GeneratedValue
-	@Column(name = "cartId", unique = true, nullable = false)
-	public Integer getCartId() {
+	@Column(name = "cartId", unique = true, nullable = false, precision = 18, scale = 0)
+	public Long getCartId() {
 		return this.cartId;
 	}
 
-	public void setCartId(Integer cartId) {
+	public void setCartId(Long cartId) {
 		this.cartId = cartId;
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "lampId", nullable = false)
+	@JoinColumn(name = "lampId")
 	public Lamp getLamp() {
 		return this.lamp;
 	}
@@ -77,16 +82,16 @@ public class CartShop implements java.io.Serializable {
 		this.orderInfo = orderInfo;
 	}
 
-	@Column(name = "orderId", nullable = false)
-	public Integer getOrderId() {
+	@Column(name = "orderId", precision = 18, scale = 0)
+	public Long getOrderId() {
 		return this.orderId;
 	}
 
-	public void setOrderId(Integer orderId) {
+	public void setOrderId(Long orderId) {
 		this.orderId = orderId;
 	}
 
-	@Column(name = "count", nullable = false)
+	@Column(name = "count")
 	public Integer getCount() {
 		return this.count;
 	}
@@ -95,7 +100,7 @@ public class CartShop implements java.io.Serializable {
 		this.count = count;
 	}
 
-	@Column(name = "perPrice", nullable = false, precision = 15, scale = 0)
+	@Column(name = "perPrice", precision = 15, scale = 0)
 	public Double getPerPrice() {
 		return this.perPrice;
 	}
@@ -104,7 +109,7 @@ public class CartShop implements java.io.Serializable {
 		this.perPrice = perPrice;
 	}
 
-	@Column(name = "totalPrice", nullable = false, precision = 15, scale = 0)
+	@Column(name = "totalPrice", precision = 15, scale = 0)
 	public Double getTotalPrice() {
 		return this.totalPrice;
 	}
