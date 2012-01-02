@@ -44,7 +44,6 @@ $(document).ready(function(){
 	executeQuery(lampAction.lampListByPage,[lampsLists]);
 });
 function lampsLists(data){
-    alert("data-->"+data);
     var page = data.pageInfo;
     console.log("pageInfo-->"+pageInfo);
     var lampVos = data.lampVos;
@@ -59,17 +58,43 @@ function lampsLists(data){
      initPage(page.totalPage, page.pageIndex, page.pageSize, page.totalRec);
     for(var i = 0; i<lampVos.length; i++){
       var lamp = lampVos[i];
-      alert("lamp-->"+lamp);
+      var lampType = lamp.type;
+      if(lampType == 1){
+         lampType = "家居灯 ";
+      }
+      if(lampType == 2){
+         lampType = "创意灯  ";
+      }
+      if(lampType == 3){
+         lampType = "落地灯  ";
+      }
+      if(lampType == 4){
+         lampType = "吸顶灯  ";
+      }
+      if(lampType == 5){
+         lampType = "射灯  ";
+      }
+      if(lampType == 6){
+         lampType = "壁灯 ";
+      }
+      if(lampType == 7){
+         lampType = "台灯  ";
+      }
+      if(lampType == 8){
+         lampType = "吊灯  ";
+      }
+       var lampPricture = lamp.prictureImage1;
+     
       var div = '<div class="colgroup leading">'
 				+'<div class="width1 column first ta-center">'
-				+'<img SRC="'
-				+lamp.prictureImage1
-				+'" alt="" />'
+				+'<img SRC="images/lampImages/'
+				+lampPricture+'.jpg'
+				+'" alt="" style="width:80px;height=80px"/>'
 				+'</div><div class="width5 column">'
 				+'<a href="#" title="First working version of my CV"><b class="big">'
 				+lamp.lampName
 				+'</b></a><br/><small><b></b>   类型: <b>'
-				+lamp.lampType
+				+lampType
 				+'</b> |  型号: <a href="#">'
 				+lamp.isbn
 				+'</a></small><br/><a href="#">删除</a> &middot; <a href="#">展示</a> &middot; <a href="#">编辑</a></div>'
@@ -95,21 +120,22 @@ function lampsLists(data){
 			<!-- End of Top navigation -->
 			<!-- Main navigation -->
 			<nav id="menu">
-				<ul class="sf-menu">
-                <li><a HREF="ad_mainAction">管理主页</a></li>
-					<li class="current">
-						<a HREF="#">产品管理</a>
+								<ul class="sf-menu">
+					<li class="current"><a HREF="MainAction">管理主页</a></li>
+					<li>
+						<a HREF="">产品管理</a>
 						<ul>
 							<li>
-								<a HREF="addLamp">添加灯饰</a>
+								<a HREF="AddLampAction">添加灯饰</a>
 							</li>
 							<li>
-								<a HREF="ad_showLampAction">产品展示</a>
+								<a HREF="LampMangerAction">灯饰管理</a>
 							</li>
 						</ul>
 					</li>
-                    <li><a HREF="ad_userAction">用户管理</a></li>
-					<li><a HREF="ad_orderAction">订单管理</a></li>	
+					<li ><a HREF="UserMangerAction">用户管理</a></li>
+					<li><a HREF="OrderMangeAction">订单管理</a></li>	
+					
 				</ul>
 			</nav>
 			<!-- End of Main navigation -->

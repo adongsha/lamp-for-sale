@@ -50,6 +50,14 @@ public class OrderServiceTest {
     	System.out.println(orderService.statisticsOrderAmountForMonth());
     }
     
+    /**
+     * 測試統計今天的銷售額
+     */
+    @Test
+    public void testStatisticsOrderAmountForToday(){
+    	System.out.println(orderService.statisticsOrderAmountForToday());
+    }
+    
     /*@Test
     public void testTest(){
     	orderService.addOrders(23l, 36.2, "sdf", "sdf", "54654", "erw", "wer", 3l);

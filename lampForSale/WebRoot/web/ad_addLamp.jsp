@@ -137,21 +137,21 @@ function tip(){
 			<!-- Main navigation -->
 			<nav id="menu">
 								<ul class="sf-menu">
-					<li><a HREF="adminLamp.html">管理主页</a></li>
-					<li class="current">
-						<a HREF="#">产品管理</a>
+					<li class="current"><a HREF="MainAction">管理主页</a></li>
+					<li>
+						<a HREF="">产品管理</a>
 						<ul>
 							<li>
-								<a HREF="addLamp.html">添加灯饰</a>
+								<a HREF="AddLampAction">添加灯饰</a>
 							</li>
 							<li>
-								<a HREF="showLamp.html">产品展示</a>
+								<a HREF="LampMangerAction">灯饰管理</a>
 							</li>
 						</ul>
 					</li>
-					<li><a HREF="adminUser.html">用户管理</a></li>
-					<li><a HREF="order.html">订单管理</a></li>	
-					<li><a HREF="graphs.html">业绩图表</a></li>	
+					<li ><a HREF="UserMangerAction">用户管理</a></li>
+					<li><a HREF="OrderMangeAction">订单管理</a></li>	
+					
 				</ul>
 			</nav>
 			<!-- End of Main navigation -->

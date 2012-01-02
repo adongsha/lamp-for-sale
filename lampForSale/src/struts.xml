@@ -59,24 +59,28 @@
        <result>/web/ad_addLamp.jsp</result>
       </action>
       
-      <action name="ad_mainAction" class="OrderAction">
+      <action name="MainAction" class="OrderAction">
         <result>/web/ad_main.jsp</result>
       </action>
       
-      <action name="addLamp">
+      <action name="AddLampAction">
        <result>/web/ad_addLamp.jsp</result>
       </action>
       
-      <action name="addLampAction" class="AddLampAction" >
-       
-      </action>
       
-      <action name="ad_orderAction" class="OrderAction">
+      
+      <action name="OrderMangeAction" class="OrderAction">
         <result>/web/ad_order.jsp</result>
       </action>
       
-      <action name="ad_showLampAction" class="LampAction">
+      <action name="LampMangerAction" class="LampAction">
         <result>/web/ad_showLamp.jsp</result>
       </action>
+      
+      <action name="UserMangerAction">
+         <result>/web/ad_user.jsp</result>
+      </action>
+      
+      
     </package>
 </struts>    
