@@ -50,8 +50,13 @@ public class OrderServiceTest {
     	System.out.println(orderService.statisticsOrderAmountForMonth());
     }
     
-    @Test
+    /*@Test
     public void testTest(){
-    	//orderService.test();
+    	orderService.addOrders(23l, 36.2, "sdf", "sdf", "54654", "erw", "wer", 3l);
+    }*/
+    
+    @Test
+    public void testInsertOrder(){
+    	orderService.insertOrder(25l, 545.3, "qqq", "bb", "cc", "dd", "ee", 3l);
     }
 }

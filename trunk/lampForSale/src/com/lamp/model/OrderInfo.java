@@ -27,16 +27,13 @@ public class OrderInfo implements java.io.Serializable {
 	private UserInfo userInfo;
 	private String orderPerson;
 	private String orderEmail;
-	private String orderCompany;
 	private String orderAddress;
 	private String orderPhone;
 	private String message;
-	private String code;
 	private String orderTime;
 	private Double allPrice;
 	private Integer isBackSingle;
 	private Integer orderStatus;
-	private Long orderNumber;
 	private Set<SaleTable> saleTables = new HashSet<SaleTable>(0);
 	private Set<SaledLamp> saledLampsForLampId = new HashSet<SaledLamp>(0);
 	private Set<OrderStatus> orderStatuses = new HashSet<OrderStatus>(0);
@@ -52,25 +49,22 @@ public class OrderInfo implements java.io.Serializable {
 
 	/** full constructor */
 	public OrderInfo(UserInfo userInfo, String orderPerson, String orderEmail,
-			String orderCompany, String orderAddress, String orderPhone,
-			String message, String code, String orderTime, Double allPrice,
-			Integer isBackSingle, Integer orderStatus, Long orderNumber,
-			Set<SaleTable> saleTables, Set<SaledLamp> saledLampsForLampId,
-			Set<OrderStatus> orderStatuses, Set<OrderGoods> orderGoodses,
-			SaledLamp saledLampByOrderId, CartShop cartShop) {
+			String orderAddress, String orderPhone, String message,
+			String orderTime, Double allPrice, Integer isBackSingle,
+			Integer orderStatus, Set<SaleTable> saleTables,
+			Set<SaledLamp> saledLampsForLampId, Set<OrderStatus> orderStatuses,
+			Set<OrderGoods> orderGoodses, SaledLamp saledLampByOrderId,
+			CartShop cartShop) {
 		this.userInfo = userInfo;
 		this.orderPerson = orderPerson;
 		this.orderEmail = orderEmail;
-		this.orderCompany = orderCompany;
 		this.orderAddress = orderAddress;
 		this.orderPhone = orderPhone;
 		this.message = message;
-		this.code = code;
 		this.orderTime = orderTime;
 		this.allPrice = allPrice;
 		this.isBackSingle = isBackSingle;
 		this.orderStatus = orderStatus;
-		this.orderNumber = orderNumber;
 		this.saleTables = saleTables;
 		this.saledLampsForLampId = saledLampsForLampId;
 		this.orderStatuses = orderStatuses;
@@ -119,15 +113,6 @@ public class OrderInfo implements java.io.Serializable {
 		this.orderEmail = orderEmail;
 	}
 
-	@Column(name = "orderCompany", length = 50)
-	public String getOrderCompany() {
-		return this.orderCompany;
-	}
-
-	public void setOrderCompany(String orderCompany) {
-		this.orderCompany = orderCompany;
-	}
-
 	@Column(name = "orderAddress", length = 150)
 	public String getOrderAddress() {
 		return this.orderAddress;
@@ -153,15 +138,6 @@ public class OrderInfo implements java.io.Serializable {
 
 	public void setMessage(String message) {
 		this.message = message;
-	}
-
-	@Column(name = "code", length = 50)
-	public String getCode() {
-		return this.code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
 	}
 
 	@Column(name = "orderTime", length = 100)
@@ -198,15 +174,6 @@ public class OrderInfo implements java.io.Serializable {
 
 	public void setOrderStatus(Integer orderStatus) {
 		this.orderStatus = orderStatus;
-	}
-
-	@Column(name = "orderNumber", precision = 18, scale = 0)
-	public Long getOrderNumber() {
-		return this.orderNumber;
-	}
-
-	public void setOrderNumber(Long orderNumber) {
-		this.orderNumber = orderNumber;
 	}
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "orderInfo")

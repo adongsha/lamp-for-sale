@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import com.lamp.dao.LampDao;
 import com.lamp.model.CartShop;
 import com.lamp.model.Lamp;
+import com.lamp.model.OrderInfo;
 import com.lamp.util.PageInfo;
 @Component("lampDao")
 public class LampDaoImpl extends HibernateDaoImpl implements LampDao {
@@ -24,7 +25,7 @@ public class LampDaoImpl extends HibernateDaoImpl implements LampDao {
 		}
 	}
 	
-	public Lamp detailsLamp(Integer lampId){
+	public Lamp detailsLamp(Long lampId){
 		String hql = "from Lamp l where l.lampId="+lampId;
 		return (Lamp) this.find(hql).get(0);
 	}
@@ -50,6 +51,30 @@ public class LampDaoImpl extends HibernateDaoImpl implements LampDao {
 	    this.save(cartShop);
 	}
 
-	
-    
+	public Lamp loadLampByLampId(Long lampId) {
+		String hql = "from Lamp l where l.lampId="+lampId;
+		List<Lamp> list = this.find(hql);
+		if(list.size() < 1){
+			return null;
+		}
+		return list.get(0);
+	}
+
+	public OrderInfo loadOrderByOrderId(Long orderId) {
+		String hql = "from OrderInfo o where o.orderId="+orderId;
+		List<OrderInfo> list = this.find(hql);
+		if(list.size() < 1){
+			return null;
+		}
+		return list.get(0);
+	}
+
+	public void insertCartShop(Long lampId, Long orderId, Integer count,
+			Double perPrice) {
+		String sql = "insert into cartShop (lampId,orderId,count,perPrice)"
+			         +" values("+lampId+","+orderId+","+count+","+perPrice+")";
+		this.getSession().createSQLQuery(sql).executeUpdate();
+	}
+
+       
 }

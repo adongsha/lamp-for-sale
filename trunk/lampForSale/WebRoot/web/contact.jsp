@@ -18,6 +18,7 @@
 <script type='text/javascript' src='dwr/util.js'></script>
 <script type='text/javascript' src='dwr/interface/orderAction.js'></script>
 <script type='text/javascript' src='dwr/interface/userAction.js'></script>
+<script type='text/javascript' src='dwr/interface/lampAction.js'></script>
 <script type="text/javascript">
   $(document).ready(function(){
     userAction.loadUserName(function(data){
@@ -26,11 +27,12 @@
     
     orderAction.orderInfo(function(data){
        console.log("data-->"+data);
-       var user = data.userInfo;
        var orderId = data.orderId;
        $("#orderId").html(orderId);
        var allPrice = data.allPrice;
        $("#allPrice").html(allPrice);
+       var user = data.userInfo;
+       $("#userId").html(user.userId);
        $("#userName").attr("value",user.userName);
        $("#email").attr("value", user.email);
        $("#address").attr("value",user.address);
@@ -39,18 +41,31 @@
   });
   
   function addOrder(){
-      var orderId = document.ElementById('orderId').innerHTML;
-      var allPrice = document.ElementById('allPrice').innerHTML;
+      var orderId = document.getElementById('orderId').innerHTML;
+      var allPrice = document.getElementById('allPrice').innerHTML;
+      var userId   = document.getElementById('userId').innerHTML;
       var userName = $("#userName").val();
       var email = $("#email").val();
       var phone = $("#phone").val();
       var address = $("#address").val();
       var message = $("#message").val();
-      orderAction.addOrder(orderId,allPrice,userName,email,phone,address,message,function(data){
-          lampAction.insertAllLamp(orderId);
+      orderAction.insertOrder(evalDwrData(orderId),evalDwrData(allPrice),userName,email,phone,address,message,evalDwrData(userId),function(data){
+          lampAction.insertCartShop(evalDwrData(orderId));
           alert("提交成功...");
       });
   }
+  
+   // 将DWR中值转化以便于传递后台
+function evalDwrData(data) {
+	if (!data) {
+		return null;
+	}
+	if (data == "") {
+		return null;
+	}
+
+	return eval(data);
+}
 </script>
 </head>
 
@@ -82,7 +97,8 @@
 											<span>Send your message</span>									
 										</div>
 										<div class="contack_border">
-										
+										   <span  id="userId"></span>
+										   
 										    <div class="zhanghao">订单号：<span id="orderId">161631363</span>
 										         总价：<span id="allPrice">65452</span>
 										    </div>
@@ -109,7 +125,7 @@
 											</div>
 										  <div class="button">
 													  <input type="reset" name="reset" value="重置"/>
-													  <input type="submit" name="submit" value="发送"/>
+													  <input type="submit" name="submit" value="提交" onclick="addOrder()"/>
 										  </div>
 										</div>	
 								</div>
@@ -122,7 +138,7 @@
 					<div id="category">
 					  		<div class="cart">
 									  <div class="cart_title"><span class="title_icon"><img src="images/cart.gif" /></span>购物车</div>
-									  <div class="home_cart_content">数&nbsp;&nbsp;量&nbsp;&nbsp;&brvbar;&nbsp; &nbsp;<span class="red">3</span>
+									  <div class="home_cart_content">用戶名&brvbar;&nbsp;<span class="red" id="userName"></span>
 									  </div>
 									  <a href="cart.html" class="view_cart">查看购物车</a>
 								  

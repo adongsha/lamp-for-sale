@@ -17,6 +17,7 @@ import org.springframework.stereotype.Component;
 
 import com.lamp.model.CartShop;
 import com.lamp.model.Lamp;
+import com.lamp.model.OrderInfo;
 import com.lamp.service.LampService;
 import com.lamp.util.PageInfo;
 import com.lamp.vo.LampVo;
@@ -36,7 +37,7 @@ public class LampAction extends SuperAction implements SessionAware{
 	}
      
 	@RemoteMethod
-	public LampVo detailsLamp(Integer lampId){
+	public LampVo detailsLamp(Long lampId){
 		return lampService.detailsLamp(lampId);
 	}
 
@@ -81,7 +82,7 @@ public class LampAction extends SuperAction implements SessionAware{
      * @return
      */
     @RemoteMethod
-    public void addLampToCart(Integer lampId, Integer count){
+    public void addLampToCart(Long lampId, Integer count){
     	cart = (Map)ActionContext.getContext().getSession().get("cart");
     	System.out.println("cart-->"+cart);
     	if(cart == null){
@@ -123,23 +124,34 @@ public class LampAction extends SuperAction implements SessionAware{
     /**
      * 保存订单..
      */
-    @RemoteMethod
+/*    @RemoteMethod
     public void insertAllLamp(Long orderId){
     	List<LampVo> listVo = this.cartLamp();
-    	for(LampVo lamp : listVo){
+    	for(LampVo lampVo : listVo){
     		CartShop cartShop = new CartShop();
-    		
-    		if(cartShop.getLamp() == null){
-    			Lamp lamp1 = new Lamp();
-    			lamp1.setLampId(lamp.getLampId());
-    		}else{
-    			cartShop.getLamp().setLampId(lamp.getLampId());
-    		}
-    		cartShop.setCount(lamp.getCount());
-    		cartShop.setOrderId(orderId);
-    		cartShop.setPerPrice(lamp.getPrice());
+    		Lamp lamp = lampService.loadLampByLampId(lampVo.getLampId());
+    		cartShop.setLamp(lamp);
+    		OrderInfo orderInfo = lampService.loadOrderByOrderId(orderId);
+    		cartShop.setOrderInfo(orderInfo);
+    		cartShop.setCount(lampVo.getCount());
+    		cartShop.setPerPrice(lampVo.getPrice());
     		lampService.addCartShop(cartShop);
     	}
-    }
+    }*/
     
+    
+    /**
+     * 插入訂單物品
+     * @param lampId
+     * @param orderId
+     * @param count
+     * @param perPrice
+     */
+    @RemoteMethod
+    public void insertCartShop(Long orderId) {
+    	List<LampVo> listVo = this.cartLamp();
+    	for(LampVo lampVo : listVo){
+    		lampService.insertCartShop(lampVo.getLampId(), orderId, lampVo.getCount(), lampVo.getPrice());
+    	}
+    }
 }

@@ -229,4 +229,42 @@ public class OrderService {
     	UserInfoVo userInfoVo = Model2VoUtil.userInfo2userInfoVo(user);
     	return userInfoVo;
     }
+    
+    
+    /**
+     * 通過用戶id得到指定的用戶信息
+     * @param userId  用戶id
+     * @return
+     */
+    public UserInfo loadUserByUserId(Long userId){
+    	return orderDao.loadUserByUserId(userId);
+    }
+    
+    public void insertOrder(Long orderId, Double allPrice, String userName,
+			String email, String phone, String address, String message,
+			Long userId) {
+    	orderDao.insertOrder(orderId, allPrice, userName, email, phone, address, message, userId);
+    }
+    
+    
+    
+   /* public void addOrders(Long orderId, Double allPrice, String userName, 
+    		String email, String phone, String address, String message, Long userId){
+    	OrderInfo orderInfo = new OrderInfo();
+    	UserInfo user = this.loadUserByUserId(userId);
+    	System.out.println("user-->"+user);
+    	orderInfo.setUserInfo(user);
+    	orderInfo.setAllPrice(allPrice);
+    	orderInfo.setOrderId(orderId);
+    	orderInfo.setOrderAddress(address);
+    	orderInfo.setOrderEmail(email);
+    	orderInfo.setOrderPerson(userName);
+    	orderInfo.setMessage(message);
+    	orderInfo.setAllPrice(allPrice);
+    	orderInfo.setOrderTime("65655");
+    	orderInfo.setOrderStatus(1);
+    	System.out.println("進入addOrder");
+    	this.addOrder(orderInfo);
+    	System.out.println("成功");
+    }*/
 }

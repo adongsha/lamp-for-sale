@@ -20,11 +20,9 @@ public class Model2VoUtil {
      public static OrderInfoVo orderInfo2orderInfoVo(OrderInfo orderInfo){
     	 OrderInfoVo orderInfoVo = new OrderInfoVo();
     	 orderInfoVo.setAllPrice(orderInfo.getAllPrice());
-    	 orderInfoVo.setCode(orderInfo.getCode());
     	 orderInfoVo.setIsBackSingle(orderInfo.getIsBackSingle());
     	 orderInfoVo.setMessage(orderInfo.getMessage());
     	 orderInfoVo.setOrderAddress(orderInfo.getOrderAddress());
-    	 orderInfoVo.setOrderCompany(orderInfo.getOrderCompany());
     	 orderInfoVo.setOrderEmail(orderInfo.getOrderEmail());
     	 orderInfoVo.setOrderId(orderInfo.getOrderId());
     	 orderInfoVo.setOrderPerson(orderInfo.getOrderPerson());

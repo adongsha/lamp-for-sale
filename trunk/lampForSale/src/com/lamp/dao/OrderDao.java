@@ -150,4 +150,24 @@ public interface OrderDao {
      */
     public UserInfo personalInfo(String userName);
 
+    /**
+     * 通過用戶id得到指定的個人對象
+     * @param userId
+     * @return
+     */
+   public UserInfo loadUserByUserId(Long userId);
+   
+   /**
+    * 原生SQL語句插入order
+    * @param orderId
+    * @param allPrice
+    * @param userName
+    * @param email
+    * @param phone
+    * @param address
+    * @param message
+    * @param userId
+    */
+   public void insertOrder(Long orderId, Double allPrice, String userName, 
+   		String email, String phone, String address, String message, Long userId);
 }

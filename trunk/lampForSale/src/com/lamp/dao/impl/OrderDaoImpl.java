@@ -239,6 +239,28 @@ public class OrderDaoImpl extends HibernateDaoImpl implements OrderDao {
 		String hql = "from UserInfo u where u.userName='"+userName+"'";
 		return (UserInfo)this.find(hql).get(0);
 	}
+
+
+	public UserInfo loadUserByUserId(Long userId) {
+	    String hql = "from UserInfo u where u.userId="+userId;
+	    List<UserInfo> list = this.find(hql);
+	    if(list.size() < 1){
+	    	return null;
+	    }
+		return list.get(0);
+	}
+
+
+	public void insertOrder(Long orderId, Double allPrice, String userName,
+			String email, String phone, String address, String message,
+			Long userId) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); 
+		String time = sdf.format(new Date()).toString();
+		String sql = "insert into orderInfo (orderId,userId,orderPerson,orderEmail,orderAddress,orderPhone,message,orderTime,orderStatus)"
+			         +" values("+orderId+","+userId+",'"+userName+"','"+email+"','"+address+"','"+phone+"','"+message+"','"+time+"',"+2+")";
+		this.getSession().createSQLQuery(sql).executeUpdate();
+	}
+	
 	
     
 	
