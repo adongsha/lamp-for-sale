@@ -100,7 +100,15 @@ public class UserAction extends SuperAction {
 		}else{
 			return userName;
 		}
-		
 	}
     
+	/**
+	 * 删除用户
+	 * @param userId 用户id
+	 */
+	@RemoteMethod
+	public void deleteUser(Long userId){
+		UserInfo user = userService.userInfo(userId);
+		userService.deleteUser(user);
+	}
 }

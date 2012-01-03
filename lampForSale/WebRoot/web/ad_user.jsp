@@ -50,9 +50,100 @@
 <script language="javascript" type="text/javascript" src="javascript/pageInfo.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-	
+    userAction.countPower(function(data) {
+       var admin = data.admin;
+       var ordinary = data.ordinary;
+       $("#admin").html(admin);
+       $("#ordinary").html(ordinary);
+    });
+	executeQuery(userAction.userListByPage,[userLists]);
 });
 
+function userLists(data){
+    var page = data.pageInfo;
+    var users = data.userLists;
+    var index = 0;
+    if(data == null || data.length == 0){
+      alert("没有订单！ ");
+      return;
+   }
+   if(!page){
+   alert("出错了！请重试...");
+   }
+   initPage(page.totalPage, page.pageIndex, page.pageSize, page.totalRec);
+   for(var i = 0; i< users.length; i++){
+      index = index + 1;
+      var user = users[i];
+      var userName = user.userName;
+      var power    = user.power;
+      var email    = user.email;
+      var phone    = user.phone;
+      var address  = user.address;
+      var userId   = user.userId;
+      console.log("userName:"+userName);
+      console.log("power:"+power);
+      console.log("email:"+email);
+      console.log("phone:"+phone);
+      console.log("address:"+address);
+      console.log("userid:"+userId);
+      if(power == 0){
+        power = '普通用户 ';
+      } 
+      if(power == 1){
+        power = '管理人 ';
+      }
+      var tr =   '<tr id="tr'+userId+'">'
+				+'<td width="15%">'+index+'</td>'
+				+'<td width="30%">'+userName+'</td>'
+				+'<td width="25%">'+power+'</td>'
+				+'<td width="30%"><a href="javascript:seeUser(\''+userName+'\',\''
+				+power+'\',\''+email+'\',\''+phone+'\',\''+address+'\')" alt="">查看</a> |'
+				+'<a href="javascript:deleteUser('+userId+')"> 删除</a></td>'
+				+'</tr>'
+		$("#th").append(tr);		
+   }
+}
+
+function seeUser(userName, power, email, phone, address){
+   $("#userName").html(userName);
+   $("#power").attr('value',power);
+   $("#telephone").attr('value',phone);
+   $("#address").attr('value',address);
+   $("#seeUserDiv").dialog({
+      modal : true,
+      show  : "blind",
+      hide  : "blind",
+      width : 500,
+      height: 250,
+      buttons : {
+        "修改" : function() {
+        
+        },
+        "关闭" : function() {
+           $(this).dialog("close");
+        }
+      }
+   });
+}
+
+function deleteUser(userId){
+   userAction.deleteUser(evalDwrData(userId),function(data){
+       var tag = "#tr"+userId;
+       $(tag).hide("show");
+   });
+}
+
+ // 将DWR中值转化以便于传递后台
+function evalDwrData(data) {
+	if (!data) {
+		return null;
+	}
+	if (data == "") {
+		return null;
+	}
+
+	return eval(data);
+}
 </script>
 </head>
 <body>
@@ -133,7 +224,7 @@ $(document).ready(function(){
 									</div>
 								</td>
 								<td class="ta-right"></td>
-                                <td>3</td>
+                                <td id="admin"></td>
 								<td class="ta-right"></td>
 							</tr>
 							<tr>
@@ -143,7 +234,7 @@ $(document).ready(function(){
 									</div>
 								</td>
 								<td class="ta-right"></td>
-                                <td>3</td>
+                                <td id="ordinary"></td>
 								<td class="ta-right"></td>
 							</tr>
 						</tbody>
@@ -153,7 +244,7 @@ $(document).ready(function(){
 					
 					<h3>用户列表</h3>
 					<table class="display stylized" id="example">
-						<thead>
+						<thead id="th">
 							<tr>
 								<th width="15%">序号</th>
 								<th width="30%">用户</th>
@@ -235,17 +326,23 @@ $(document).ready(function(){
 	<!-- End of Page content -->
 	
 	<!-- 查看订单Div对话框 -->
-							<div id="seeOrderDiv" style="display: none;"
+							<div id="seeUserDiv" style="display: none;"
 								title="用户信息<samp></samp>">
-								<table border="0" cellspacing="10" width="700">
+								<table border="0" cellspacing="10" width="450">
 									<tr>
 										<th colspan="4">
 											用户名:&nbsp;
 											<samp id="userName" >
-												010416524
+												
 											</samp>
-											&nbsp;&nbsp;权限:&nbsp;
-								<label>
+										</th>
+									</tr>
+									<tr>
+                                      <td class="table_title" >
+											权限:
+										</td>									
+									<td class="table_writing2" >
+									
 									<select id="power">
 										<option>
 											管理人
@@ -254,30 +351,21 @@ $(document).ready(function(){
 											普通用户
 										</option>
 									</select>
-								</label>
-										</th>
-									</tr>
-									<tr>
-										<td class="table_title" >
+										</td>
+											<td class="table_title" >
 											邮件:
 										</td>
 										<td width="15%">
 											<input type="text" id="email"/>
 										</td>
-										<td class="table_title" >
-											电话号码:
-										</td>
-										<td class="table_writing2" >
-											<input type="text" id="telephone"/>
-										</td>
 										
 									</tr>
 									<tr>
 									   <td class="table_title" >
-											公司名称:
+											电话号码:
 										</td>
-										<td class="table_writing2">
-											<input type="text" id="company"/>
+										<td class="table_writing2" >
+											<input type="text" id="telephone"/>
 										</td>
 										<td class="table_title">
 											地址
@@ -287,30 +375,6 @@ $(document).ready(function(){
 										</td>
 									</tr>
 									</table>
-									
-									
-									
-					<table class="display stylized" id="seeOrderList">
-						<thead>
-							<tr>
-								<th >序号</th>
-								<th >灯名</th>
-								<th >单价</th>
-								<th >数量</th>
-								<th >总价</th>
-							</tr>
-						</thead>
-						
-							<tfoot>
-							<tr>
-								<th >序号</th>
-								<th >灯名</th>
-								<th >单价</th>
-								<th >数量</th>
-								<th >总价</th>
-							</tr>
-						</tfoot>
-					</table>
 							</div>
 	
 	

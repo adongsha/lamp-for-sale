@@ -76,5 +76,14 @@ public class UserService {
 		return userInfoVos;
 	}
 	
+	
+	public void deleteUser(UserInfo user){
+		userDao.deleteUser(user);
+	}
+	
+	
+	public UserInfo userInfo(Long userId){
+		return userDao.userInfo(userId);
+	}
 
 }

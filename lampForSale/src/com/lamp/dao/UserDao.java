@@ -51,5 +51,16 @@ public interface UserDao {
      */
     public Map<String, Integer> countPower();
     
-
+    /**
+     * 删除用户
+     * @param user
+     */
+    public void deleteUser(UserInfo user);
+    
+    /**
+     * 通过userId得到指定的user对象
+     * @param userId
+     * @return
+     */
+    public UserInfo userInfo(Long userId);
 }
