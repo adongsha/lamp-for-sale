@@ -73,4 +73,9 @@ public class LampServerTest {
    public void testInsertLamp(){
 	   lampService.insertCartShop(22l, 1325486783635l, 10, 10.0);
    }
+   
+   @Test
+   public void testUpdataLmap(){
+	   lampService.updateLamp("54654", "sdf", 1, "werwerwer", 12.3, "sdf", "sdf", "sdfsdf", "sdfsdf","sdf", 5l);
+   }
 }

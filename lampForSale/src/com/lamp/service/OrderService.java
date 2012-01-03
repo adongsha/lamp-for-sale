@@ -8,10 +8,12 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Component;
 
 import com.lamp.dao.OrderDao;
+import com.lamp.model.CartShop;
 import com.lamp.model.OrderInfo;
 import com.lamp.model.UserInfo;
 import com.lamp.util.Model2VoUtil;
 import com.lamp.util.PageInfo;
+import com.lamp.vo.CartShopVo;
 import com.lamp.vo.OrderInfoVo;
 import com.lamp.vo.UserInfoVo;
 
@@ -240,11 +242,70 @@ public class OrderService {
     	return orderDao.loadUserByUserId(userId);
     }
     
+    /**
+     * 插入订单 
+     * @param orderId   订单id
+     * @param allPrice  订单总价
+     * @param userName  用户名
+     * @param email     邮件
+     * @param phone     电话
+     * @param address   地址
+     * @param message   备注
+     * @param userId    用户id
+     */
     public void insertOrder(Long orderId, Double allPrice, String userName,
 			String email, String phone, String address, String message,
 			Long userId) {
     	orderDao.insertOrder(orderId, allPrice, userName, email, phone, address, message, userId);
     }
+    
+    /**
+     * 拿到购物车的灯饰列表
+     * @param orderId
+     * @return
+     */
+    public List<CartShopVo> loadCartShopById(Long orderId) {
+    	System.out.println("进来啊..");
+    	List<CartShop> list = orderDao.loadCartShopById(orderId);
+    	System.out.println("list.size->"+list.size());
+    	List<CartShopVo> cartShopVos = new ArrayList<CartShopVo>();
+    	for(CartShop c : list){
+    		System.out.println("ccccccc-->"+c);
+    		CartShopVo cs  = Model2VoUtil.cartShop2cartShopVo(c);
+    		cartShopVos.add(cs);
+    	}
+    	return cartShopVos;
+    }
+    
+    
+    
+    /**
+     * 删除订单
+     * @param orderId  订单id
+     */
+    public void deleteOrder(OrderInfo order){
+    	orderDao.deleteOrder(order);
+    }
+    
+    /**
+     * 通过指定orderid得到订单
+     * @param orderId
+     * @return
+     */
+    public OrderInfo orderInfo(Long orderId){
+    	return orderDao.orderInfo(orderId);
+    }
+    
+    
+    /**
+     * 处理定单
+     * @param order
+     */
+    public void dealOrder(OrderInfo order){
+    	 orderDao.dealOrder(order);
+    }
+    
+    
     
     
     

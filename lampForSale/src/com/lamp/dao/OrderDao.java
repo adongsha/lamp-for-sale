@@ -2,6 +2,7 @@ package com.lamp.dao;
 
 import java.util.List;
 
+import com.lamp.model.CartShop;
 import com.lamp.model.OrderInfo;
 import com.lamp.model.UserInfo;
 import com.lamp.util.PageInfo;
@@ -170,4 +171,31 @@ public interface OrderDao {
     */
    public void insertOrder(Long orderId, Double allPrice, String userName, 
    		String email, String phone, String address, String message, Long userId);
+   
+   /**
+    * 拿到购物车的灯饰列表
+    * @param orderId
+    * @return
+    */
+   public List<CartShop> loadCartShopById(Long orderId);
+   
+   
+   /**
+    * 删除订单
+    * @param orderId  订单id
+    */
+   public void deleteOrder(OrderInfo order);
+   
+   /**
+    * 通过指定orderid得到订单
+    * @param orderId
+    * @return
+    */
+   public OrderInfo orderInfo(Long orderId);
+   
+   /**
+    * 处理订单
+    * @param orderId
+    */
+   public void dealOrder(OrderInfo order);
 }

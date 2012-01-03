@@ -14,9 +14,9 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.lamp.model.OrderInfo;
-import com.lamp.model.UserInfo;
 import com.lamp.service.OrderService;
 import com.lamp.util.PageInfo;
+import com.lamp.vo.CartShopVo;
 import com.lamp.vo.OrderInfoVo;
 import com.lamp.vo.UserInfoVo;
 import com.opensymphony.xwork2.ActionContext;
@@ -251,6 +251,44 @@ public class OrderAction extends SuperAction {
 			Long userId) {
     	orderService.insertOrder(orderId, allPrice, userName, email, phone, address, message, userId);
     }
+    
+    
+    /**
+     * 拿到购物车的灯饰列表
+     * @param orderId
+     * @return
+     */
+    @RemoteMethod
+	public List<CartShopVo> loadCartShopById(Long orderId) {
+    	System.out.println("------------>>");
+    	List<CartShopVo> l = orderService.loadCartShopById(orderId);
+	    if(l.size()<1){
+	    	return null;
+	    }
+	    return l;
+    }
+    
+    /**
+     * 删除订单
+     * @param orderId 
+     */
+    @RemoteMethod
+    public void deleteOrder(Long orderId){
+    	OrderInfo order = orderService.orderInfo(orderId);
+    	orderService.deleteOrder(order);
+    }
+    
+    /**
+     * 处理订单..
+     * @param orderId 订单id
+     */
+    @RemoteMethod
+    public void dealOrder(Long orderId){
+    	OrderInfo order = orderService.orderInfo(orderId);
+    	order.setOrderStatus(1);
+    	orderService.dealOrder(order);
+    }
+    
 /*    @RemoteMethod
     public void addOrder(Long orderId, Double allPrice, String userName, 
     		String email, String phone, String address, String message, Long userId){

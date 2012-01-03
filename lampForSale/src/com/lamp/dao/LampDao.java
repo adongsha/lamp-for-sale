@@ -19,11 +19,21 @@ public interface LampDao {
 	 */
      public void addLamp(Lamp lamp);
      
-     /**
-      * ÐÞ¸ÄµÆ
-      * @param lampId   µÆµÄid
-      */
-     public void updateLamp(Integer lampId);
+    /**
+     * ÐÞ¸ÄµÆÊÎ
+     * @param isbn
+     * @param lampName
+     * @param type
+     * @param lampDescription
+     * @param price
+     * @param origin
+     * @param size
+     * @param material
+     * @param process
+     * @param lampId
+     */
+     public void updateLamp(String isbn, String lampName, Integer type, String lampDescription, Double price,
+	          String origin, String size, String material, String process,String weight,  Long lampId);
      
      /**
       * »ñµÃµÆµÄÏêÏ¸ÐÅÏ¢
@@ -75,5 +85,12 @@ public interface LampDao {
       * @param perPrice
       */
      public void insertCartShop(Long lampId, Long orderId, Integer count, Double perPrice);
+     
+     /**
+      * É¾³ýµÆÊÎ
+      * @param lampId µÆÊÎid
+      */
+     public void delLamp(Lamp lamp);
+    
 
 }
