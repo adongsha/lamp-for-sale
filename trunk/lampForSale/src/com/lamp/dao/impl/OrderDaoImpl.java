@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import com.lamp.dao.OrderDao;
+import com.lamp.model.CartShop;
 import com.lamp.model.OrderInfo;
 import com.lamp.model.UserInfo;
 import com.lamp.util.PageInfo;
@@ -264,9 +265,37 @@ public class OrderDaoImpl extends HibernateDaoImpl implements OrderDao {
 			         +" values("+orderId+","+userId+",'"+userName+"','"+email+"','"+address+"','"+phone+"','"+message+"','"+time+"',"+2+","+allPrice+")";
 		this.getSession().createSQLQuery(sql).executeUpdate();
 	}
+
+
+	public List<CartShop> loadCartShopById(Long orderId) {
+	    String hql = "from CartShop c where c.orderId="+orderId;
+	    List<CartShop> list = this.find(hql);
+	    if(list.size() < 1) {
+	    	return null;
+	    }
+		return list;
+	}
 	
 	
-    
+    public void deleteOrder(OrderInfo order){
+    	this.delete(order);
+    }
+
+
+	public OrderInfo orderInfo(Long orderId) {
+		String hql = "from OrderInfo o where o.orderId="+orderId;
+		List<OrderInfo> list = this.find(hql);
+		if(list.size() < 1){
+			return null;
+		}
+		return list.get(0);
+	}
+
+
+	public void dealOrder(OrderInfo order) {
+		this.update(order);
+		
+	}
 	
 	
 	

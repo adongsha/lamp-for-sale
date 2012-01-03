@@ -112,4 +112,40 @@ public class LampService {
 			Double perPrice) {
     	lampDao.insertCartShop(lampId, orderId, count, perPrice);
     }
+    
+    /**
+     * 修改灯饰
+     * @param isbn
+     * @param lampName
+     * @param type
+     * @param lampDescription
+     * @param price
+     * @param origin
+     * @param size
+     * @param material
+     * @param process
+     * @param lampId
+     */
+    public void updateLamp(String isbn, String lampName, Integer type, String lampDescription, Double price,
+	          String origin, String size, String material, String process, String weight, Long lampId) {
+    	lampDao.updateLamp(isbn, lampName, type, lampDescription, price, origin, size, material, process, weight, lampId);
+    	
+    }
+    
+    /**
+     * 删除
+     * @param lamp
+     */
+    public void delLamp(Lamp lamp){
+    	lampDao.delLamp(lamp);
+    }
+    
+    /**
+     * 得到lamp对象
+     * @param lampId
+     * @return
+     */
+    public Lamp lamp(Long lampId){
+    	return lampDao.detailsLamp(lampId);
+    }
 }

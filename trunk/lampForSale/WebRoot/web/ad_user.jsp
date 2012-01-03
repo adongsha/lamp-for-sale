@@ -10,38 +10,44 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>Admin Template by www.865171.cn</title>
+<title>UserManger</title>
 <meta name="description" content="Administry - Admin Template by www.865171.cn" />
 <meta name="keywords" content="Admin,Template" />
 <!-- Favicons --> 
-<link rel="shortcut icon" type="image/png" HREF="../images/favicons/favicon.png"/>
-<link rel="icon" type="image/png" HREF="../images/favicons/favicon.png"/>
-<link rel="apple-touch-icon" HREF="../images/favicons/apple.png" />
+<link rel="shortcut icon" type="image/png" HREF="images/favicons/favicon.png"/>
+<link rel="icon" type="image/png" HREF="images/favicons/favicon.png"/>
+<link rel="apple-touch-icon" HREF="images/favicons/apple.png" />
 <!-- Main Stylesheet --> 
-<link rel="stylesheet" href="../css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
 <!-- Your Custom Stylesheet --> 
-<link rel="stylesheet" href="../css/custom.css" type="text/css" />
-<!--swfobject - needed only if you require <video> tag support for older browsers -->
-<script type="text/javascript" SRC="../javascript/swfobject.js"></script>
-<!-- jQuery with plugins -->
-<script type="text/javascript" SRC="../javascript/jquery-1.4.2.min.js"></script>
-<!-- Could be loaded remotely from Google CDN : <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script> -->
-<script type="text/javascript" SRC="../javascript/jquery.ui.core.min.js"></script>
-<script type="text/javascript" SRC="../javascript/jquery.ui.widget.min.js"></script>
-<script type="text/javascript" SRC="../javascript/jquery.ui.tabs.min.js"></script>
-<!-- jQuery tooltips -->
-<script type="text/javascript" SRC="../javascript/jquery.tipTip.min.js"></script>
-<!-- Superfish navigation -->
-<script type="text/javascript" SRC="../javascript/jquery.superfish.min.js"></script>
-<script type="text/javascript" SRC="../javascript/jquery.supersubs.min.js"></script>
-<!-- jQuery form validation -->
-<script type="text/javascript" SRC="../javascript/jquery.validate_pack.js"></script>
-<!-- jQuery popup box -->
-<script type="text/javascript" SRC="../javascript/jquery.nyroModal.pack.js"></script>
-<!-- jQuery data tables -->
-<script type="text/javascript" SRC="../javascript/jquery.dataTables.min.js"></script>
-<!-- Internet Explorer Fixes --> 
+<link rel="stylesheet" href="css/custom.css" type="text/css" />
 
+<link href="web/common/css/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css" /> 
+<script language="javascript" type="text/javascript" src="web/common/js/jquery-1.6.2.min.js"></script> 
+<script language="javascript" type="text/javascript" src="web/common/js/jquery-ui-1.8.16.custom.min.js"></script> 
+
+<!--swfobject - needed only if you require <video> tag support for older browsers -->
+<script type="text/javascript" SRC="javascript/swfobject.js"></script>
+<!-- jQuery with plugins -->
+<!-- Could be loaded remotely from Google CDN : <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script> -->
+<script type="text/javascript" SRC="javascript/jquery.ui.core.min.js"></script>
+<script type="text/javascript" SRC="javascript/jquery.ui.widget.min.js"></script>
+<script type="text/javascript" SRC="javascript/jquery.ui.tabs.min.js"></script>
+<!-- jQuery tooltips -->
+<script type="text/javascript" SRC="javascript/jquery.tipTip.min.js"></script>
+<!-- Superfish navigation -->
+<script type="text/javascript" SRC="javascript/jquery.superfish.min.js"></script>
+<script type="text/javascript" SRC="javascript/jquery.supersubs.min.js"></script>
+<!-- jQuery form validation -->
+<script type="text/javascript" SRC="javascript/jquery.validate_pack.js"></script>
+<!-- jQuery popup box -->
+<script type="text/javascript" SRC="javascript/jquery.nyroModal.pack.js"></script>
+<!-- jQuery data tables -->
+<script type="text/javascript" SRC="javascript/jquery.dataTables.min.js"></script>
+<script type='text/javascript' src='dwr/engine.js'></script>
+<script type='text/javascript' src='dwr/util.js'></script>
+<script type='text/javascript' src='dwr/interface/userAction.js'></script>
+<script language="javascript" type="text/javascript" src="javascript/pageInfo.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	

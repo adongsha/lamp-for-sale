@@ -154,4 +154,33 @@ public class LampAction extends SuperAction implements SessionAware{
     		lampService.insertCartShop(lampVo.getLampId(), orderId, lampVo.getCount(), lampVo.getPrice());
     	}
     }
+    
+    /**
+     * ÐÞ¸ÄµÆÊÎ
+     * @param isbn
+     * @param lampName
+     * @param type
+     * @param lampDescription
+     * @param price
+     * @param origin
+     * @param size
+     * @param material
+     * @param process
+     * @param lampId
+     */
+    @RemoteMethod
+    public void updateLamp(String isbn, String lampName, Integer type, String lampDescription, Double price,
+	          String origin, String size, String material, String process, String weight, Long lampId) {
+    	lampService.updateLamp(isbn, lampName, type, lampDescription, price, origin, size, material, process, weight, lampId);
+    }
+    
+    /**
+     * É¾³ýµÆÊÎ
+     * @param lampId
+     */
+    @RemoteMethod
+    public void delLamp(Long lampId){
+    	Lamp lamp = lampService.lamp(lampId);
+    	lampService.delLamp(lamp);
+    }
 }

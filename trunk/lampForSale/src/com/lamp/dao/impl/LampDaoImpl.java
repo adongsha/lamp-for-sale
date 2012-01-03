@@ -30,12 +30,13 @@ public class LampDaoImpl extends HibernateDaoImpl implements LampDao {
 		return (Lamp) this.find(hql).get(0);
 	}
 
-	public void updateLamp(Integer lampId) {
-		String hql = "update Lamp l set l.isdn=?, l.lampName=?, l.type=?, l.lampDescription=?, l.price=?,"+
-		             "l.origin, l.size=?, l.material=?, l.process=?, l.weight=?, l.prictureImage1=?, l.prictureImage2=?,"+
-		             "l.prictureImage13=?, l.prictureImage4=? where l.lampId=?";
-		Object[] object = new Object[]{};
-
+	public void updateLamp(String isbn, String lampName, Integer type, String lampDescription, Double price,
+			          String origin, String size, String material, String process, String weight, Long lampId) {
+		String hql = "update Lamp l set l.isbn=?, l.lampName=?, l.type=?, l.lampDescription=?, l.price=?,"+
+		             "l.origin=?, l.size=?, l.material=?, l.process=?, l.weight=? where l.lampId=?";
+		Object[] objects = new Object[]{isbn,lampName,type,lampDescription, price,
+		          origin, size, material,process,weight,lampId};
+         this.updateByQuery(hql, objects);
 	}
 
 	public List<Lamp> lampTypeListByPage(PageInfo pageInfo, Integer type) {
@@ -74,6 +75,10 @@ public class LampDaoImpl extends HibernateDaoImpl implements LampDao {
 		String sql = "insert into cartShop (lampId,orderId,count,perPrice)"
 			         +" values("+lampId+","+orderId+","+count+","+perPrice+")";
 		this.getSession().createSQLQuery(sql).executeUpdate();
+	}
+
+	public void delLamp(Lamp lamp) {
+		this.delete(lamp);
 	}
 
        

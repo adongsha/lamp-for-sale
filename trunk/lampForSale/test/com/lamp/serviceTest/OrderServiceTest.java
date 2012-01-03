@@ -1,10 +1,13 @@
 package com.lamp.serviceTest;
 
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.lamp.service.OrderService;
+import com.lamp.vo.CartShopVo;
 
 public class OrderServiceTest {
 	OrderService orderService = null;
@@ -66,5 +69,13 @@ public class OrderServiceTest {
     @Test
     public void testInsertOrder(){
     	orderService.insertOrder(25l, 545.3, "qqq", "bb", "cc", "dd", "ee", 3l);
+    }
+    
+    @Test
+    public void testLoadCartShopById(){
+    	List<CartShopVo> c = orderService.loadCartShopById(1325486783635l);
+    	for(CartShopVo v : c){
+    		System.out.println(v.getLampName());
+    	}
     }
 }

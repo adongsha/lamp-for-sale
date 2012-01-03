@@ -111,23 +111,23 @@ function orderLists(data){
    var code  = order.code;
    var orderTime = order.orderTime;
    var allPrice = order.allPrice;
-   var tr = '<tr><td width="15%">'
+   var tr = '<tr id="tr'+orderId+'"><td width="15%">'
           +orderId
           +'</td><td width="24%">'
           +userName
           +'</td><td width="32%">'
           +'<a '
           +orderId
-          +' onclick="seeOrder(\''
+          +' href="javascript:seeOrder(\''
           +orderStatus+'\',\''+orderId+'\',\''+userName+'\',\''+address+'\',\''+email+'\',\''+telephone+'\',\''
           +message+'\',\''+code+'\',\''+orderTime+'\',\''+allPrice
-          +'\')">查看</a> | <a href="" id="'
+          +'\')">查看</a> | <a href="javascript:deleteOrder(\''+orderId+'\')" id="'
           +orderId
           +'">删除</a></td><td width="16%">'
           +allPrice
-          +'</td><td width="13%"><a href="" onclick="delOrder">'
+          +'</td><td width="13%"><a href="javascript:dealOrder(\''+orderId+'\')"><em id="status'+orderId+'">'
           +orderStatus
-          +'</a></td></tr>'
+          +'</em></a></td></tr>'
     $("#example").append(tr);
    } 
 }
@@ -142,6 +142,7 @@ function seeOrder(orderStatus, orderId, userName, address, email, telephone, mes
       console.log("code-->"+code);
       console.log("orderTime-->"+orderTime);
       console.log("allPrice-->"+allPrice);
+      var allPrice = '<em style="color:red">'+allPrice+'元</em>';
       $("#orderId").html(orderId);
       $("#userName").html(userName);
       $("#address").html(address);
@@ -152,16 +153,45 @@ function seeOrder(orderStatus, orderId, userName, address, email, telephone, mes
       $("#orderTime").html(orderTime);
       $("#allPrice").html(allPrice);
   //拿到指定订单 列出订单表 
-  
+     orderAction.loadCartShopById(evalDwrData(orderId),function(data) {
+     if(data == null || data.length == 0){
+        alert("没有购买商品！");
+     }
+     console.log("cartShop-->"+data);
+     var index = 0;
+     for(var i = 0; i<data.length; i++){
+         index = index + 1
+         var order = data[i];
+         var orderId = order.orderId;
+         console.log("orderId-->"+orderId);
+         var lampName = order.lampName;
+         console.log("lampName-->"+lampName);
+         var picture = order.picture;
+         var p1 = "images/lampImages/"+picture+".jpg";
+         var perPrice = order.perPrice;
+         var count = order.count;
+        
+         var allPrice = perPrice * count;
+         var tr = '<tr>'
+					+  '<td width="10%">'+index+'</td>'
+					+  '<td width="10%"><img src="'+p1+'"/ style="width:40px;height:40px"></td>'
+					+  '<td width="35%">'+lampName+'</td>'
+					+  '<td width="15%">'+perPrice+'</td>'
+					+  '<td width="15%">'+count+'</td>'
+					+  '<td width="15%">'+allPrice+'</td>'
+					+  '</tr>'
+		  $('#th').append(tr);			
+         }
+     }); 
   $("#seeOrderDiv").dialog({
         modal : true,
 		show : "blind",
 		hide : "blind",
-		width : 700,
-		height : 350,
+		width : 800,
+		height : 450,
 				buttons : {
 			"关闭" : function() {
-				
+				    //$('#').empty();
 					$(this).dialog("close");
 				}
 		}
@@ -171,8 +201,31 @@ function seeOrder(orderStatus, orderId, userName, address, email, telephone, mes
 
 
 
-function delOrder(){
+function deleteOrder(orderId){
+   orderAction.deleteOrder(evalDwrData(orderId),function(data) {
+      var tag = "#tr"+orderId;
+      $(tag).hide("slow");
+   });
+}
 
+function dealOrder(orderId){
+    orderAction.dealOrder(evalDwrData(orderId),function(data) {
+       var tag = "#status"+orderId
+       console.log("tag-->"+tag);
+       $(tag).html("------"); 
+    });
+}
+
+ // 将DWR中值转化以便于传递后台
+function evalDwrData(data) {
+	if (!data) {
+		return null;
+	}
+	if (data == "") {
+		return null;
+	}
+
+	return eval(data);
 }
 
 </script>
@@ -371,8 +424,8 @@ function delOrder(){
 	
 	<!-- 查看订单Div对话框 -->
 							<div id="seeOrderDiv" style="display: none;"
-								title="订单信息：<samp>123456789</samp>">
-								<table border="0" cellspacing="10" width="700">
+								title="订单信息<samp></samp>">
+								<table border="0" cellspacing="10" width="750">
 									<tr>
 										<th colspan="4">
 											订单号:&nbsp;
@@ -389,7 +442,7 @@ function delOrder(){
 										<td class="table_title" width="10%">
 											送货地址:
 										</td>
-										<td id="address" width="15%">
+										<td id="address" width="40%" colspan="3">
 											<samp id="studentName" >
 												张三
 											</samp>
@@ -406,19 +459,14 @@ function delOrder(){
 										<td class="table_writing2" id="orderTime" width="15%">
 											2011-12-25
 										</td>
-										<td class="table_title" width="10%">
+										
+									</tr>
+									<tr>
+									   <td class="table_title" width="10%">
 											订单状态:
 										</td>
 										<td class="table_writing2" id="orderStatus" width="15%">
 											未处理
-										</td>
-									</tr>
-									<tr>
-									   <td class="table_title" width="10%">
-											订单邮编:
-										</td>
-										<td class="table_writing2" id="code" width="15%">
-											519090
 										</td>
 										<td class="table_title" width="10%">
 											订单备注:
@@ -436,7 +484,7 @@ function delOrder(){
 											订单总价:
 										</td>
 										<td class="table_writing4" id="allPrice" width="15%">
-											1000￥
+											￥
 										</td>
 									</tr>
 									</table>
@@ -444,23 +492,25 @@ function delOrder(){
 									
 									
 					<table class="display stylized" id="seeOrderList">
-						<thead>
+						<thead id="th">
 							<tr>
-								<th >序号</th>
-								<th >灯名</th>
-								<th >单价</th>
-								<th >数量</th>
-								<th >总价</th>
+								<th width="10%">序号</th>
+								<th width="20%">图片</th>
+								<th width="20%">灯名</th>
+								<th width="15%">单价</th>
+								<th width="15%">数量</th>
+								<th width="20%">总价</th>
 							</tr>
 						</thead>
 						
 							<tfoot>
 							<tr>
-								<th >序号</th>
-								<th >灯名</th>
-								<th >单价</th>
-								<th >数量</th>
-								<th >总价</th>
+								<th width="10%">序号</th>
+								<th width="20%">图片</th>
+								<th width="20%">灯名</th>
+								<th width="15%">单价</th>
+								<th width="15%">数量</th>
+								<th width="20%">总价</th>
 							</tr>
 						</tfoot>
 					</table>

@@ -90,9 +90,22 @@ public class Model2VoUtil {
      
      public static CartShopVo cartShop2cartShopVo(CartShop cartShop){
     	 CartShopVo cartShopVo = new CartShopVo();
-    	 /* cartShopVo.setCartId(cartShop.getCartId());
+    	 cartShopVo.setCartId(cartShop.getCartId());
     	 cartShopVo.setCount(cartShop.getCount());
-    	 cartShopVo.setLampid(lampid)*/
+    	 cartShopVo.setPerPrice(cartShop.getPerPrice());
+    	 System.out.println("cartShop.getLamp()->"+cartShop.getLamp());
+    	 if(cartShop.getLamp() == null){
+    		 Lamp lamp = new Lamp();
+    		 cartShopVo.setLampid(lamp.getLampId());
+    		 cartShopVo.setLampName(lamp.getLampName());
+    		 cartShopVo.setPicture(lamp.getPrictureImage1());
+    	 } else {
+         cartShopVo.setLampid(cartShop.getLamp().getLampId());
+    	 cartShopVo.setLampName(cartShop.getLamp().getLampName());
+    	 cartShopVo.setPicture(cartShop.getLamp().getPrictureImage1());
+    	 }
+    	 System.out.println("lampName:"+cartShopVo.getLampName());
+    	 System.out.println("picture:"+cartShopVo.getPicture());
     	 return cartShopVo;
      }
 }
