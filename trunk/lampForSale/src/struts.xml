@@ -59,13 +59,14 @@
        <result>/web/ad_addLamp.jsp</result>
       </action>
       
+      <action name="AddLampAction">
+       <result>/web/ad_addLamp.jsp</result>
+      </action>
+      
       <action name="MainAction" class="OrderAction">
         <result>/web/ad_main.jsp</result>
       </action>
       
-      <action name="AddLampAction">
-       <result>/web/ad_addLamp.jsp</result>
-      </action>
       
       
       

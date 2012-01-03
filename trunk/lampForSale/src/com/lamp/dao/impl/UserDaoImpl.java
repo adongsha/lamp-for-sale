@@ -86,7 +86,23 @@ public class UserDaoImpl extends HibernateDaoImpl implements UserDao {
 		map.put("ordinary", this.find(hql3).size());
 		return map;
 	}
+
+
+	public void deleteUser(UserInfo user) {
+		this.delete(user);
+	}
+
+
+	public UserInfo userInfo(Long userId) {
+		String hql = "from UserInfo u where u.userId ="+userId;
+		List<UserInfo> list = this.find(hql);
+		if(list.size() < 1){
+			return null;
+		}
+		return list.get(0);
+	}
 	
 	
 
+	
 }
