@@ -20,7 +20,7 @@ public class ForumService {
 	}
     
     public List<Forum> forumList(Long lampId, PageInfo pageInfo){
-    	forumDao.forumList(lampId, pageInfo);
+    	List<Forum> forums = forumDao.forumList(lampId, pageInfo);
     	return null;
     }
     
