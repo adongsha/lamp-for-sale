@@ -108,6 +108,7 @@ function seeUser(userName, power, email, phone, address){
    $("#userName").html(userName);
    $("#power").attr('value',power);
    $("#telephone").attr('value',phone);
+   $("#email").attr('value',email);
    $("#address").attr('value',address);
    $("#seeUserDiv").dialog({
       modal : true,

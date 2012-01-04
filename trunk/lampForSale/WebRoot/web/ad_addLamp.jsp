@@ -50,15 +50,7 @@ Default colour scheme is blue. Uncomment prefered stylesheet to use it.
 <script type='text/javascript' src='dwr/interface/addLampAction.js'></script>
 <script type='text/javascript' src='dwr/engine.js'></script>
 <script type='text/javascript' src='dwr/util.js'>  </script>
-<!-- Internet Explorer Fixes --> 
-<!--[if IE]>
-<link rel="stylesheet" type="text/css" media="all" href="css/ie.css"/>
-<script src="js/html5.js"></script>
-<![endif]-->
-<!--Upgrade MSIE5.5-7 to be compatible with MSIE8: http://ie7-js.googlecode.com/svn/version/2.1(beta3)/IE8.js -->
-<!--[if lt IE 8]>
-<script src="js/IE8.js"></script>
-<![endif]-->
+
 <script type="text/javascript">
  /* ----------------表单验证----------------------  */
 $(document).ready(function(){
@@ -85,16 +77,17 @@ $(document).ready(function(){
 			weight:   "请输入重量",
 			images: "请至少上传一张图片"
 		},
-		errorPlacement: function(error, element) {
+		/*errorPlacement: function(error, element) {
 			error.insertAfter(element.parent().find('label:first'));
 		},
 		submitHandler: function() {
 			alert("Data submitted!");
-		},
+		},*/
 		success: function(label) {
 			label.html("&nbsp;").addClass("ok");
 		}
 		})
+*/
 });
 /*-----------------------表单验证结束 ------------------------------------------*/
 
@@ -115,9 +108,9 @@ function addLampDWR(){
 }
 /*-------------------------------DWR结束 --------------------------------------------*/
 
-function tip(){
-   alert("添加成功!");
-}
+//function tip(){
+//   alert("添加成功!");
+//}
 </script>
 </head>
 <body>
@@ -166,7 +159,7 @@ function tip(){
 		<div class="wrapper">
 			<h1>LampForSale</h1>
 			<!-- Quick search box -->
-			<form action="addLampAction!addLamp" method="get"><input class="" type="text" id="q" name="q" /></form>
+			
 		</div>
 	</div>
 	<!-- End of Page title -->
@@ -180,7 +173,7 @@ function tip(){
 
 					<h3>添加灯饰</h3>
 					<div class="box box-info">按要求录入产品信息</div>
-					
+					                                             
 					<form id="addLampForm" method="post" action="addLampAction" enctype="multipart/form-data">
 
 						<fieldset>
@@ -252,28 +245,40 @@ function tip(){
 								<input type="text" id="weight" class="half" value="" name="weight"/>
 							</p>
                             </td>
-                            <td width="50%">
+                             <td width="50%">
                             <p>
 								<label class="required" for="weight">灯饰类型:</label><br/>
-								<select id="type">
+								<select id="type" name="type">
 										<option value="">
 											--请选择类型--
+										</option >
+										<option value="1">
+											家居灯
 										</option>
-										<option>
-											0
+										<option  value="2">
+											创意灯
 										</option>
-										<option>
-											1
+										<option  value="3">
+											落地灯
 										</option>
-										<option>
-											2
+										<option  value="4">
+											吸顶灯
 										</option>
-										<option>
-											3
+										<option  value="5">
+											射   灯
+										</option>
+										<option  value="6">
+											壁   灯
+										</option>
+										<option  value="7">
+											台   灯
+										</option>
+										<option  value="8">
+											吊   灯
 										</option>
 									</select>
 							</p>
-                            </td>
+                            </td> 
                             </tr>
                             </table>
                             
@@ -316,7 +321,7 @@ function tip(){
 								
 							</p>
 							
-							<p class="box"><input type="submit" class="btn btn-green big" value="添加" onclick="tip()"/> or <input type="reset" class="btn" value="重置"/></p>
+							<p class="box"><input type="submit" class="btn btn-green big" value="添加"/> or <input type="reset" class="btn" value="重置"/></p>
 
 						</fieldset>
 
