@@ -65,7 +65,7 @@ function cartAddOne() {
      }
      
      lampAction.addLampToCart(evalDwrData(lampId),1);
-     
+     alert("已进入订单..");
      lampAction.cartCount(function(data) {
             console.log("data-->"+data);
          $("#count").html(data);
