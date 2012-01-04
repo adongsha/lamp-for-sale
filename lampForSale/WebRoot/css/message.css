@@ -1,0 +1,77 @@
+/* CSS Document */
+body{
+	font-family:"ËÎÌו";
+	font-size:12px;
+	padding:0px;
+	margin:0;
+	text-align:center;
+	clear:both;}
+#head{
+	width:900px;
+	height:auto;
+	margin:10px auto auto auto;
+	padding:auto;}
+h1{
+	font-size:28px;
+	text-align:left;}
+#message{
+	width:900px;
+	height:150px;
+	margin:auto;
+	padding:auto;}
+.liuyan{
+	width:896px;
+	height:150px;
+	font-size:12px;
+	border-color:#999999;
+	}
+td.left{
+	width:200px;
+	height:150px;
+	padding:0px;}
+.touxiang{
+	width:200px;
+	height:140px;
+	margin:0px;
+	font-size:12px;
+	text-align:center;}
+.touxiang img{
+	width:115px;
+	height:105px;}
+.fabiao{
+	width:690px;
+	height:140px;
+	font-size:12px;}
+.fabiao img{
+	margin-bottom:-7px;}
+.border{
+	width:auto;
+	height:25px;
+	border-bottom:1px solid #999999;}
+.pinglun{
+	padding:0px 20px 0 20px;
+	line-height:20px;
+	vertical-align:top;}
+.color{
+	color:#FF0000;}
+.next{
+	text-align:center;
+	width:900px;
+	height:20px;
+	margin:10px auto auto auto;;
+	padding:auto;}
+span{
+	color:#FF0000;}
+td p{
+	font-size:12px;}
+.c{
+	color:#0000FF;
+	font-size:12px;
+	text-decoration:underline;}
+td img{
+	width:35px;
+	height:35px}
+img.zhong{
+	width:24px;
+	height:23px;
+}

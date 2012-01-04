@@ -97,7 +97,10 @@ public class OrderDaoImpl extends HibernateDaoImpl implements OrderDao {
 	public Double statisticsOrderAmountForYear() {
 		Double yearCounts = 0.000;
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy");
-		String hql = "from OrderInfo o where substring(o.orderTime,0,5) ='"+sdf+"'";
+		
+		String year = sdf.format(new Date()).toString();
+		
+		String hql = "from OrderInfo o where substring(o.orderTime,0,5) ='"+year+"'";
 		List<OrderInfo> orders = this.find(hql);      
 		for(OrderInfo order : orders){             //遍历今天的所有订单
 			yearCounts += order.getAllPrice();

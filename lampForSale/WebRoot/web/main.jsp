@@ -126,7 +126,7 @@
 										<div class="bottom">
 											<a href="main.html"><span>.首页</span></a>
 											<a href="show.html"><span>.灯饰</span></a>
-											<a href="into.html"><span>.进入后台</span></a>
+											<a href="LoginAction"><span>.进入后台</span></a>
 											<a href="contact.html"><span>.联系我们</span></a>
 										</div>
 										<div class="copyright">

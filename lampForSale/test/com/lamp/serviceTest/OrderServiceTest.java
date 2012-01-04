@@ -54,6 +54,14 @@ public class OrderServiceTest {
     }
     
     /**
+     * 测试年销售额
+     */
+    @Test
+    public void testStatisticsOrderAmountForYear(){
+    	System.out.println(orderService.statisticsOrderAmountForYear());
+    }
+    
+    /**
      * 測試統計今天的銷售額
      */
     @Test

@@ -22,14 +22,6 @@
 <link rel="apple-touch-icon" HREF="images/favicons/apple.png" />
 <!-- Main Stylesheet --> 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
-<!-- Colour Schemes
-Default colour scheme is blue. Uncomment prefered stylesheet to use it.
-<link rel="stylesheet" href="css/brown.css" type="text/css" media="screen" />  
-<link rel="stylesheet" href="css/gray.css" type="text/css" media="screen" />  
-<link rel="stylesheet" href="css/green.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="css/pink.css" type="text/css" media="screen" />  
-<link rel="stylesheet" href="css/red.css" type="text/css" media="screen" />
--->
 <!-- Your Custom Stylesheet --> 
 <link rel="stylesheet" href="css/custom.css" type="text/css" />
 <!--swfobject - needed only if you require <video> tag support for older browsers -->
@@ -52,15 +44,7 @@ Default colour scheme is blue. Uncomment prefered stylesheet to use it.
 <!-- jQuery graph plugins -->
 <!--[if IE]><script type="text/javascript" src="js/flot/excanvas.min.js"></script><![endif]-->
 <script type="text/javascript" SRC="javascript/flot/jquery.flot.min.js"></script>
-<!-- Internet Explorer Fixes --> 
-<!--[if IE]>
-<link rel="stylesheet" type="text/css" media="all" href="css/ie.css"/>
-<script src="js/html5.js"></script>
-<![endif]-->
-<!--Upgrade MSIE5.5-7 to be compatible with MSIE8: http://ie7-js.googlecode.com/svn/version/2.1(beta3)/IE8.js -->
-<!--[if lt IE 8]>
-<script src="js/IE8.js"></script>
-<![endif]-->
+
 
 <script type='text/javascript' src='dwr/engine.js'></script>
 		<script type='text/javascript' src='dwr/util.js'></script>
@@ -90,12 +74,12 @@ Default colour scheme is blue. Uncomment prefered stylesheet to use it.
 				Administry.progress("#progress3", 2, 6);
 				Administry.progress("#progress4", 2, 6);
 				Administry.progress("#progress5", 2, 6);
-
+                
 				/* flot graphs */
 				var sales = [ {
 					label : '月销售额',
 					data : [ [ 1, 5555 ], [ 2, 0 ], [ 3, 0 ], [ 4, 0 ],
-							[ 5, 0 ], [ 6, 0 ], [ 7, 9000 ], [ 8, 0 ],
+							[ 5, 0 ], [ 6, 0 ], [ 7, 0 ], [ 8, 0 ],
 							[ 9, 0 ], [ 10, 0 ], [ 11, 0 ], [ 12, 0 ] ]
 				} ];
 
@@ -365,30 +349,21 @@ Default colour scheme is blue. Uncomment prefered stylesheet to use it.
 							<table class="no-style full">
 								<tbody>
 									<tr>
-										<td>非常满意</td>
+										<td>满意</td>
 										<td class="ta-right">1/5</td>
 										<td><div id="progress1" class="progress full progress-green"><span><b></b></span></div></td>
 									</tr>
 									<tr>
-										<td>满&nbsp;&nbsp;&nbsp;&nbsp;意</td>
+										<td>不满意</td>
 										<td class="ta-right">2/5</td>
 										<td><div id="progress2" class="progress full progress-blue"><span><b></b></span></div></td>
 									</tr>
 									<tr>
-										<td>差</td>
+										<td>不表态</td>
 										<td class="ta-right">2/5</td>
 										<td><div id="progress3" class="progress full progress-red"><span><b></b></span></div></td>
 									</tr>
-                                    <tr>
-										<td>很差</td>
-										<td class="ta-right">2/5</td>
-										<td><div id="progress4" class="progress full progress-yellow"><span><b></b></span></div></td>
-									</tr>
-                                    <tr>
-										<td>不表态</td>
-										<td class="ta-right">2/5</td>
-										<td><div id="progress5" class="progress full progress-while"><span><b></b></span></div></td>
-									</tr>
+                                    
 								</tbody>
 							</table>
 						</div>

@@ -55,6 +55,10 @@
     
     <!-- 后台 -->
     <package name="lampForAdmin" extends="struts-default" namespace="/">
+      <action name="LoginAction">
+        <result>/web/ad_login.jsp</result>
+      </action>
+    
       <action name="addLampAction" class="AddLampAction" >
        <result>/web/ad_addLamp.jsp</result>
       </action>

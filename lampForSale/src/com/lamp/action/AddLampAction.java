@@ -39,6 +39,7 @@ public class AddLampAction extends SuperAction {
 	private String process;
 	private String material;
 	private String lampDescription;
+	private Integer type;
 	List<String> pathList = new ArrayList<String>();
 
 	// images用来封装上面的图片
@@ -74,6 +75,7 @@ public class AddLampAction extends SuperAction {
 
 	public void uploadImages() throws IOException {
 		System.out.println("uploadImages");
+		System.out.println("type-->"+type);
 		// 取得用來上傳的文件的数组
 		List<File> files = getImages();
 		// 循环每个上传的文件
@@ -124,6 +126,7 @@ public class AddLampAction extends SuperAction {
 		lamp.setMaterial(material);
 		lamp.setProcess(process);
 		lamp.setWeight(weight);
+		lamp.setType(type);
 		System.out.println(lamp.getWeight());
 		lamp.setPrictureImage1(pathList.get(0));
 		System.out.println(pathList.get(0));
@@ -214,4 +217,13 @@ public class AddLampAction extends SuperAction {
 		return lampService;
 	}
 
+	public Integer getType() {
+		return type;
+	}
+
+	public void setType(Integer type) {
+		this.type = type;
+	}
+
+	
 }

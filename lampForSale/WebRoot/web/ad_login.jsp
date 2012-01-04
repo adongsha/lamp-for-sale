@@ -14,11 +14,11 @@
 <meta name="description" content="Administry - Admin Template by www.865171.cn" />
 <meta name="keywords" content="Admin,Template" />
 <!-- Favicons --> 
-<link rel="shortcut icon" type="image/png" HREF="../images/favicons/favicon.png"/>
-<link rel="icon" type="image/png" HREF="../images/favicons/favicon.png"/>
-<link rel="apple-touch-icon" HREF="../images/favicons/apple.png" />
+<link rel="shortcut icon" type="image/png" HREF="images/favicons/favicon.png"/>
+<link rel="icon" type="image/png" HREF="images/favicons/favicon.png"/>
+<link rel="apple-touch-icon" HREF="images/favicons/apple.png" />
 <!-- Main Stylesheet --> 
-<link rel="stylesheet" href="../css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
 <!-- Colour Schemes
 Default colour scheme is blue. Uncomment prefered stylesheet to use it.
 <link rel="stylesheet" href="css/brown.css" type="text/css" media="screen" />  
@@ -28,24 +28,24 @@ Default colour scheme is blue. Uncomment prefered stylesheet to use it.
 <link rel="stylesheet" href="css/red.css" type="text/css" media="screen" />
 -->
 <!-- Your Custom Stylesheet --> 
-<link rel="stylesheet" href="../css/custom.css" type="text/css" />
+<link rel="stylesheet" href="css/custom.css" type="text/css" />
 <!--swfobject - needed only if you require <video> tag support for older browsers -->
-<script type="text/javascript" SRC="../javascript/swfobject.js"></script>
+<script type="text/javascript" SRC="javascript/swfobject.js"></script>
 <!-- jQuery with plugins -->
-<script type="text/javascript" SRC="../javascript/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" SRC="javascript/jquery-1.4.2.min.js"></script>
 <!-- Could be loaded remotely from Google CDN : <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script> -->
-<script type="text/javascript" SRC="../javascript/jquery.ui.core.min.js"></script>
-<script type="text/javascript" SRC="../javascript/jquery.ui.widget.min.js"></script>
-<script type="text/javascript" SRC="../javascript/jquery.ui.tabs.min.js"></script>
+<script type="text/javascript" SRC="javascript/jquery.ui.core.min.js"></script>
+<script type="text/javascript" SRC="javascript/jquery.ui.widget.min.js"></script>
+<script type="text/javascript" SRC="javascript/jquery.ui.tabs.min.js"></script>
 <!-- jQuery tooltips -->
-<script type="text/javascript" SRC="../javascript/jquery.tipTip.min.js"></script>
+<script type="text/javascript" SRC="javascript/jquery.tipTip.min.js"></script>
 <!-- Superfish navigation -->
-<script type="text/javascript" SRC="../javascript/jquery.superfish.min.js"></script>
-<script type="text/javascript" SRC="../javascript/jquery.supersubs.min.js"></script>
+<script type="text/javascript" SRC="javascript/jquery.superfish.min.js"></script>
+<script type="text/javascript" SRC="javascript/jquery.supersubs.min.js"></script>
 <!-- jQuery form validation -->
-<script type="text/javascript" SRC="../javascript/jquery.validate_pack.js"></script>
+<script type="text/javascript" SRC="javascript/jquery.validate_pack.js"></script>
 <!-- jQuery popup box -->
-<script type="text/javascript" SRC="../javascript/jquery.nyroModal.pack.js"></script>
+<script type="text/javascript" SRC="javascript/jquery.nyroModal.pack.js"></script>
 <!-- Internet Explorer Fixes --> 
 <!--[if IE]>
 <link rel="stylesheet" type="text/css" media="all" href="css/ie.css"/>
@@ -91,7 +91,7 @@ $(document).ready(function(){
 	<header id="top">
 		<div class="wrapper-login">
 			<!-- Title/Logo - can use text instead of image -->
-			<div id="title"><img SRC="../images/logo.png" alt="Administry" /><!--<span>Administry</span> demo--></div>
+			<div id="title"><img SRC="images/logo.png" alt="Administry" /><!--<span>Administry</span> demo--></div>
 			<!-- Main navigation -->
 			<nav id="menu">
 				<ul class="sf-menu">
@@ -122,7 +122,7 @@ $(document).ready(function(){
 					
 					<div class="box box-info">Must type username and password to log in</div>
 
-					<form id="loginform" method="post" action="adminLamp.html">
+					<form id="loginform" method="post" action="MainAction">
 
 						<p>
 							<label class="required" for="username">Username:</label><br/>
@@ -175,6 +175,6 @@ $(document).ready(function(){
 	<!-- End of Page footer -->
 
 <!-- User interface javascript load -->
-<script type="text/javascript" SRC="../javascript/administry.js"></script>
+<script type="text/javascript" SRC="javascript/administry.js"></script>
 </body>
 </html>
