@@ -3,6 +3,7 @@ package com.lamp.dao;
 import java.util.List;
 
 import com.lamp.model.Forum;
+import com.lamp.util.PageInfo;
 
 public interface ForumDao {
 	/**
@@ -11,5 +12,5 @@ public interface ForumDao {
 	 * @param lampId  µÆµÄid
 	 * @return
 	 */
-   public List<Forum> forumList(Integer lampId);
+   public List<Forum> forumList(Long lampId, PageInfo pageInfo);
 }
