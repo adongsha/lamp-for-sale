@@ -181,44 +181,61 @@ function evalDwrData(data) {
 
 						<ul id="demo-nav" class="demolayout">
 							<li>
-								<a class="active" href="">More details</a>
+								<a class="active" href="">详细信息</a>
 							</li>
 							<li>
-								<a class="" href="">Related Products</a>
+								<a class="" href="PingLun">评论</a>
 							</li>
 						</ul>
 
 						<div class="tabs-container">
 
 							<div style="display: block;" class="tab" id="tab1">
-								<p class="more_details">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-									do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-									Ut enim ad minim veniam, quis nostrud exercitation.
-								</p>
-								<ul class="list">
-									<li>
-										<a href="http://www.865171.cn">Lorem ipsum dolor sit amet,
-											consectetur adipisicing elit</a>
-									</li>
-									<li>
-										<a href="http://www.865171.cn">Lorem ipsum dolor sit amet,
-											consectetur adipisicing elit</a>
-									</li>
-									<li>
-										<a href="http://www.865171.cn">Lorem ipsum dolor sit amet,
-											consectetur adipisicing elit</a>
-									</li>
-									<li>
-										<a href="http://www.865171.cn">Lorem ipsum dolor sit amet,
-											consectetur adipisicing elit</a>
-									</li>
-								</ul>
-								<p class="more_details">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-									do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-									Ut enim ad minim veniam, quis nostrud exercitation.
-								</p>
+								<table>
+								  <tr>
+								    <td>产品名称：</td>
+								    <td id="lampName"></td>
+								   
+								    <td>型号：</td>
+								    <td id="isbn"></td>
+								  </tr>
+								   <tr>
+								    <td>灯身材料：</td>
+								    <td id="material"></td>
+								    <td>品牌：</td>
+								    <td>Pattriot</td>
+								  </tr>
+								   <tr>
+								    <td>光源类型：</td>
+								    <td>白炽灯</td>
+								    <td>工艺：</td>
+								    <td id="process"></td>
+								  </tr>
+								  <tr>
+								   <td>灯罩材料：</td>
+								    <td>水晶</td>
+								     <td>光源个数：</td>
+								    <td>15到20</td>
+								  </tr>
+								   <tr>
+								    <td>照射面积：</td>
+								    <td>15-30平方米</td>
+								    <td>灯具是否带光源：</td>
+								    <td>不带光源</td>
+								  </tr>
+								   <tr>
+								    <td>合适的光源功率：</td>
+								    <td>31-40W</td>
+								    <td>合适空间：</td>
+								    <td>客厅 、 卧室</td>
+								  </tr>
+								  <tr>
+								    <td>风格：</td>
+								    <td>简约现代</td>
+								     <td>电压：</td>
+								    <td>220V</td>
+								  </tr>
+								</table>
 							</div>
 							
 							<div class="clear"></div>
